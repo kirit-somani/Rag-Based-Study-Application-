@@ -1,0 +1,28 @@
+# Web Framework
+streamlit>=1.32.0
+
+# Document Processing
+PyMuPDF>=1.23.0  # fitz
+
+# AI / ML / RAG Framework
+langchain>=0.1.13
+langchain-community>=0.0.29
+langchain-huggingface>=0.0.1
+langchain-openai>=0.1.0
+langchain-ollama>=0.1.0
+langchain-text-splitters>=0.0.1
+sentence-transformers>=2.5.1
+
+# Vector Databases
+faiss-cpu>=1.8.0
+chromadb>=0.4.24
+
+# Data Processing
+numpy>=1.26.0
+pandas>=2.2.1
+pyyaml>=6.0.1
+python-dotenv>=1.0.1
+
+# Evaluation & UI (Optional but good to have early)
+plotly>=5.19.0
+pytest>=8.0.0

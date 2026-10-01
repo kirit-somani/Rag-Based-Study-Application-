@@ -1,0 +1,303 @@
+[
+  {
+    "id": "b203dc1f-7fd9-468a-aa2d-31169f359203",
+    "type": "summary",
+    "title": "Revision Summary: Thread",
+    "source": "All Documents",
+    "timestamp": "Sep 16, 2026 - 02:18 PM",
+    "details": {
+      "topic": "Thread",
+      "summary_text": "### Summary\nA thread is a lightweight process that serves as the fundamental unit of CPU utilization. A single process can run multiple threads concurrently, each possessing its own program counter, register set, and stack while sharing the process’s code, data, files, and signals. Threads can be created using the `fork()` system call, which can spawn multiple child processes. They are categorized into user threads, implemented by the application, and kernel threads, managed by the operating system.\n\n### Key Points\n- Threads are lightweight processes and the basic unit of CPU utilization.  \n- A process can run multiple threads simultaneously, each with its own PC, registers, and stack.  \n- Threads share the process’s code section, data section, files, and signals.  \n- New threads (or child processes) can be created with the `fork()` system call; `n` forks produce `2^n – 1` child processes.  \n- Two thread types exist: **User threads** (implemented by users) and **Kernel threads** (implemented by the OS)."
+    }
+  },
+  {
+    "id": "149ad72c-68f4-4ac8-9698-68abc231fac7",
+    "type": "flashcard",
+    "title": "Flashcard Deck: Thread",
+    "source": "All Documents",
+    "timestamp": "Sep 16, 2026 - 02:18 PM",
+    "details": {
+      "topic": "Thread",
+      "cards": [
+        {
+          "front": "What is a thread?",
+          "back": "A thread is a lightweight process and forms the basic unit of CPU utilization. A process can perform more than one task at the same time by including multiple threads."
+        },
+        {
+          "front": "What resources does a thread share with other threads of the same process?",
+          "back": "Threads share the code section, data section, files, and signals of the process."
+        },
+        {
+          "front": "What are the two types of threads?",
+          "back": "User threads, which are implemented by users, and kernel threads, which are implemented by the operating system."
+        },
+        {
+          "front": "What is a mutex and how does it relate to threads?",
+          "back": "A mutex provides mutual exclusion, ensuring that only one thread can work with a shared resource (such as a buffer) at a time. It can be generalized using a semaphore."
+        },
+        {
+          "front": "What unique components does a thread have?",
+          "back": "A thread has its own program counter, register set, and stack."
+        }
+      ],
+      "num_cards": 5
+    }
+  },
+  {
+    "id": "5342148f-62d0-41d9-abbb-c457da9e8db8",
+    "type": "quiz",
+    "title": "Practice Quiz: Thread",
+    "source": "os.pdf",
+    "timestamp": "Sep 16, 2026 - 02:18 PM",
+    "details": {
+      "topic": "Thread",
+      "questions": [
+        {
+          "question": "Which of the following resources is NOT shared by threads of the same process?",
+          "options": [
+            "A. Code section",
+            "B. Data section",
+            "C. Stack",
+            "D. Files"
+          ],
+          "answer": "C. Stack"
+        },
+        {
+          "question": "What is the number of child processes created by a process that calls fork() n times?",
+          "options": [
+            "A. n child processes",
+            "B. 2^n child processes",
+            "C. 2^n – 1 child processes",
+            "D. n + 1 child processes"
+          ],
+          "answer": "C. 2^n – 1 child processes"
+        },
+        {
+          "question": "Which type of thread is implemented by the operating system?",
+          "options": [
+            "A. User threads",
+            "B. Kernel threads",
+            "C. Both user and kernel threads",
+            "D. Neither user nor kernel threads"
+          ],
+          "answer": "B. Kernel threads"
+        },
+        {
+          "question": "A mutex primarily provides which of the following?",
+          "options": [
+            "A. Allowing multiple threads to access a buffer simultaneously",
+            "B. Mutual exclusion so that only one thread can work with the entire buffer at a time",
+            "C. Avoiding deadlocks",
+            "D. Avoiding starvation"
+          ],
+          "answer": "B. Mutual exclusion so that only one thread can work with the entire buffer at a time"
+        },
+        {
+          "question": "Which statement about threads is true according to the provided context?",
+          "options": [
+            "A. Threads have their own program counter",
+            "B. Threads have their own register set",
+            "C. Threads have their own stack",
+            "D. Threads share the code section"
+          ],
+          "answer": "D. Threads share the code section"
+        }
+      ],
+      "num_questions": 5
+    }
+  },
+  {
+    "id": "ed1a58ad-1920-4765-9de4-91b452a57f6f",
+    "type": "flashcard",
+    "title": "Flashcard Deck: deadlock",
+    "source": "All Documents",
+    "timestamp": "Sep 16, 2026 - 07:15 AM",
+    "details": {
+      "topic": "deadlock",
+      "cards": [
+        {
+          "front": "What are the four necessary conditions that must hold simultaneously for a deadlock to arise?",
+          "back": "1. Mutual Exclusion (resource is non-sharable), 2. Hold and Wait (holding one resource while waiting for another), 3. No Preemption (resource cannot be taken away), and 4. Circular Wait (processes waiting for each other in a circle)."
+        },
+        {
+          "front": "What are the three methods for handling deadlock?",
+          "back": "1. Deadlock prevention or avoidance (not letting the system enter a deadlock state), 2. Deadlock detection and recovery (letting it occur and using preemption to handle it), and 3. Ignoring the problem (if deadlock is very rare)."
+        },
+        {
+          "front": "What is the Banker's algorithm used for and what is its underlying analogy?",
+          "back": "It is used to avoid deadlock. It is named after the banking system where a bank never allocates available cash in a manner that prevents it from satisfying the requirements of all its customers."
+        },
+        {
+          "front": "How does a Mutex provide mutual exclusion in the context of a producer-consumer buffer?",
+          "back": "A mutex acts as a key where either the producer or the consumer can hold it to proceed. As long as the buffer is being filled by the producer, the consumer must wait, and vice versa, ensuring only one thread works with the entire buffer at a time."
+        },
+        {
+          "front": "What is the 'Progress' condition in the context of critical sections?",
+          "back": "If no process is executing in the critical section, the decision of a process to enter the critical section cannot be made by any other process executing in its remainder section, and the selection cannot be postponed indefinitely."
+        }
+      ],
+      "num_cards": 5
+    }
+  },
+  {
+    "id": "0465af9c-0d00-4cd3-b673-efcb2431b592",
+    "type": "quiz",
+    "title": "Practice Quiz: deadlock",
+    "source": "All Documents",
+    "timestamp": "Sep 16, 2026 - 07:14 AM",
+    "details": {
+      "topic": "deadlock",
+      "questions": [
+        {
+          "question": "Which of the following is NOT listed as a necessary condition for deadlock to arise in the provided context?",
+          "options": [
+            "A. Mutual Exclusion",
+            "B. Hold and Wait",
+            "C. No Preemption",
+            "D. Infinite Waiting"
+          ],
+          "answer": "D. Infinite Waiting"
+        },
+        {
+          "question": "According to the context, what does the 'Hold and Wait' condition imply about a process?",
+          "options": [
+            "A. A process is holding at least one resource and waiting for resources.",
+            "B. A process releases all resources before requesting new ones.",
+            "C. A process can only hold one resource at a time.",
+            "D. A process is preempted while holding a resource."
+          ],
+          "answer": "A. A process is holding at least one resource and waiting for resources."
+        },
+        {
+          "question": "What is the primary idea behind 'Deadlock prevention or avoidance' as described in the text?",
+          "options": [
+            "A. Let deadlock occur, then do preemption to handle it once occurred.",
+            "B. Ignore the problem if deadlock is very rare.",
+            "C. Not let the system into a deadlock state.",
+            "D. Allow processes to wait for each other in a circular form."
+          ],
+          "answer": "C. Not let the system into a deadlock state."
+        },
+        {
+          "question": "Which algorithm is specifically mentioned in the context as a method used to avoid deadlock?",
+          "options": [
+            "A. Mutex Algorithm",
+            "B. Banker's algorithm",
+            "C. Overlay Algorithm",
+            "D. Semaphore Algorithm"
+          ],
+          "answer": "B. Banker's algorithm"
+        },
+        {
+          "question": "Why is the Banker's algorithm named after a banking system?",
+          "options": [
+            "A. Because it calculates interest rates for processes.",
+            "B. Because a bank never allocates available cash in such a manner that it can no longer satisfy the requirements of all of its customers.",
+            "C. Because it requires processes to deposit resources before using them.",
+            "D. Because it prevents any process from withdrawing resources."
+          ],
+          "answer": "B. Because a bank never allocates available cash in such a manner that it can no longer satisfy the requirements of all of its customers."
+        },
+        {
+          "question": "Under the 'No Preemption' condition, when can a resource be taken from a process?",
+          "options": [
+            "A. Only when the system detects a deadlock.",
+            "B. At any time by the operating system.",
+            "C. Unless the process releases the resource.",
+            "D. Only when another process requests it with higher priority."
+          ],
+          "answer": "C. Unless the process releases the resource."
+        },
+        {
+          "question": "What is the third method for handling deadlock mentioned in the context?",
+          "options": [
+            "A. Deadlock detection and recovery",
+            "B. Deadlock prevention or avoidance",
+            "C. Ignore the problem all together",
+            "D. Resource preemption"
+          ],
+          "answer": "C. Ignore the problem all together"
+        },
+        {
+          "question": "According to the context, when is it acceptable to 'ignore the problem all together' regarding deadlock?",
+          "options": [
+            "A. When the system has unlimited resources.",
+            "B. If deadlock is very rare.",
+            "C. When using the Banker's algorithm.",
+            "D. When processes are in the remainder section."
+          ],
+          "answer": "B. If deadlock is very rare."
+        },
+        {
+          "question": "What does the 'Circular Wait' condition describe?",
+          "options": [
+            "A. A set of processes are waiting for each other in circular form.",
+            "B. A single process waiting for a resource in a loop.",
+            "C. Resources being allocated in a circular order.",
+            "D. Processes waiting for the same resource simultaneously."
+          ],
+          "answer": "A. A set of processes are waiting for each other in circular form."
+        },
+        {
+          "question": "In the context of Mutex, what is the state of the buffer when the producer has filled it?",
+          "options": [
+            "A. The consumer can proceed immediately.",
+            "B. The consumer needs to wait.",
+            "C. The producer must release the mutex.",
+            "D. The buffer is cleared automatically."
+          ],
+          "answer": "B. The consumer needs to wait."
+        }
+      ],
+      "num_questions": 10
+    }
+  },
+  {
+    "id": "430641cb-1a2e-4cb3-a826-f638381b4b07",
+    "type": "chat",
+    "title": "Chat Question: deadlock ...",
+    "source": "All Documents",
+    "timestamp": "Sep 16, 2026 - 07:14 AM",
+    "details": {
+      "query": "deadlock ",
+      "answer": "Based on the provided documents, here is the information regarding **Deadlock**:\n\n**Definition**\nA deadlock is a situation where a set of processes are blocked because each process is holding a resource and waiting for another resource acquired by some other process [Source 1, Page 5; Source 4, Page 5].\n\n**Necessary Conditions**\nFor a deadlock to arise, the following four conditions must hold simultaneously [Source 1, Page 5; Source 2, Page 5]:\n1.  **Mutual Exclusion:** One or more resources are non-sharable, meaning only one process can use them at a time.\n2.  **Hold and Wait:** A process is holding at least one resource while waiting for additional resources.\n3.  **No Preemption:** A resource cannot be forcibly taken from a process unless the process voluntarily releases it.\n4.  **Circular Wait:** A set of processes are waiting for each other in a circular form.\n\n**Methods for Handling Deadlock**\nThere are three primary ways to handle deadlock [Source 2, Page 5]:\n1.  **Deadlock prevention or avoidance:** The goal is to prevent the system from entering a deadlock state.\n2.  **Deadlock detection and recovery:** Allow the deadlock to occur, then use preemption to handle it once it has happened.\n3.  **Ignore the problem:** If deadlocks are very rare, the system may simply let them happen.\n\n**Specific Algorithm**\nThe **Banker's algorithm** is a specific method used for deadlock avoidance. It is named after the banking system, where a bank never allocates available cash in a manner that would prevent it from satisfying the requirements of all its customers [Source 3, Page 6].",
+      "sources": [
+        {
+          "text": "resource and waiting for another resource acquired by some other process. Deadlock\ncan arise if following four conditions hold simultaneously (Necessary Conditions):\n1. Mutual Exclusion – One or more than one resource is non-sharable (Only one\nprocess can use at a time).\n2. Hold and Wait – A process is holding at least one resource and waiting for\nresources.\n3. No Preemption – A resource cannot be taken from a process unless the process\nreleases the resource.",
+          "source": "os.pdf",
+          "page": 5,
+          "chunk_id": 16,
+          "score": 0.5487
+        },
+        {
+          "text": "releases the resource.\n4. Circular Wait – A set of processes are waiting for each other in circular form.\n●\nMethods for handling deadlock: There are three ways to handle deadlock\n1. Deadlock prevention or avoidance : The idea is to not let the system into a\ndeadlock state.\n2. Deadlock detection and recovery : Let deadlock occur, then do preemption to\nhandle it once occurred.\n3. Ignore the problem all together : If deadlock is very rare, then let it happen and",
+          "source": "os.pdf",
+          "page": 5,
+          "chunk_id": 17,
+          "score": 0.5394
+        },
+        {
+          "text": "●\nBanker's algorithm is used to avoid deadlock. It is one of the deadlock-avoidance\nmethods. It is named as Banker's algorithm on the banking system where a bank\nnever allocates available cash in such a manner that it can no longer satisfy the\nrequirements of all of its customers.\n●\nMemory Management: These techniques allow the memory to be shared among\nmultiple processes.\n●\nOverlays – The memory should contain only those instructions and data that are\nrequired at a given time.\n●",
+          "source": "os.pdf",
+          "page": 6,
+          "chunk_id": 19,
+          "score": 0.5103
+        },
+        {
+          "text": "Mutex (A mutex provides mutual exclusion, either producer or consumer can\nhave the key (mutex) and proceed with their work. As long as the buffer is filled\nby the producer, the consumer needs to wait, and vice versa.\nAt any point of time, only one thread can work with the entire buffer. The concept\ncan be generalized using semaphore.)\n●Deadlocks (Important):\nA situation where a set of processes are blocked because each process is holding a",
+          "source": "os.pdf",
+          "page": 5,
+          "chunk_id": 15,
+          "score": 0.4647
+        },
+        {
+          "text": "1. Mutual Exclusion – If a process Pi is executing in its critical section, then no other\nprocess is allowed to enter into the critical section.\n2. Progress – If no process is executing in the critical section, then the decision of a\nprocess to enter a critical section cannot be made by any other process that is\nexecuting in its remainder section. The selection of the process cannot be postponed\nindefinitely.\n3. Bounded Waiting – There exists a bound on the number of times other processes",
+          "source": "os.pdf",
+          "page": 4,
+          "chunk_id": 12,
+          "score": 0.4142
+        }
+      ]
+    }
+  }
+]

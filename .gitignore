@@ -1,0 +1,14 @@
+venv/
+__pycache__/
+*.pyc
+.env
+data/uploaded/*
+data/processed/*
+data/vectorstores/*
+!data/uploaded/.gitkeep
+!data/processed/.gitkeep
+!data/vectorstores/.gitkeep
+evaluation/results/*
+!evaluation/results/.gitkeep
+.DS_Store
+*.DS_Store

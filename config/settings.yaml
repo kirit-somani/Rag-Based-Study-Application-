@@ -1,0 +1,12 @@
+app:
+  title: "StudyRAG: AI-Powered Study Assistant"
+  version: "1.0.0"
+
+chunking:
+  default_strategy: "recursive"
+  chunk_size: 500
+  chunk_overlap: 50
+
+retrieval:
+  top_k: 5
+  similarity_threshold: 0.2
