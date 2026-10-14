@@ -34,7 +34,6 @@ def format_context_for_prompt(retrieved_results: list) -> str:
         context_str += res['text'] + "\n"
     return context_str
 
-
 def get_quiz_prompt_template() -> ChatPromptTemplate:
     return ChatPromptTemplate.from_messages([
         ("system", "You are an expert AI tutor that creates multiple choice practice quizzes based strictly on provided context."),

@@ -15,7 +15,7 @@ def generate_rag_response(
 ) -> Dict[str, Any]:
     """
     Executes the full RAG pipeline: Retrieval -> Prompt Formatting -> LLM Generation.
-    
+
     Args:
         query: The user's question.
         vector_store: Instantiated VectorStoreManager.
@@ -23,11 +23,11 @@ def generate_rag_response(
         top_k: Number of documents to retrieve.
         score_threshold: Minimum relevance score to keep a document.
         source_filter: Specific document to search in.
-        
+
     Returns:
         A dictionary containing the answer, the retrieved context, and metrics.
     """
-    # 1. Retrieve Context
+
     retrieval_response = retrieve_context(
         query=query,
         vector_store=vector_store,
@@ -35,26 +35,22 @@ def generate_rag_response(
         score_threshold=score_threshold,
         source_filter=source_filter
     )
-    
-    # Anti-hallucination fallback: Do not call LLM if no context is found
+
     if not retrieval_response["found"]:
         return {
             "answer": "I could not find enough information in the uploaded documents to answer this question.",
             "sources": [],
             "metrics": retrieval_response.get("metrics", {})
         }
-        
-    # 2. Format Context
+
     context_str = format_context_for_prompt(retrieval_response["results"])
-    
-    # 3. LLM Generation
+
     gen_start = time.time()
     prompt = get_rag_prompt_template()
     llm = llm_manager.get_llm()
-    
-    # LangChain LCEL (LangChain Expression Language) pipeline
+
     chain = prompt | llm | StrOutputParser()
-    
+
     try:
         answer = chain.invoke({
             "context": context_str,
@@ -63,13 +59,13 @@ def generate_rag_response(
     except Exception as e:
         logger.error(f"LLM generation failed: {e}")
         answer = "I'm sorry, I encountered an error while trying to generate the answer. Please check your LLM configuration."
-        
+
     gen_time = time.time() - gen_start
-    
+
     metrics = retrieval_response.get("metrics", {})
     metrics["generation_time"] = gen_time
     metrics["total_rag_time"] = metrics.get("total_time", 0) + gen_time
-    
+
     return {
         "answer": answer,
         "sources": retrieval_response["results"],

@@ -1,5 +1,134 @@
 [
   {
+    "id": "090272eb-7b6b-4aa9-b01d-e7d4a38e0550",
+    "type": "quiz",
+    "title": "Practice Quiz: process",
+    "source": "All Documents",
+    "timestamp": "Oct 15, 2026 - 01:11 AM",
+    "details": {
+      "topic": "process",
+      "questions": [
+        {
+          "question": "Which of the following statements correctly describes a process in an operating system?",
+          "options": [
+            "A. A process is a program that is not executing.",
+            "B. A process is a program under execution, represented by a Process Control Block (PCB).",
+            "C. A process is only the data section of a program.",
+            "D. A process is a thread created by fork."
+          ],
+          "answer": "B. A process is a program under execution, represented by a Process Control Block (PCB)."
+        },
+        {
+          "question": "If a process calls fork() twice, how many child processes are created?",
+          "options": [
+            "A. 2",
+            "B. 3",
+            "C. 4",
+            "D. 5"
+          ],
+          "answer": "B. 3"
+        }
+      ],
+      "num_questions": 2
+    }
+  },
+  {
+    "id": "fcaadff6-5c3a-4494-9521-9c848ebf515c",
+    "type": "chat",
+    "title": "Chat Question: what is process...",
+    "source": "os.pdf",
+    "timestamp": "Oct 15, 2026 - 01:11 AM",
+    "details": {
+      "query": "what is process",
+      "answer": "A process is a program that is currently under execution.  \nIts execution state is tracked by a **Process Control Block (PCB)**, and the value of the program counter (PC) indicates the address of the next instruction that the process will execute.  \n\n(Source: os.pdf, Page 1)",
+      "sources": [
+        {
+          "text": "5.\nReal Time OS – Real-Time OS are usually built for dedicated systems to accomplish a\nspecific set of tasks within deadlines.\n●\nProcess : A process is a program under execution. The value of the program counter\n(PC) indicates the address of the next instruction of the process being executed.\nEach process is represented by a Process Control Block (PCB).\nApni Kaksha\n1",
+          "source": "os.pdf",
+          "page": 1,
+          "chunk_id": 3,
+          "score": 0.6011
+        },
+        {
+          "text": "1. Mutual Exclusion – If a process Pi is executing in its critical section, then no other\nprocess is allowed to enter into the critical section.\n2. Progress – If no process is executing in the critical section, then the decision of a\nprocess to enter a critical section cannot be made by any other process that is\nexecuting in its remainder section. The selection of the process cannot be postponed\nindefinitely.\n3. Bounded Waiting – There exists a bound on the number of times other processes",
+          "source": "os.pdf",
+          "page": 4,
+          "chunk_id": 12,
+          "score": 0.4834
+        },
+        {
+          "text": "●\nProcess Scheduling:\n1. Arrival Time – Time at which the process arrives in the ready queue.\n2. Completion Time – Time at which process completes its execution.\n3. Burst Time – Time required by a process for CPU execution.\n4. Turn Around Time – Time Difference between completion time and arrival time.\nTurn Around Time = Completion Time - Arrival Time\n5. Waiting Time (WT) – Time Difference between turn around time and burst time.\nWaiting Time = Turnaround Time - Burst Time",
+          "source": "os.pdf",
+          "page": 2,
+          "chunk_id": 4,
+          "score": 0.4736
+        },
+        {
+          "text": "the data section, files and signals.\nNote : A new thread, or a child process of a given process, can be introduced by using\nthe fork() system call. A process with n fork() system call generates 2^n – 1 child\nprocesses.\nThere are two types of threads:\n●\nUser threads (User threads are implemented by users)\n●\nKernel threads (Kernel threads are implemented by OS)\nApni Kaksha\n2",
+          "source": "os.pdf",
+          "page": 2,
+          "chunk_id": 6,
+          "score": 0.4683
+        },
+        {
+          "text": "Waiting Time = Turnaround Time - Burst Time\n●Thread (Important) : A thread is a lightweight process and forms the basic unit of\nCPU utilization. A process can perform more than one task at the same time by including\nmultiple threads.\n●\nA thread has its own program counter, register set, and stack\n●\nA thread shares resources with other threads of the same process: the code section,\nthe data section, files and signals.",
+          "source": "os.pdf",
+          "page": 2,
+          "chunk_id": 5,
+          "score": 0.4532
+        }
+      ]
+    }
+  },
+  {
+    "id": "670401d7-eb7e-4ad1-a484-9afe71326dd3",
+    "type": "chat",
+    "title": "Chat Question: tell me about threads ...",
+    "source": "os.pdf",
+    "timestamp": "Oct 15, 2026 - 12:16 AM",
+    "details": {
+      "query": "tell me about threads ",
+      "answer": "Threads are lightweight processes that share the same address space and resources of their parent process.  \n- **Definition**: A thread has its own program counter, register set, and stack, but shares the code section, data section, files, and signals with other threads of the same process【Source 2 (Page 2)】.  \n- **Types**:  \n  - *User threads* – implemented by the user (application level).  \n  - *Kernel threads* – implemented by the operating system【Source 1 (Page 2)】.  \n- **Creation**: A new thread (or a child process) can be created using the `fork()` system call; a process that calls `fork()` n times generates `2^n – 1` child processes【Source 1 (Page 2)】.  \n- **Benefits**:  \n  1. Enhances responsiveness to users.  \n  2. Allows resource sharing within a process.  \n  3. Economical in terms of system resources.  \n  4. Enables full utilization of multiprocessing architectures【Source 4 (Page 12)】.  \n\nThese points give a concise overview of what threads are, how they are created, and why they are useful.",
+      "sources": [
+        {
+          "text": "the data section, files and signals.\nNote : A new thread, or a child process of a given process, can be introduced by using\nthe fork() system call. A process with n fork() system call generates 2^n – 1 child\nprocesses.\nThere are two types of threads:\n●\nUser threads (User threads are implemented by users)\n●\nKernel threads (Kernel threads are implemented by OS)\nApni Kaksha\n2",
+          "source": "os.pdf",
+          "page": 2,
+          "chunk_id": 6,
+          "score": 0.4855
+        },
+        {
+          "text": "Waiting Time = Turnaround Time - Burst Time\n●Thread (Important) : A thread is a lightweight process and forms the basic unit of\nCPU utilization. A process can perform more than one task at the same time by including\nmultiple threads.\n●\nA thread has its own program counter, register set, and stack\n●\nA thread shares resources with other threads of the same process: the code section,\nthe data section, files and signals.",
+          "source": "os.pdf",
+          "page": 2,
+          "chunk_id": 5,
+          "score": 0.4846
+        },
+        {
+          "text": "Mutex (A mutex provides mutual exclusion, either producer or consumer can\nhave the key (mutex) and proceed with their work. As long as the buffer is filled\nby the producer, the consumer needs to wait, and vice versa.\nAt any point of time, only one thread can work with the entire buffer. The concept\ncan be generalized using semaphore.)\n●Deadlocks (Important):\nA situation where a set of processes are blocked because each process is holding a",
+          "source": "os.pdf",
+          "page": 5,
+          "chunk_id": 15,
+          "score": 0.4327
+        },
+        {
+          "text": "●\nAdvantages of multithreaded programming:\n1.\nEnhance the responsiveness to the users.\n2. Resource sharing within the process.\n3. Economical\n4. Completely utilize the multiprocessing architecture.\n●\nThrashing is a phenomenon in virtual memory schemes when the processor\nspends most of its time in swapping pages, rather than executing instructions.\nApni Kaksha\n12",
+          "source": "os.pdf",
+          "page": 12,
+          "chunk_id": 44,
+          "score": 0.4319
+        },
+        {
+          "text": "different applications send output to the printer at the same time, spooling keeps\nthese all jobs into a disk file and queues them accordingly to the printer.\n●\nStarvation is Resource management problem. In this problem, a waiting process\ndoes not get the resources it needs for a long time because the resources are\nbeing allocated to other processes.\n●\nAging is a technique used to avoid starvation in the resource scheduling system.\n●\nAdvantages of multithreaded programming:\n1.",
+          "source": "os.pdf",
+          "page": 12,
+          "chunk_id": 43,
+          "score": 0.3966
+        }
+      ]
+    }
+  },
+  {
     "id": "b203dc1f-7fd9-468a-aa2d-31169f359203",
     "type": "summary",
     "title": "Revision Summary: Thread",

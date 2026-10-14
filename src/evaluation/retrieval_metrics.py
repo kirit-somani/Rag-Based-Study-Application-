@@ -6,7 +6,7 @@ def calculate_precision_at_k(retrieved_sources: List[str], expected_source: str,
     """
     if k <= 0:
         return 0.0
-        
+
     top_k_sources = retrieved_sources[:k]
     relevant_count = sum(1 for src in top_k_sources if src == expected_source)
     return relevant_count / k
@@ -19,10 +19,10 @@ def calculate_recall_at_k(retrieved_sources: List[str], expected_source: str, k:
     """
     if k <= 0:
         return 0.0
-        
+
     top_k_sources = retrieved_sources[:k]
     relevant_count = sum(1 for src in top_k_sources if src == expected_source)
-    # Simplified assumption: assume 1 expected relevant document source
+
     return min(1.0, float(relevant_count))
 
 def calculate_hit_rate_at_k(retrieved_sources: List[str], expected_source: str, k: int) -> int:
@@ -31,6 +31,6 @@ def calculate_hit_rate_at_k(retrieved_sources: List[str], expected_source: str, 
     """
     if k <= 0:
         return 0
-        
+
     top_k_sources = retrieved_sources[:k]
     return 1 if expected_source in top_k_sources else 0

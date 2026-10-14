@@ -7,7 +7,7 @@ def test_missing_file():
         load_pdf("nonexistent_file.pdf")
 
 def test_invalid_extension():
-    # Create a dummy txt file
+
     dummy_path = Path("test_dummy.txt")
     dummy_path.write_text("Hello")
     try:

@@ -5,7 +5,6 @@ from langchain_openai import ChatOpenAI
 from src.utils.logger import logger
 from dotenv import load_dotenv
 
-# Load environment variables
 load_dotenv()
 
 class LLMManager:
@@ -15,7 +14,7 @@ class LLMManager:
     def __init__(self, provider: str = "ollama", model_name: str = "llama3", temperature: float = 0.0):
         """
         Initializes the LLM.
-        
+
         Args:
             provider: 'ollama' or 'openai'
             model_name: Name of the model to use (e.g. llama3, mistral, gpt-4o)
@@ -51,8 +50,7 @@ class LLMManager:
                 raise ValueError("GROQ_API_KEY environment variable is not set.")
             if not os.getenv("OPENAI_API_KEY"):
                 os.environ["OPENAI_API_KEY"] = api_key
-            
-            # Map decommissioned or generic Groq model names to active models
+
             groq_model_map = {
                 "llama3": "openai/gpt-oss-20b",
                 "llama3-8b-8192": "openai/gpt-oss-20b",
@@ -62,9 +60,7 @@ class LLMManager:
             }
             target_model = groq_model_map.get(self.model_name, self.model_name)
             logger.info(f"Initializing Groq LLM: {target_model}")
-            
-            # Groq exposes an OpenAI-compatible endpoint, so we reuse ChatOpenAI
-            # and simply point base_url at Groq's API instead of OpenAI's.
+
             return ChatOpenAI(
                 model=target_model,
                 api_key=api_key,
@@ -73,6 +69,6 @@ class LLMManager:
             )
         else:
             raise ValueError(f"Unsupported LLM provider: {self.provider}")
-            
+
     def get_llm(self) -> Any:
         return self.llm

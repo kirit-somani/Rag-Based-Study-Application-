@@ -8,7 +8,7 @@ from src.utils.logger import logger
 
 class ChromaStore:
     """ChromaDB-based persistent vector store wrapper."""
-    
+
     def __init__(self, embeddings: Embeddings, persist_directory: str = "data/vectorstores/chroma/"):
         self.embeddings = embeddings
         self.persist_directory = str(Path(persist_directory).absolute())
@@ -19,21 +19,19 @@ class ChromaStore:
         """Adds documents to the Chroma collection and auto-persists."""
         if not documents:
             return
-            
+
         if self.vector_store is None:
             self.vector_store = Chroma.from_documents(
                 documents=documents,
                 embedding=self.embeddings,
                 persist_directory=self.persist_directory,
                 collection_name=self.collection_name,
-                # Chroma defaults to L2 distance. score_filter.normalize_score()
-                # assumes cosine distance, so we pin the collection to cosine space
-                # to keep the returned scores consistent with that assumption.
+
                 collection_metadata={"hnsw:space": "cosine"}
             )
         else:
             self.vector_store.add_documents(documents)
-            
+
         logger.info(f"Added {len(documents)} documents to Chroma.")
 
     def save(self) -> None:
@@ -46,7 +44,7 @@ class ChromaStore:
         if not db_path.exists():
             logger.warning("Chroma DB not found on disk.")
             return False
-            
+
         try:
             self.vector_store = Chroma(
                 persist_directory=self.persist_directory,
@@ -67,22 +65,21 @@ class ChromaStore:
         """
         if self.vector_store is None:
             return []
-        
+
         results = self.vector_store.similarity_search_with_score(query, k=k)
         return results
 
     def reset(self) -> None:
         """Deletes the Chroma collection and directory."""
         if self.vector_store is not None:
-            # Delete collection from DB
+
             try:
                 self.vector_store.delete_collection()
             except Exception as e:
                 logger.error(f"Error deleting Chroma collection: {e}")
-        
+
         self.vector_store = None
-        
-        # Remove dir
+
         path = Path(self.persist_directory)
         if path.exists():
             shutil.rmtree(path)

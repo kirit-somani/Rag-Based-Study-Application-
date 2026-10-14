@@ -24,7 +24,7 @@ def generate_quiz(topic: str, vector_store: VectorStoreManager, llm_manager: LLM
     Generates MCQs based on the topic and context retrieved from the vector store.
     Returns a list of dicts: [{"question": "...", "options": ["A","B","C","D"], "answer": "A"}]
     """
-    # Retrieve context for the topic
+
     retrieval_result = retrieve_context(
         query=topic,
         vector_store=vector_store,
@@ -32,23 +32,23 @@ def generate_quiz(topic: str, vector_store: VectorStoreManager, llm_manager: LLM
         score_threshold=0.1,
         source_filter=source_filter
     )
-    
+
     if not retrieval_result["results"]:
         raise ValueError(f"Could not find enough information about '{topic}' in the selected documents to generate a quiz.")
-        
+
     context_str = ""
     for res in retrieval_result["results"]:
         context_str += res['text'] + "\n\n"
-        
+
     prompt = get_quiz_prompt_template()
     chain = prompt | llm_manager.get_llm()
-    
+
     response = chain.invoke({
         "topic": topic,
         "num_questions": str(num_questions),
         "context": context_str
     })
-    
+
     try:
         json_str = _clean_json_output(response.content)
         quiz_data = json.loads(json_str)
@@ -62,7 +62,6 @@ def generate_quiz(topic: str, vector_store: VectorStoreManager, llm_manager: LLM
         logger.error(f"Failed to parse LLM quiz output as JSON: {response.content}")
         raise ValueError("The LLM did not return a valid JSON format for the quiz.")
 
-
 def generate_flashcards(topic: str, vector_store: VectorStoreManager, llm_manager: LLMManager, num_cards: int = 5, source_filter: str = "All Documents") -> List[Dict]:
     """
     Generates flashcards based on the topic and context retrieved from the vector store.
@@ -75,23 +74,23 @@ def generate_flashcards(topic: str, vector_store: VectorStoreManager, llm_manage
         score_threshold=0.1,
         source_filter=source_filter
     )
-    
+
     if not retrieval_result["results"]:
         raise ValueError(f"Could not find enough information about '{topic}' in the selected documents to generate flashcards.")
-        
+
     context_str = ""
     for res in retrieval_result["results"]:
         context_str += res['text'] + "\n\n"
-        
+
     prompt = get_flashcard_prompt_template()
     chain = prompt | llm_manager.get_llm()
-    
+
     response = chain.invoke({
         "topic": topic,
         "num_cards": str(num_cards),
         "context": context_str
     })
-    
+
     try:
         json_str = _clean_json_output(response.content)
         flashcard_data = json.loads(json_str)
@@ -116,20 +115,20 @@ def generate_summary(topic: str, vector_store: VectorStoreManager, llm_manager: 
         score_threshold=0.1,
         source_filter=source_filter
     )
-    
+
     if not retrieval_result["results"]:
         raise ValueError(f"Could not find enough information about '{topic}' in the selected documents to generate a summary.")
-        
+
     context_str = ""
     for res in retrieval_result["results"]:
         context_str += res['text'] + "\n\n"
-        
+
     prompt = get_summary_prompt_template()
     chain = prompt | llm_manager.get_llm()
-    
+
     response = chain.invoke({
         "topic": topic,
         "context": context_str
     })
-    
+
     return response.content

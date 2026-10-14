@@ -28,12 +28,10 @@ def test_openai_initialization(mock_openai):
     )
     assert manager.provider == "openai"
 
-
 @patch.dict(os.environ, {}, clear=True)
 def test_groq_missing_key():
     with pytest.raises(ValueError, match="GROQ_API_KEY environment variable is not set."):
         LLMManager(provider="groq", model_name="llama-3.3-70b-versatile")
-
 
 @patch.dict(os.environ, {"GROQ_API_KEY": "fake_groq_key"})
 @patch("src.generation.llm_manager.ChatOpenAI")
@@ -47,7 +45,7 @@ def test_groq_initialization(mock_openai):
     )
     assert manager.provider == "groq"
 
-@patch.dict(os.environ, clear=True) # Ensure key is empty
+@patch.dict(os.environ, clear=True)
 def test_openai_missing_key():
     with pytest.raises(ValueError, match="OPENAI_API_KEY environment variable is not set."):
         LLMManager(provider="openai")

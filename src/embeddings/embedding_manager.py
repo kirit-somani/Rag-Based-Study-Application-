@@ -6,7 +6,7 @@ class EmbeddingManager:
     """
     Manages the initialization and usage of semantic embedding models.
     """
-    
+
     SUPPORTED_MODELS = {
         "minilm": "sentence-transformers/all-MiniLM-L6-v2",
         "bge": "BAAI/bge-small-en-v1.5"
@@ -15,7 +15,7 @@ class EmbeddingManager:
     def __init__(self, model_key: str = "minilm"):
         """
         Initializes the embedding model.
-        
+
         Args:
             model_key: Key for the supported model ('minilm' or 'bge').
         """
@@ -23,12 +23,12 @@ class EmbeddingManager:
         if self.model_key not in self.SUPPORTED_MODELS:
             logger.warning(f"Model key '{model_key}' not found. Defaulting to 'minilm'.")
             self.model_key = "minilm"
-            
+
         self.model_name = self.SUPPORTED_MODELS[self.model_key]
         logger.info(f"Loading embedding model: {self.model_name}")
-        
+
         try:
-            # We use HuggingFaceEmbeddings which is fully compatible with LangChain VectorStores
+
             self.embeddings = HuggingFaceEmbeddings(model_name=self.model_name)
             logger.info("Embedding model loaded successfully.")
         except Exception as e:

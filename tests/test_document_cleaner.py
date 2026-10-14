@@ -15,10 +15,10 @@ def test_empty_text():
 def test_clean_documents():
     docs = [
         {"text": "Valid page text", "source": "test.pdf", "page": 1},
-        {"text": "   \n  ", "source": "test.pdf", "page": 2}, # Should be dropped
+        {"text": "   \n  ", "source": "test.pdf", "page": 2},
         {"text": "Another page\n\n\n", "source": "test.pdf", "page": 3}
     ]
-    
+
     cleaned = clean_documents(docs)
     assert len(cleaned) == 2
     assert cleaned[0]["page"] == 1

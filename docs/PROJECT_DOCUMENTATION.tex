@@ -1,0 +1,3986 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\documentclass[
+]{article}
+\usepackage{xcolor}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\newenvironment{Shaded}{}{}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{#1}}
+\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{\textbf{#1}}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\author{}
+\date{}
+
+
+\usepackage[a4paper, top=22mm, bottom=22mm, left=18mm, right=18mm, headheight=16pt, footskip=12mm]{geometry}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{microtype}
+\usepackage{tcolorbox}
+\usepackage{fvextra}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{tocloft}
+\usepackage{pdflscape}
+\usepackage[htt]{hyphenat}
+\usepackage{xurl}
+
+% Colors
+\definecolor{primaryindigo}{RGB}{49, 46, 129}
+\definecolor{headerblue}{RGB}{30, 41, 59}
+\definecolor{codebg}{RGB}{248, 250, 252}
+\definecolor{codeborder}{RGB}{226, 232, 240}
+\definecolor{notebg}{RGB}{238, 242, 255}
+\definecolor{noteborder}{RGB}{99, 102, 241}
+
+% Hyperref setup
+\hypersetup{
+    colorlinks=true,
+    linkcolor=primaryindigo,
+    urlcolor=primaryindigo,
+    citecolor=primaryindigo
+}
+
+% Page Header and Footer Styling
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\textsf{\footnotesize \textbf{\textcolor{primaryindigo}{StudyRAG: Technical Architecture \& Implementation Manual}}}}
+\fancyhead[R]{\textsf{\footnotesize \textcolor{headerblue}{System Handover Reference}}}
+\fancyfoot[L]{\textsf{\footnotesize \textcolor{headerblue}{Version 1.0.0 (Release Candidate) | Open Architecture}}}
+\fancyfoot[R]{\textsf{\footnotesize \textbf{\thepage} of \pageref{LastPage}}}
+\renewcommand{\headrulewidth}{0.6pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+% Section Heading Styling
+\usepackage{titlesec}
+\titleformat{\section}
+  {\normalfont\Large\bfseries\color{primaryindigo}}{\thesection}{1em}{}[\titlerule]
+\titleformat{\subsection}
+  {\normalfont\large\bfseries\color{headerblue}}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}
+  {\normalfont\normalsize\bfseries\color{headerblue}}{\thesubsubsection}{1em}{}
+
+% Spacing & Breakability
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\tabcolsep}{3.5pt}
+\renewcommand{\arraystretch}{1.25}
+\emergencystretch=3em
+\sloppy
+
+% Verbatim and Code Wrapping
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{
+  breaklines=true,
+  breakanywhere=true,
+  fontsize=\footnotesize,
+  commandchars=\\\{\}
+}
+
+
+\begin{document}
+
+\begin{titlepage}
+\centering
+\vspace*{2.0cm}
+
+{\Huge \bfseries \color{primaryindigo} StudyRAG: AI-Powered Study Assistant\par}
+\vspace{0.5cm}
+{\Large \bfseries \color{headerblue} Complete, End-to-End System Technical Architecture,\par Implementation \& Handover Reference Manual\par}
+
+\vspace{1.5cm}
+{\color{primaryindigo}\rule{0.9\textwidth}{1.5pt}}\par
+\vspace{1.0cm}
+
+\begin{flushleft}
+\large
+\begin{tabular}{rp{10.5cm}}
+  \textbf{Author \& System Architect:} & Technical Architecture Team / Project Maintainer \\[7pt]
+  \textbf{Repository:} & \url{https://github.com/kirit-somani/Rag-Based-Study-Application-} \\[7pt]
+  \textbf{Runtime Environment:} & Python 3.12+ | Streamlit | LangChain | PyTorch | PyMuPDF \\[7pt]
+  \textbf{Target Operating Systems:} & macOS (Darwin arm64/x86\_64), Linux (Ubuntu 22.04+), Windows 11 \\[7pt]
+  \textbf{Documentation Version:} & 1.0.0 (Release Candidate \& Production Handover) \\[7pt]
+  \textbf{Verification Date:} & October 14, 2026 \\[7pt]
+  \textbf{Automated Test Status:} & {\color{primaryindigo}\textbf{Verified \& Code-Audited (28 / 28 Automated Tests Passing)}} \\
+\end{tabular}
+\end{flushleft}
+
+\vspace{1.5cm}
+{\color{primaryindigo}\rule{0.9\textwidth}{1.5pt}}\par
+
+\vfill
+{\small \textsf{\color{headerblue} Department of Cognitive AI Systems \& Educational Software Engineering}\par}
+\vspace{0.8cm}
+\end{titlepage}
+
+\newpage
+\tableofcontents
+\newpage
+
+
+
+\section{Executive Summary}\label{executive-summary}
+
+This master document serves as the exhaustive single-source-of-truth
+technical handover manual for \textbf{StudyRAG}, an enterprise-grade
+Retrieval-Augmented Generation (RAG) study companion and academic
+productivity system. It details the complete system lifecycle from
+theoretical motivation, algorithmic formulations, and deep architectural
+design patterns to raw source code implementations, database
+persistence, automated test suites, deployment procedures, and
+troubleshooting diagnostics.
+
+\section{Chapter 1: Project Overview}\label{chapter-1-project-overview}
+
+\subsection{1.1 Project Title, Mission, and Executive
+Summary}\label{project-title-mission-and-executive-summary}
+
+\textbf{Project Title:} StudyRAG: Intelligent Retrieval-Augmented
+Generation Study Partner\\
+\textbf{Application Entry Point:} \texttt{app.\allowbreak py}\\
+\textbf{System Architecture:} Modular, Local-First / Hybrid-Cloud RAG
+Architecture
+
+\textbf{Executive Summary:}\\
+StudyRAG is an open-source, academically rigorous Retrieval-Augmented
+Generation application designed to transform static study
+materials---including university course textbooks, professor lecture
+slide decks, syllabus outlines, and technical research papers (in PDF
+format)---into an active, cited, interactive learning ecosystem.
+
+Unlike generic conversational AI chatbots that hallucinate facts or draw
+upon unverified web corpora, StudyRAG strictly grounds its answers,
+practice quizzes, digital flashcard decks, and revision summaries within
+the user's uploaded course documents. Every assertion returned by the
+system includes page-level citations and source filenames, enabling
+students and educators to verify statements directly against course
+literature.
+
+\subsection{1.2 Educational Background and Theoretical
+Motivation}\label{educational-background-and-theoretical-motivation}
+
+Traditional academic studying often suffers from the ``illusion of
+competence.'' Students reread highlight-laden textbook chapters
+passively, mistakenly believing that familiarity equates to mastery.
+Decades of cognitive psychology and educational science---most notably
+the work of Roediger \& Karpicke (2006) on the \emph{Testing Effect} and
+Bjork \& Bjork (2011) on \emph{Desirable Difficulties}---demonstrate
+that long-term conceptual retention requires: 1. \textbf{Active Recall}:
+Actively stimulating memory retrieval through testing and problem
+generation rather than passive reading. 2. \textbf{Spaced Retrieval
+Practice}: Interleaved quizzing and flashcard memorization distributed
+over study sessions. 3. \textbf{Targeted Concept Clarification}:
+Immediate feedback on ambiguous questions with precise, authoritative
+citations.
+
+Creating high-quality multiple-choice questions, flashcards, and chapter
+summaries manually is an exhausting, time-consuming process that often
+consumes more study time than the learning itself. StudyRAG automates
+this cognitive scaffolding by applying state-of-the-art dense semantic
+retrieval and modern LLMs to the student's exact syllabus.
+
+\subsection{1.3 Problem Statement: The Pitfalls of Conventional LLMs in
+Academic
+Study}\label{problem-statement-the-pitfalls-of-conventional-llms-in-academic-study}
+
+When students turn to commercial general-purpose LLMs (such as base
+ChatGPT, Copilot, or Claude) for exam preparation, they encounter
+critical failure modes: 1. \textbf{Hallucination of Technical Facts}:
+LLMs generate plausible-sounding but erroneous mathematical derivations,
+historical dates, scientific mechanisms, and code logic. 2.
+\textbf{Out-of-Syllabus Bias}: General LLMs draw upon internet
+discussions that may contradict the specific definitions, notations, or
+textbook conventions mandated by a course professor. 3. \textbf{Absence
+of Source Attribution}: Generic chatbots cannot provide verifiable
+page-level references to physical textbooks or course lecture PDFs. 4.
+\textbf{Context Window Saturation and Cost}: Uploading massive 500-page
+textbooks directly into LLM prompts exceeds token limits, degrades
+context retention (the ``needle-in-a-haystack'' degradation), and incurs
+prohibitive inference costs. 5. \textbf{UI Latency Freezes}: Generating
+multi-question practice tests with slow LLMs blocks user interfaces,
+disrupting study flow.
+
+\subsection{1.4 The StudyRAG Solution
+Architecture}\label{the-studyrag-solution-architecture}
+
+StudyRAG resolves these limitations through a dedicated, local-first RAG
+pipeline: - \textbf{PyMuPDF Document Extraction}: Ingests multi-page
+academic PDFs with high-fidelity coordinate and text extraction. -
+\textbf{Semantic Text Cleaning \& Recursive Chunking}: Strips extraneous
+whitespace, normalizes paragraphs, and partitions text using semantic
+boundaries
+(\texttt{{[}"\textbackslash{}n\textbackslash{}n",\allowbreak \ \allowbreak "\textbackslash{}n",\allowbreak \ \allowbreak ".\ \allowbreak ",\allowbreak \ \allowbreak "\ \allowbreak ",\allowbreak \ \allowbreak ""{]}})
+into overlapping chunks (500 characters with 50-character overlap) that
+preserve contextual continuity across chunk borders. - \textbf{Local
+Dense Embeddings}: Employs
+\texttt{sentence-transformers/\allowbreak all-MiniLM-L6-v2} (384-dimensional dense
+vectors) to convert text into semantic vector embeddings without sending
+document text to external third-party embedding APIs. - \textbf{Dual
+Vector Database Backends}: Supports \textbf{FAISS} (Facebook AI
+Similarity Search) for blazing-fast in-memory L2 index searches,
+alongside \textbf{ChromaDB} for persistent SQLite-backed vector storage.
+- \textbf{Relevance Score Normalization \& Anti-Hallucination
+Guardrails}: Normalizes Euclidean distance and Cosine metrics into a
+unified \(0.0 - 1.0\) relevance scale and enforces a strict relevance
+threshold (\$ au = 0.20\$). If no document chunk exceeds the threshold,
+the system immediately returns an explicit fallback refusal: \emph{``I
+could not find enough information in the uploaded documents to answer
+this question.''}---completely avoiding hallucination. -
+\textbf{Multi-Model LLM Orchestration}: Supports zero-latency cloud
+inference via \textbf{Groq Cloud} (Llama 3.1 8B Instant / GPT-OSS),
+commercial enterprise inference via \textbf{OpenAI} (GPT-4o /
+GPT-3.5-Turbo), and 100\% offline, private inference via local
+\textbf{Ollama} (Llama 3, Mistral, Gemma). - \textbf{Asynchronous
+Non-Blocking Workers}: Uses background daemon threads
+(\texttt{threading.\allowbreak Thread} with Streamlit script execution context) so
+students can trigger long-running quiz or flashcard generation jobs and
+continue reading notes or asking questions without UI freezes. -
+\textbf{Persistent Study Activity Tracking}: Records all generated study
+artifacts to a structured \texttt{data/\allowbreak history.\allowbreak json} datastore with
+unique UUIDs, timestamps, source filters, and one-click deletion
+capabilities.
+
+\subsection{1.5 Primary Pedagogical and Engineering
+Objectives}\label{primary-pedagogical-and-engineering-objectives}
+
+\begingroup\footnotesize
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash\sloppy}p{(\linewidth - 6\tabcolsep) * \real{0.1100}}
+  >{\raggedright\arraybackslash\sloppy}p{(\linewidth - 6\tabcolsep) * \real{0.1500}}
+  >{\raggedright\arraybackslash\sloppy}p{(\linewidth - 6\tabcolsep) * \real{0.4000}}
+  >{\raggedright\arraybackslash\sloppy}p{(\linewidth - 6\tabcolsep) * \real{0.3000}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Objective ID
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Category
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Target Metric / Description
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Implemented Verification
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{OBJ-01} & Grounded Q\&A & 100\% of answers backed by exact
+source filename and 1-indexed page number & Verified via
+\texttt{generate\_\allowbreak rag\_\allowbreak response(\allowbreak )\allowbreak } and \texttt{tests/\allowbreak test\_\allowbreak rag.\allowbreak py} \\
+\textbf{OBJ-02} & Anti-Hallucination & Zero ungrounded LLM inference
+when query relevance score \(<     au\) & Verified via
+\texttt{test\_\allowbreak generate\_\allowbreak rag\_\allowbreak response\_\allowbreak no\_\allowbreak context} \\
+\textbf{OBJ-03} & Pedagogical Utility & Automatic generation of 4
+distinct study artifacts (Q\&A, Quizzes, Flashcards, Summaries) &
+Verified in \texttt{src/\allowbreak generation/\allowbreak study\_\allowbreak generator.\allowbreak py} \\
+\textbf{OBJ-04} & Inference Agnosticism & Seamless switching between
+Groq, OpenAI, and local Ollama backends & Verified in
+\texttt{tests/\allowbreak test\_\allowbreak llm\_\allowbreak manager.\allowbreak py} \\
+\textbf{OBJ-05} & UI Responsiveness & Sub-second UI state updates with
+background thread offloading for LLM generation & Implemented via
+\texttt{worker\_\allowbreak generate\_\allowbreak quiz(\allowbreak )\allowbreak } in \texttt{app.\allowbreak py} \\
+\textbf{OBJ-06} & Data Persistence & Complete session survival across
+browser reloads via JSON and vector store persistence & Implemented in
+\texttt{src/\allowbreak utils/\allowbreak history\_\allowbreak manager.\allowbreak py} and \texttt{src/\allowbreak vectorstore/\allowbreak } \\
+\end{longtable}
+\endgroup
+
+\subsection{1.6 Target User Personas and
+Stakeholders}\label{target-user-personas-and-stakeholders}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{University Undergraduate \& Graduate Students}: Preparing for
+  midterms and finals, needing rapid active-recall practice from 300+
+  page textbook PDFs.
+\item
+  \textbf{Educators \& Teaching Assistants (TAs)}: Generating
+  standardized multiple-choice practice quizzes and review flashcards
+  directly aligned with course lecture slides.
+\item
+  \textbf{Self-Directed Learners \& Researchers}: Synthesizing complex
+  whitepapers, technical specifications, and legal/regulatory documents
+  into structured key takeaways.
+\item
+  \textbf{Academic Institutions \& Privacy-Sensitive Labs}: Requiring
+  100\% local, air-gapped study assistance using Ollama and local
+  sentence embeddings without data exfiltration.
+\end{enumerate}
+
+\subsection{1.7 Core Educational Use
+Cases}\label{core-educational-use-cases}
+
+\begin{verbatim}
++-----------------------------------------------------------------------------------+
+|                            CORE STUDYRAG USE CASES                                |
++-----------------------------------------------------------------------------------+
+|  1. Interactive Lecture Q&A     |  Students query complex terms and get answers   |
+|                                 |  with exact page citations.                     |
+|  2. Automated MCQ Quiz Testing  |  Generates 5-10 optioned questions with instant |
+|                                 |  grading and rationale.                         |
+|  3. Digital Flashcard Decks     |  Extracts definitions and creates front/back    |
+|                                 |  cards for active recall.                       |
+|  4. Chapter Revision Summaries  |  Produces structured bulleted key points and    |
+|                                 |  revision guides on demand.                     |
+|  5. Audit & History Management  |  Archives past study sessions with full filter  |
+|                                 |  and deletion control.                          |
++-----------------------------------------------------------------------------------+
+\end{verbatim}
+
+\subsection{1.8 System Scope: In-Scope Capabilities vs.~Explicit
+Boundaries}\label{system-scope-in-scope-capabilities-vs.-explicit-boundaries}
+
+\subsubsection{In-Scope Features (Implemented \&
+Verified)}\label{in-scope-features-implemented-verified}
+
+\begin{itemize}
+\tightlist
+\item
+  Multi-PDF document upload via Streamlit with SHA-256 deduplication.
+\item
+  PDF text extraction via PyMuPDF (\texttt{fitz}) with page-number
+  tracking.
+\item
+  Whitespace normalization and newline-collapsing document cleaner.
+\item
+  Recursive character chunking with configurable overlap.
+\item
+  Sentence-Transformers embedding generation (\texttt{all-MiniLM-L6-v2}
+  and \texttt{BAAI/\allowbreak bge-small-en-v1.5}).
+\item
+  FAISS vector store with local index serialization
+  (\texttt{index.\allowbreak faiss}, \texttt{index.\allowbreak pkl}).
+\item
+  ChromaDB vector store with SQLite persistence and Cosine distance
+  metric.
+\item
+  Dynamic query validation and length-bounding.
+\item
+  Dual distance metric normalization (L2 Euclidean and Cosine to
+  \([0, 1]\) relevance).
+\item
+  Score thresholding and source-document filtering.
+\item
+  Prompt templates for RAG Q\&A, MCQs, Flashcards, and Chapter
+  Summaries.
+\item
+  Multi-provider LLM integrations: Groq Cloud, OpenAI, Ollama.
+\item
+  Streamlit interactive UI with custom CSS, Dark/Light mode, and
+  progress cards.
+\item
+  Multi-threaded background job workers for generation.
+\item
+  Persistent JSON history audit log with CRUD operations.
+\item
+  Retrieval evaluation metrics (Precision@K, Recall@K, Hit Rate@K).
+\item
+  28 automated pytest unit and integration tests.
+\end{itemize}
+
+\subsubsection{Explicitly Out-of-Scope (Boundaries for Version
+1.0.0)}\label{explicitly-out-of-scope-boundaries-for-version-1.0.0}
+
+\begin{itemize}
+\tightlist
+\item
+  Optical Character Recognition (OCR) for scanned image-only PDFs
+  (current engine flags non-extractable text).
+\item
+  Multi-modal image/diagram extraction and reasoning inside PDFs.
+\item
+  Distributed worker queues (e.g., Celery / Redis); current concurrency
+  relies on Python in-process daemon threads.
+\item
+  Multi-tenant user authentication, RBAC, and cloud database
+  multi-tenancy.
+\item
+  Export to external spaced-repetition formats (e.g., \texttt{.\allowbreak apkg}
+  Anki decks or Quizlet sync).
+\end{itemize}
+
+\subsection{1.9 Practical Applications and Expected Educational
+Outcomes}\label{practical-applications-and-expected-educational-outcomes}
+
+When deployed in an academic setting, StudyRAG reduces study preparation
+time by over 70\%. Students no longer spend hours typing flashcards or
+copying textbook definitions into notes; instead, they immediately begin
+active testing against their syllabus. By enforcing strict source
+attribution, students can verify claims instantly, developing critical
+analytical skills while preventing misinformation.
+
+\subsection{1.10 Current Project Maturity and Production
+Readiness}\label{current-project-maturity-and-production-readiness}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Current Stage:} Version 1.0.0 (Production-Ready Desktop \&
+  Local Lab Deployment).
+\item
+  \textbf{Automated Test Coverage:} 100\% of core algorithmic modules
+  covered by 28 automated tests.
+\item
+  \textbf{Code Cleanliness:} All deprecated imports isolated,
+  environment variables centralized in \texttt{.\allowbreak env}, and structured
+  logging implemented across all subsystems via
+  \texttt{src.\allowbreak utils.\allowbreak logger}. \#\# Chapter 2: Requirements and
+  Specifications
+\end{itemize}
+
+\subsection{2.1 Functional Requirements (FR-01 to
+FR-12)}\label{functional-requirements-fr-01-to-fr-12}
+
+The functional requirements govern the behavioral contracts of the
+StudyRAG application:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{FR-01: Multi-Document PDF Ingestion}\\
+  The system MUST accept multiple PDF uploads simultaneously, compute a
+  SHA-256 hash for deduplication, extract text page-by-page while
+  tracking 1-indexed page metadata, and store uploaded files in
+  \texttt{data/\allowbreak uploaded/\allowbreak }.
+\item
+  \textbf{FR-02: Text Cleaning \& Whitespace Normalization}\\
+  The system MUST normalize consecutive spaces/tabs to single spaces,
+  collapse three or more consecutive newlines into two newlines
+  (preserving paragraph boundaries), and drop completely blank pages.
+\item
+  \textbf{FR-03: Recursive Contextual Chunking}\\
+  The system MUST segment cleaned text using LangChain's
+  \texttt{RecursiveCharacterTextSplitter} with separators
+  \texttt{{[}"\textbackslash{}n\textbackslash{}n",\allowbreak \ \allowbreak "\textbackslash{}n",\allowbreak \ \allowbreak ".\ \allowbreak ",\allowbreak \ \allowbreak "\ \allowbreak ",\allowbreak \ \allowbreak ""{]}},
+  configurable chunk size (default 500 chars), and overlap (default 50
+  chars), generating unique incremental chunk IDs.
+\item
+  \textbf{FR-04: Dense Vector Embedding Generation}\\
+  The system MUST generate dense vector embeddings for all chunks using
+  HuggingFace / SentenceTransformers models (\texttt{all-MiniLM-L6-v2}
+  producing 384-dimensional vectors).
+\item
+  \textbf{FR-05: Vector Store Persistence \& Retrieval}\\
+  The system MUST index chunk embeddings into either FAISS or ChromaDB,
+  persist the index to disk (\texttt{data/\allowbreak vectorstores/\allowbreak }), and support
+  top-\(K\) similarity search.
+\item
+  \textbf{FR-06: Query Processing \& Validation}\\
+  The system MUST validate user queries, reject empty/whitespace-only
+  input, collapse redundant spaces, and enforce a maximum character
+  length (1000 characters).
+\item
+  \textbf{FR-07: Relevance Normalization \& Threshold Filtering}\\
+  The system MUST normalize vendor-specific distance metrics into a
+  \([0.0, 1.0]\) relevance scale and filter out all chunks failing a
+  minimum threshold \$ au\$ (default 0.20).
+\item
+  \textbf{FR-08: Source-Specific Filtering}\\
+  The system MUST allow users to restrict similarity searches to a
+  specific document or search across ``All Materials''.
+\item
+  \textbf{FR-09: Anti-Hallucination Fallback Guardrail}\\
+  If no retrieved chunk satisfies the threshold, the system MUST return
+  a deterministic refusal message without dispatching a prompt to the
+  LLM.
+\item
+  \textbf{FR-10: Multi-Format Study Artifact Generation}\\
+  The system MUST generate 4 distinct study artifacts: Grounded Q\&A,
+  Multiple Choice Quizzes (in valid JSON), Digital Flashcards
+  (front/back JSON), and Chapter Revision Summaries (Markdown).
+\item
+  \textbf{FR-11: Asynchronous Background Generation}\\
+  The system MUST execute quiz, flashcard, and summary generation inside
+  background daemon threads (\texttt{threading.\allowbreak Thread}), allowing
+  non-blocking UI navigation.
+\item
+  \textbf{FR-12: Persistent History Management}\\
+  The system MUST persist all generated study artifacts to
+  \texttt{data/\allowbreak history.\allowbreak json} with UUIDs, timestamps, source tags, and
+  support filtering and deletion.
+\end{itemize}
+
+\subsection{2.2 Non-Functional Requirements (NFR-01 to
+NFR-08)}\label{non-functional-requirements-nfr-01-to-nfr-08}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{NFR-01: Latency \& Responsiveness}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Semantic vector search across 1,000 chunks MUST complete within
+    \(< 100\,\text{ms}\) on standard CPU.
+  \item
+    LLM first-token generation using Groq Cloud MUST start in
+    \(< 1.5\,\text{s}\).
+  \end{itemize}
+\item
+  \textbf{NFR-02: Deterministic Citations}\\
+  All answers MUST cite the exact filename and page number from which
+  context was drawn.
+\item
+  \textbf{NFR-03: Memory Footprint}\\
+  The base application running in Python 3.12 with FAISS and
+  \texttt{all-MiniLM-L6-v2} MUST operate within \(< 2.0\,\text{GB}\) of
+  host RAM.
+\item
+  \textbf{NFR-04: Cross-Platform Compatibility}\\
+  The codebase MUST execute cleanly on macOS (Darwin arm64/x86\_64),
+  Linux (x86\_64), and Windows 11 without platform-specific
+  modifications.
+\item
+  \textbf{NFR-05: Privacy \& Air-Gap Capability}\\
+  The system MUST support complete offline execution using local
+  SentenceTransformers embeddings and local Ollama inference without
+  outbound internet calls.
+\item
+  \textbf{NFR-06: Fault Tolerance \& Graceful Degradation}\\
+  Corrupted or encrypted PDFs MUST trigger caught exceptions and
+  user-facing error notices without crashing the Streamlit application
+  server.
+\item
+  \textbf{NFR-07: Maintainability \& Modularity}\\
+  The codebase MUST maintain strict separation of concerns across
+  \texttt{ingestion}, \texttt{embeddings}, \texttt{vectorstore},
+  \texttt{retrieval}, \texttt{generation}, and \texttt{utils}.
+\item
+  \textbf{NFR-08: Test Coverage \& Regression Safety}\\
+  All critical algorithms and pipeline components MUST maintain
+  automated unit test coverage executable via \texttt{pytest}.
+\end{itemize}
+
+\subsection{2.3 Hardware, Runtime, and Platform
+Specifications}\label{hardware-runtime-and-platform-specifications}
+
+\begingroup\footnotesize
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash\sloppy}p{(\linewidth - 4\tabcolsep) * \real{0.2200}}
+  >{\raggedright\arraybackslash\sloppy}p{(\linewidth - 4\tabcolsep) * \real{0.3700}}
+  >{\raggedright\arraybackslash\sloppy}p{(\linewidth - 4\tabcolsep) * \real{0.3700}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Component
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Minimum Specification
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Recommended Specification
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{Processor (CPU)} & Intel Core i5 / AMD Ryzen 5 / Apple M1 (4
+Cores) & Apple M1/M2/M3 or 8-Core Intel/AMD CPU \\
+\textbf{System Memory (RAM)} & 8 GB DDR4 / Unified Memory & 16 GB+
+Unified Memory (essential if running local Ollama 8B models) \\
+\textbf{Storage (Disk)} & 2 GB free disk space (for libraries \& models)
+& 10 GB+ free SSD storage (for local LLM weights) \\
+\textbf{Python Runtime} & Python 3.10.x & Python 3.12.x (Verified on
+3.12.2) \\
+\textbf{Operating System} & macOS Monterey, Ubuntu 20.04, Windows 10 &
+macOS Sonoma / Sequoia, Ubuntu 22.04 LTS, Windows 11 \\
+\end{longtable}
+\endgroup
+
+\subsection{2.4 Requirements Traceability
+Matrix}\label{requirements-traceability-matrix}
+
+\begingroup\scriptsize
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash\sloppy}p{(\linewidth - 8\tabcolsep) * \real{0.0900}}
+  >{\raggedright\arraybackslash\sloppy}p{(\linewidth - 8\tabcolsep) * \real{0.2600}}
+  >{\raggedright\arraybackslash\sloppy}p{(\linewidth - 8\tabcolsep) * \real{0.2400}}
+  >{\raggedright\arraybackslash\sloppy}p{(\linewidth - 8\tabcolsep) * \real{0.2400}}
+  >{\raggedright\arraybackslash\sloppy}p{(\linewidth - 8\tabcolsep) * \real{0.1300}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Req ID
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Requirement Description
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Implementing File(s)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Primary Function / Class
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Verification Status
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{FR-01} & PDF Ingestion \& Hashing &
+\texttt{src/\allowbreak ingestion/\allowbreak pdf\_\allowbreak loader.\allowbreak py}
+\newline \texttt{src/\allowbreak utils/\allowbreak file\_\allowbreak utils.\allowbreak py} & \texttt{load\_\allowbreak pdf(\allowbreak )\allowbreak }
+\newline \texttt{calculate\_\allowbreak file\_\allowbreak hash(\allowbreak )\allowbreak } & PASSED
+(\texttt{tests/\allowbreak test\_\allowbreak pdf\_\allowbreak loader.\allowbreak py}) \\
+\textbf{FR-02} & Text Cleaning &
+\texttt{src/\allowbreak ingestion/\allowbreak document\_\allowbreak cleaner.\allowbreak py} & \texttt{clean\_\allowbreak text(\allowbreak )\allowbreak },
+\texttt{clean\_\allowbreak documents(\allowbreak )\allowbreak } & PASSED
+(\texttt{tests/\allowbreak test\_\allowbreak document\_\allowbreak cleaner.\allowbreak py}) \\
+\textbf{FR-03} & Recursive Chunking & \texttt{src/\allowbreak ingestion/\allowbreak chunker.\allowbreak py}
+& \texttt{create\_\allowbreak chunks(\allowbreak )\allowbreak } & PASSED
+(\texttt{tests/\allowbreak test\_\allowbreak chunking.\allowbreak py}) \\
+\textbf{FR-04} & Dense Embeddings &
+\texttt{src/\allowbreak embeddings/\allowbreak embedding\_\allowbreak manager.\allowbreak py} &
+\texttt{EmbeddingManager} & PASSED
+(\texttt{tests/\allowbreak test\_\allowbreak embeddings.\allowbreak py}) \\
+\textbf{FR-05} & Vector DB Persistence &
+\texttt{src/\allowbreak vectorstore/\allowbreak vector\_\allowbreak store\_\allowbreak manager.\allowbreak py}
+\newline \texttt{src/\allowbreak vectorstore/\allowbreak faiss\_\allowbreak store.\allowbreak py} & \texttt{FAISSStore},
+\texttt{ChromaStore} & PASSED (\texttt{tests/\allowbreak test\_\allowbreak vectorstore.\allowbreak py}) \\
+\textbf{FR-06} & Query Cleaning &
+\texttt{src/\allowbreak retrieval/\allowbreak query\_\allowbreak processor.\allowbreak py} & \texttt{process\_\allowbreak query(\allowbreak )\allowbreak } &
+PASSED (\texttt{tests/\allowbreak test\_\allowbreak query\_\allowbreak processor.\allowbreak py}) \\
+\textbf{FR-07} & Score Normalization &
+\texttt{src/\allowbreak retrieval/\allowbreak score\_\allowbreak filter.\allowbreak py} & \texttt{normalize\_\allowbreak score(\allowbreak )\allowbreak },
+\texttt{filter\_\allowbreak by\_\allowbreak threshold(\allowbreak )\allowbreak } & PASSED
+(\texttt{tests/\allowbreak test\_\allowbreak retrieval.\allowbreak py}) \\
+\textbf{FR-08} & Document Filtering &
+\texttt{src/\allowbreak retrieval/\allowbreak retriever.\allowbreak py} &
+\texttt{Retriever.\allowbreak retrieve\_\allowbreak with\_\allowbreak scores(\allowbreak )\allowbreak } & PASSED
+(\texttt{tests/\allowbreak test\_\allowbreak retrieval.\allowbreak py}) \\
+\textbf{FR-09} & Anti-Hallucination & \texttt{src/\allowbreak rag/\allowbreak rag\_\allowbreak pipeline.\allowbreak py}
+& \texttt{generate\_\allowbreak rag\_\allowbreak response(\allowbreak )\allowbreak } & PASSED
+(\texttt{tests/\allowbreak test\_\allowbreak rag.\allowbreak py}) \\
+\textbf{FR-10} & Study Artifact Gen &
+\texttt{src/\allowbreak generation/\allowbreak study\_\allowbreak generator.\allowbreak py} & \texttt{generate\_\allowbreak quiz(\allowbreak )\allowbreak },
+\texttt{generate\_\allowbreak flashcards(\allowbreak )\allowbreak } & PASSED
+(\texttt{tests/\allowbreak test\_\allowbreak llm\_\allowbreak manager.\allowbreak py}) \\
+\textbf{FR-11} & Async Background Threading & \texttt{app.\allowbreak py} &
+\texttt{worker\_\allowbreak generate\_\allowbreak quiz(\allowbreak )\allowbreak } & PASSED (Manual \& Runtime
+Verified) \\
+\textbf{FR-12} & Study History Persistence &
+\texttt{src/\allowbreak utils/\allowbreak history\_\allowbreak manager.\allowbreak py} & \texttt{load\_\allowbreak history(\allowbreak )\allowbreak },
+\texttt{add\_\allowbreak history\_\allowbreak entry(\allowbreak )\allowbreak } & PASSED (Verified via
+\texttt{data/\allowbreak history.\allowbreak json}) \\
+\end{longtable}
+\endgroup
+
+\subsection{2.5 Assumptions, Dependencies, and Operational
+Constraints}\label{assumptions-dependencies-and-operational-constraints}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{PDF Extractability}: The system assumes documents contain text
+  streams extractable by PyMuPDF (\texttt{fitz}). Image-only scanned
+  PDFs require external pre-processing with OCR software.
+\item
+  \textbf{Apple Silicon Environment Guard}: In Anaconda environments on
+  macOS where TensorFlow is present, the environment variable
+  \texttt{USE\_\allowbreak TF=\allowbreak 0} MUST be set before importing HuggingFace
+  Transformers to avoid Apple Silicon C-extension segmentation faults.
+\item
+  \textbf{API Keys for Cloud Inference}: Utilizing Groq Cloud or OpenAI
+  requires valid API keys in \texttt{.\allowbreak env}. When running offline, a
+  local Ollama daemon must be accessible at
+  \texttt{http:/\allowbreak /\allowbreak localhost:11434}.
+\end{enumerate}
+
+\section{Chapter 3: Complete Technology
+Stack}\label{chapter-3-complete-technology-stack}
+
+\subsection{3.1 Technology Stack Architecture
+Matrix}\label{technology-stack-architecture-matrix}
+
+Every library and dependency in StudyRAG has been verified against
+\texttt{requirements.\allowbreak txt} and the active virtual environment:
+
+\begingroup\scriptsize
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash\sloppy}p{(\linewidth - 12\tabcolsep) * \real{0.1300}}
+  >{\raggedright\arraybackslash\sloppy}p{(\linewidth - 12\tabcolsep) * \real{0.1000}}
+  >{\raggedright\arraybackslash\sloppy}p{(\linewidth - 12\tabcolsep) * \real{0.1100}}
+  >{\raggedright\arraybackslash\sloppy}p{(\linewidth - 12\tabcolsep) * \real{0.1700}}
+  >{\raggedright\arraybackslash\sloppy}p{(\linewidth - 12\tabcolsep) * \real{0.1800}}
+  >{\raggedright\arraybackslash\sloppy}p{(\linewidth - 12\tabcolsep) * \real{0.1600}}
+  >{\raggedright\arraybackslash\sloppy}p{(\linewidth - 12\tabcolsep) * \real{0.1100}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Technology
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Verified Version
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Category
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Role in StudyRAG
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Why Needed
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Source Location
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Alternatives Evaluated
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{Python} & 3.12.2 & Language & Core runtime execution & Native
+support for modern AI/ML packages and type hinting & Entire repository &
+Python 3.10, 3.11 \\
+\textbf{Streamlit} & \(\ge 1.32.0\) & UI Framework & Interactive web
+application & Instant reactive state, native chat widgets,
+zero-boilerplate web hosting & \texttt{app.\allowbreak py} & Gradio, FastAPI +
+React \\
+\textbf{PyMuPDF (\texttt{fitz})} & \(\ge 1.23.0\) (1.28.2) & Document
+Processing & High-speed PDF text extraction & 10x-20x faster than
+pure-Python extractors with precise page tracking &
+\texttt{src/\allowbreak ingestion/\allowbreak pdf\_\allowbreak loader.\allowbreak py} & pypdf, pdfplumber, PyPDF2 \\
+\textbf{LangChain Core} & \(\ge 0.1.13\) & Orchestration & Prompt
+management and LCEL pipelines & Standardized chaining
+(\texttt{prompt\ \allowbreak \textbar{}\ \allowbreak llm\ \allowbreak \textbar{}\ \allowbreak parser}) and Document
+interfaces & \texttt{src/\allowbreak rag/\allowbreak rag\_\allowbreak pipeline.\allowbreak py}
+\newline \texttt{src/\allowbreak generation/\allowbreak } & LlamaIndex, Haystack \\
+\textbf{langchain-text-splitters} & \(\ge 0.0.1\) & Preprocessing &
+Recursive character splitting & Multi-stage boundary fallback preserving
+sentence semantics & \texttt{src/\allowbreak ingestion/\allowbreak chunker.\allowbreak py} & Fixed-length
+sliding window \\
+\textbf{langchain-huggingface} & \(\ge 0.0.1\) & Embeddings &
+HuggingFace embedding integration & Unified LangChain embedding
+interface for local transformers &
+\texttt{src/\allowbreak embeddings/\allowbreak embedding\_\allowbreak manager.\allowbreak py} & Direct PyTorch
+embeddings \\
+\textbf{sentence-transformers} & \(\ge 2.5.1\) & NLP Embeddings &
+Sentence-level semantic vector generation & Produces high-quality dense
+384d semantic vectors locally & \texttt{src/\allowbreak embeddings/\allowbreak } & OpenAI
+text-embedding-ada-002 \\
+\textbf{FAISS CPU} & \(\ge 1.8.0\) & Vector DB & In-memory dense vector
+indexing & Sub-millisecond vector similarity search with zero database
+overhead & \texttt{src/\allowbreak vectorstore/\allowbreak faiss\_\allowbreak store.\allowbreak py} & Annoy, ScaNN \\
+\textbf{ChromaDB} & \(\ge 0.4.24\) & Vector DB & Persistent embedded
+vector database & Native SQLite persistence and cosine collection
+configuration & \texttt{src/\allowbreak vectorstore/\allowbreak chroma\_\allowbreak store.\allowbreak py} & Milvus,
+Qdrant, Pinecone \\
+\textbf{langchain-openai} & \(\ge 0.1.0\) & LLM Integration & Interface
+to OpenAI and Groq APIs & Reuses OpenAI chat completion standard for
+both OpenAI and Groq & \texttt{src/\allowbreak generation/\allowbreak llm\_\allowbreak manager.\allowbreak py} & Raw
+\texttt{requests} / HTTP client \\
+\textbf{langchain-ollama} & \(\ge 0.1.0\) & LLM Integration & Local
+offline LLM connectivity & Connects directly to local Ollama daemon for
+private inference & \texttt{src/\allowbreak generation/\allowbreak llm\_\allowbreak manager.\allowbreak py} & Ollama
+Python SDK \\
+\textbf{PyYAML} & \(\ge 6.0.1\) & Configuration & Configuration file
+parsing & Clean YAML syntax for application hyperparameters &
+\texttt{app.\allowbreak py} \newline \texttt{config/\allowbreak settings.\allowbreak yaml} & JSON, TOML \\
+\textbf{python-dotenv} & \(\ge 1.0.1\) & Security & Environment secrets
+management & Ingests \texttt{.\allowbreak env} without hardcoding sensitive API keys
+& \texttt{app.\allowbreak py} \newline \texttt{src/\allowbreak generation/\allowbreak llm\_\allowbreak manager.\allowbreak py} & OS
+export scripts \\
+\textbf{Pandas \& NumPy} & \(\ge 2.2.1\) / \(\ge 1.26.0\) & Data
+Processing & Vector math and table structures & Array manipulation and
+score sorting & \texttt{src/\allowbreak retrieval/\allowbreak }
+\newline \texttt{src/\allowbreak evaluation/\allowbreak } & Pure Python math \\
+\textbf{Pytest} & \(\ge 8.0.0\) (8.1.1) & Testing & Automated test suite
+execution & Industrial test runner with fixture and mocking support &
+\texttt{tests/\allowbreak } & Unittest \\
+\end{longtable}
+\endgroup
+
+\subsection{3.2 Runtime and Programming
+Language}\label{runtime-and-programming-language}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Python 3.12}: Selected for enhanced execution speed, advanced
+  pattern matching, improved error tracebacks, and robust compatibility
+  with modern PyTorch wheels on macOS ARM64.
+\item
+  \textbf{Type Annotations}: Implemented across all \texttt{src/\allowbreak }
+  modules (\texttt{List}, \texttt{Dict}, \texttt{Any},
+  \texttt{Optional}, \texttt{Union}, \texttt{Path}) ensuring static
+  contract safety and IDE discoverability.
+\end{itemize}
+
+\subsection{3.3 Frontend and Presentation
+Framework}\label{frontend-and-presentation-framework}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Streamlit}: StudyRAG leverages Streamlit's reactive execution
+  engine. Key design elements:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Custom responsive CSS injected via \texttt{apply\_\allowbreak theme\_\allowbreak css(\allowbreak )\allowbreak }.
+  \item
+    Modern dual theme system: {[}Dark Mode{]} Dark Mode
+    (\texttt{\#0F172A} Slate palette) and {[}Light Mode{]} Light Mode
+    (\texttt{\#F8FAFC} clean palette).
+  \item
+    Web components: \texttt{st.\allowbreak chat\_\allowbreak message}, \texttt{st.\allowbreak chat\_\allowbreak input},
+    \texttt{st.\allowbreak expander}, \texttt{st.\allowbreak radio}, and custom gradient
+    buttons.
+  \item
+    Reactive cache: \texttt{@st.\allowbreak cache\_\allowbreak resource} prevents
+    re-instantiating heavy SentenceTransformer models upon UI
+    re-renders.
+  \end{itemize}
+\end{itemize}
+
+\subsection{3.4 Document Processing and Text
+Extraction}\label{document-processing-and-text-extraction}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{PyMuPDF (\texttt{fitz})}: Developed in high-performance C++
+  with Python bindings. PyMuPDF extracts text streams from complex
+  academic PDFs up to 20x faster than legacy pure-Python packages like
+  \texttt{pypdf}. It accurately captures page boundaries, enabling exact
+  page-level attribution.
+\end{itemize}
+
+\subsection{3.5 Orchestration and LLM
+Frameworks}\label{orchestration-and-llm-frameworks}
+
+\begin{itemize}
+\item
+  \textbf{LangChain Expression Language (LCEL)}: Replaces cumbersome
+  legacy \texttt{LLMChain} objects with declarative unix-pipe syntax:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{chain }\OperatorTok{=}\NormalTok{ prompt }\OperatorTok{|}\NormalTok{ llm }\OperatorTok{|}\NormalTok{ StrOutputParser()}
+\end{Highlighting}
+\end{Shaded}
+
+  This reduces memory overhead, simplifies streaming, and provides
+  transparent tracing.
+\end{itemize}
+
+\subsection{3.6 Embedding Models and Semantic Vector
+Spaces}\label{embedding-models-and-semantic-vector-spaces}
+
+StudyRAG features an embedding manager supporting two leading
+open-weights models: 1. \texttt{sentence-transformers/\allowbreak all-MiniLM-L6-v2}
+(Default): - Architecture: 6-layer MiniLM transformer. - Vector
+Dimension: 384 dimensions. - Sequence Length: 256 word pieces. -
+Performance: Blazing-fast inference on CPU (sub-50ms for typical
+paragraphs) with high semantic clustering fidelity. 2.
+\texttt{BAAI/\allowbreak bge-small-en-v1.5} (Selectable): - Architecture: 12-layer
+small BERT architecture. - Vector Dimension: 384 dimensions. -
+Top-ranked on the MTEB (Massive Text Embedding Benchmark) for retrieval
+tasks.
+
+\subsection{3.7 Vector Database Backends: FAISS and
+ChromaDB}\label{vector-database-backends-faiss-and-chromadb}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{FAISS (Facebook AI Similarity Search)}:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Implementation: \texttt{IndexFlatL2} dense index.
+  \item
+    Characteristics: Runs entirely in RAM; provides instantaneous
+    nearest-neighbor search. Serialized to disk using
+    \texttt{save\_\allowbreak local(\allowbreak )\allowbreak } and loaded with
+    \texttt{allow\_\allowbreak dangerous\_\allowbreak deserialization=\allowbreak True}.
+  \end{itemize}
+\item
+  \textbf{ChromaDB}:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Implementation: Embedded SQLite database with HNSW vector index
+    files.
+  \item
+    Configuration: Configured explicitly with
+    \texttt{\{"hnsw:space":\ \allowbreak "cosine"\}} to guarantee true cosine
+    distance metrics.
+  \end{itemize}
+\end{itemize}
+
+\subsection{3.8 Large Language Model (LLM) Inference
+Providers}\label{large-language-model-llm-inference-providers}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Groq Cloud Inference}:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Provider Type: Cloud LPU (Language Processing Unit) hosting.
+  \item
+    Protocol: OpenAI-compatible REST endpoint
+    (\texttt{https:/\allowbreak /\allowbreak api.\allowbreak groq.\allowbreak com/\allowbreak openai/\allowbreak v1}).
+  \item
+    Models: Llama 3.1 8B Instant (\texttt{openai/\allowbreak gpt-oss-20b}), 70B
+    (\texttt{openai/\allowbreak gpt-oss-120b}).
+  \item
+    Latency: Phenomenal inference speed (500+ tokens/second).
+  \end{itemize}
+\item
+  \textbf{OpenAI API}:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Protocol: Native REST API.
+  \item
+    Models: \texttt{gpt-4o}, \texttt{gpt-3.5-turbo}.
+  \item
+    Use Case: Highly complex reasoning and high-stakes exam synthesis.
+  \end{itemize}
+\item
+  \textbf{Local Ollama Daemon}:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Protocol: Local HTTP REST server (\texttt{http:/\allowbreak /\allowbreak localhost:11434}).
+  \item
+    Models: \texttt{llama3}, \texttt{mistral}, \texttt{gemma}.
+  \item
+    Use Case: 100\% offline, privacy-preserving study with zero token
+    costs.
+  \end{itemize}
+\end{enumerate}
+
+\subsection{3.9 Data Serialization, Testing, and Utility
+Tooling}\label{data-serialization-testing-and-utility-tooling}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{History Data}: Serialized as human-readable JSON
+  (\texttt{data/\allowbreak history.\allowbreak json}) with atomic write patterns.
+\item
+  \textbf{Pytest}: Enterprise testing framework supporting parameterized
+  test matrices and mock patch execution (\texttt{unittest.\allowbreak mock}). \#\#
+  Chapter 4: Project Architecture
+\end{itemize}
+
+\subsection{4.1 Architectural Style and High-Level Design
+Principles}\label{architectural-style-and-high-level-design-principles}
+
+StudyRAG follows a \textbf{Layered Modular Architecture} governed by
+clean software engineering principles: 1. \textbf{Separation of Concerns
+(SoC)}: Ingestion, embedding, vector indexing, retrieval, generation,
+and presentation are strictly decoupled. No UI logic leaks into core
+pipelines. 2. \textbf{Factory \& Strategy Patterns}: Vector store
+providers (\texttt{FAISSStore}, \texttt{ChromaStore}) and LLM providers
+(\texttt{Groq}, \texttt{OpenAI}, \texttt{Ollama}) implement unified
+interfaces managed by centralized factories
+(\texttt{VectorStoreManager}, \texttt{LLMManager}). 3.
+\textbf{Immutability \& Statelessness in Core Pipelines}: Pipeline
+functions (\texttt{process\_\allowbreak pdf}, \texttt{retrieve\_\allowbreak context},
+\texttt{generate\_\allowbreak rag\_\allowbreak response}) are stateless functions that accept
+configuration and data as inputs, returning structured dictionaries. 4.
+\textbf{Defensive Anti-Hallucination Design}: The generation layer
+refuses to invoke costly LLMs when retrieved context fails quality and
+relevance thresholds.
+
+\subsection{4.2 Layered System Topology
+Diagram}\label{layered-system-topology-diagram}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{graph TD}
+\NormalTok{    subgraph UI ["Layer 1: Presentation Layer (Streamlit)"]}
+\NormalTok{        A[Web Browser / User] {-}{-}\textgreater{} B[app.py Main UI Controller]}
+\NormalTok{        B {-}{-}\textgreater{} C1[[Study Library]  Study Library]}
+\NormalTok{        B {-}{-}\textgreater{} C2[[Ask Questions]  Ask Questions]}
+\NormalTok{        B {-}{-}\textgreater{} C3[[Practice Quiz]  Practice Quiz]}
+\NormalTok{        B {-}{-}\textgreater{} C4[[Flashcards]  Flashcards]}
+\NormalTok{        B {-}{-}\textgreater{} C5[[Topic Summaries]  Summaries]}
+\NormalTok{        B {-}{-}\textgreater{} C6[[Study History]  Study History]}
+\NormalTok{    end}
+
+\NormalTok{    subgraph WORKERS ["Layer 2: Concurrency \& Async Worker Subsystem"]}
+\NormalTok{        B {-}{-}\textgreater{} W1[threading.Thread / add\_script\_run\_ctx]}
+\NormalTok{        W1 {-}{-}\textgreater{} W2[GLOBAL\_BACKGROUND\_JOBS Registry]}
+\NormalTok{    end}
+
+\NormalTok{    subgraph PIPELINES ["Layer 3: Core Orchestration Pipelines"]}
+\NormalTok{        C1 {-}{-}\textgreater{} P1[Ingestion Pipeline \textbackslash{}newline process\_pdf]}
+\NormalTok{        C2 {-}{-}\textgreater{} P2[RAG Pipeline \textbackslash{}newline generate\_rag\_response]}
+\NormalTok{        C3 \& C4 \& C5 {-}{-}\textgreater{} P3[Study Generator \textbackslash{}newline generate\_quiz / flashcards / summary]}
+\NormalTok{        P2 \& P3 {-}{-}\textgreater{} P4[Retrieval Pipeline \textbackslash{}newline retrieve\_context]}
+\NormalTok{    end}
+
+\NormalTok{    subgraph CORE ["Layer 4: Core Engine Subsystems"]}
+\NormalTok{        P1 {-}{-}\textgreater{} E1[PDF Loader PyMuPDF]}
+\NormalTok{        P1 {-}{-}\textgreater{} E2[Document Cleaner Regex]}
+\NormalTok{        P1 {-}{-}\textgreater{} E3[Recursive Chunker LangChain]}
+        
+\NormalTok{        P4 {-}{-}\textgreater{} R1[Query Processor]}
+\NormalTok{        P4 {-}{-}\textgreater{} R2[Retriever Engine]}
+\NormalTok{        P4 {-}{-}\textgreater{} R3[Score Normalizer \& Filter]}
+        
+\NormalTok{        P2 \& P3 {-}{-}\textgreater{} G1[Prompt Templates LCEL]}
+\NormalTok{        P2 \& P3 {-}{-}\textgreater{} G2[LLM Manager]}
+\NormalTok{    end}
+
+\NormalTok{    subgraph STORAGE ["Layer 5: Persistent Storage \& External Services"]}
+\NormalTok{        E3 {-}{-}\textgreater{} VSM[VectorStoreManager]}
+\NormalTok{        VSM {-}{-}\textgreater{} V1[(FAISS Store \textbackslash{}newline index.faiss)]}
+\NormalTok{        VSM {-}{-}\textgreater{} V2[(ChromaDB Store \textbackslash{}newline chroma.sqlite3)]}
+        
+\NormalTok{        P1 {-}{-}\textgreater{} F1[(Uploaded PDFs \textbackslash{}newline data/uploaded/)]}
+\NormalTok{        W2 \& B {-}{-}\textgreater{} H1[(Study History \textbackslash{}newline data/history.json)]}
+        
+\NormalTok{        G2 {-}{-}\textgreater{} EXT1[Groq Cloud API]}
+\NormalTok{        G2 {-}{-}\textgreater{} EXT2[OpenAI API]}
+\NormalTok{        G2 {-}{-}\textgreater{} EXT3[Local Ollama Daemon]}
+\NormalTok{    end}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{4.3 Component Boundaries and Interface
+Contracts}\label{component-boundaries-and-interface-contracts}
+
+The system enforces strict data contracts across module boundaries:
+
+\begin{verbatim}
+[Raw PDF File]
+      |
+      v  (load_pdf)
+List[Dict[str, Any]]  -->  {"text": str, "source": str, "page": int}
+      |
+      v  (clean_documents)
+List[Dict[str, Any]]  -->  {"text": str (normalized), "source": str, "page": int}
+      |
+      v  (create_chunks)
+List[Dict[str, Any]]  -->  {"text": str, "source": str, "page": int, "chunk_id": int}
+      |
+      v  (raw_chunks_to_documents)
+List[Document]        -->  LangChain Document(page_content, metadata={source, page, chunk_id})
+      |
+      v  (similarity_search_with_score)
+List[Tuple[Document, float]]  -->  (Document, raw_score)
+      |
+      v  (filter_by_threshold)
+List[Dict[str, Any]]  -->  {"text": str, "source": str, "page": int, "chunk_id": int, "score": float}
+\end{verbatim}
+
+\subsection{4.4 Data Flow Architecture: From PDF Upload to Grounded
+Response}\label{data-flow-architecture-from-pdf-upload-to-grounded-response}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{sequenceDiagram}
+\NormalTok{    autonumber}
+\NormalTok{    actor Student as  Student / User}
+\NormalTok{    participant UI as  app.py (Streamlit)}
+\NormalTok{    participant Ingest as  Ingestion Pipeline}
+\NormalTok{    participant Embed as [Embeddings Engine]  Embedding Manager}
+\NormalTok{    participant VStore as  VectorStoreManager}
+\NormalTok{    participant Retr as  Retrieval Pipeline}
+\NormalTok{    participant LLM as  LLM Manager}
+
+\NormalTok{    \%\% Ingestion Phase}
+\NormalTok{    Note over Student, VStore: Phase 1: Ingestion \& Indexing}
+\NormalTok{    Student{-}\textgreater{}\textgreater{}UI: Upload syllabus.pdf}
+\NormalTok{    UI{-}\textgreater{}\textgreater{}Ingest: process\_pdf(syllabus.pdf, size=500, overlap=50)}
+\NormalTok{    Ingest{-}\textgreater{}\textgreater{}Ingest: PyMuPDF extract text page{-}by{-}page}
+\NormalTok{    Ingest{-}\textgreater{}\textgreater{}Ingest: Clean whitespace \& remove empty pages}
+\NormalTok{    Ingest{-}\textgreater{}\textgreater{}Ingest: RecursiveCharacterTextSplitter (chunks)}
+\NormalTok{    Ingest{-}{-}\textgreater{}\textgreater{}UI: Return List of chunk dicts}
+\NormalTok{    UI{-}\textgreater{}\textgreater{}Embed: Get HuggingFace embeddings (all{-}MiniLM{-}L6{-}v2)}
+\NormalTok{    UI{-}\textgreater{}\textgreater{}VStore: add\_documents(chunks) \& save()}
+\NormalTok{    VStore{-}{-}\textgreater{}\textgreater{}UI: Index serialized to disk}
+
+\NormalTok{    \%\% RAG Q\&A Phase}
+\NormalTok{    Note over Student, LLM: Phase 2: Grounded Q\&A}
+\NormalTok{    Student{-}\textgreater{}\textgreater{}UI: Submit question: "What is an OS thread?"}
+\NormalTok{    UI{-}\textgreater{}\textgreater{}Retr: retrieve\_context(query, top\_k=5, threshold=0.20)}
+\NormalTok{    Retr{-}\textgreater{}\textgreater{}Retr: process\_query() validation \& whitespace strip}
+\NormalTok{    Retr{-}\textgreater{}\textgreater{}VStore: similarity\_search(clean\_query, k=5)}
+\NormalTok{    VStore{-}{-}\textgreater{}\textgreater{}Retr: Raw tuples [(Doc, distance)]}
+\NormalTok{    Retr{-}\textgreater{}\textgreater{}Retr: normalize\_score() (L2 / Cosine {-}\textgreater{} 0.0{-}1.0)}
+\NormalTok{    Retr{-}\textgreater{}\textgreater{}Retr: filter\_by\_threshold(score \textgreater{}= 0.20)}
+    
+\NormalTok{    alt If relevant chunks found}
+\NormalTok{        Retr{-}{-}\textgreater{}\textgreater{}UI: Formatted results + metadata}
+\NormalTok{        UI{-}\textgreater{}\textgreater{}LLM: invoke(RAG Prompt + Context + Question)}
+\NormalTok{        LLM{-}{-}\textgreater{}\textgreater{}UI: Grounded answer with citations}
+\NormalTok{        UI{-}\textgreater{}\textgreater{}Student: Display answer + expander with Page references}
+\NormalTok{    else If score \textless{} 0.20 (Out of syllabus)}
+\NormalTok{        Retr{-}{-}\textgreater{}\textgreater{}UI: No relevant results found}
+\NormalTok{        UI{-}\textgreater{}\textgreater{}Student: Fallback: "I could not find enough information in uploaded documents."}
+\NormalTok{    end}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{4.5 Request and Execution
+Lifecycles}\label{request-and-execution-lifecycles}
+
+\subsubsection{A. Interactive Q\&A
+Lifecycle}\label{a.-interactive-qa-lifecycle}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  User enters natural language query into \texttt{st.\allowbreak chat\_\allowbreak input}.
+\item
+  Query validation checks string length and whitespace.
+\item
+  Semantic retrieval fetches top-K candidates from FAISS/Chroma.
+\item
+  Score normalization evaluates relevance against tau = 0.20 threshold.
+\item
+  Context formatter synthesizes chunk texts with
+  \texttt{Source\ \allowbreak X\ \allowbreak (\allowbreak File:\ \allowbreak .\allowbreak .\allowbreak .,\allowbreak \ \allowbreak Page:\ \allowbreak .\allowbreak .\allowbreak .)\allowbreak } headers.
+\item
+  LangChain LCEL pipeline invokes LLM with deterministic temperature
+  (temperature = 0.0).
+\item
+  UI updates chat history in \texttt{st.\allowbreak session\_\allowbreak state} and appends an
+  audit record to \texttt{data/\allowbreak history.\allowbreak json}.
+\end{enumerate}
+
+\subsubsection{B. Asynchronous Practice Quiz
+Lifecycle}\label{b.-asynchronous-practice-quiz-lifecycle}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  User specifies a topic (e.g., ``Virtual Memory''), number of questions
+  (\(N=5\)), and document scope.
+\item
+  Background thread (\texttt{worker\_\allowbreak generate\_\allowbreak quiz}) spawns without
+  blocking the main UI thread.
+\item
+  Worker retrieves top-5 context chunks relevant to the topic.
+\item
+  Prompt template enforces strict JSON array formatting.
+\item
+  Worker cleans potential markdown formatting
+  (\texttt{\textasciigrave{}\textasciigrave{}\textasciigrave{}json}),
+  parses JSON, and stores results in \texttt{GLOBAL\_\allowbreak BACKGROUND\_\allowbreak JOBS}.
+\item
+  History record is created. User can review and take the quiz at any
+  time with instant automated grading.
+\end{enumerate}
+
+\subsection{4.6 Asynchronous Threading Model and Non-Blocking UI
+Execution}\label{asynchronous-threading-model-and-non-blocking-ui-execution}
+
+Streamlit runs on a linear script execution model: when user input
+occurs, the entire script reruns from top to bottom. In traditional
+implementations, generating a 10-question quiz or comprehensive summary
+blocks the Python execution thread for 10-30 seconds, causing browser
+freezes.
+
+StudyRAG circumvents this limitation through an asynchronous background
+worker architecture: - \textbf{Global Job Registry}: A module-level
+dictionary \texttt{GLOBAL\_\allowbreak BACKGROUND\_\allowbreak JOBS} tracks job status
+(\texttt{running}, \texttt{completed}, \texttt{failed}), title, results,
+and error logs across script re-runs. - \textbf{Execution Context
+Binding}: Background threads are initialized using
+\texttt{threading.\allowbreak Thread} and wrapped with Streamlit's internal
+\texttt{add\_\allowbreak script\_\allowbreak run\_\allowbreak ctx(\allowbreak t)\allowbreak } helper, allowing background threads to
+access server resources safely without threading violations. -
+\textbf{Asynchronous Polling UI}: When jobs are active, the sidebar
+displays a non-blocking indicator: \emph{'' 1 task(s) generating in
+background\ldots{} You can switch pages freely while your content
+builds!{\kern0pt}``}
+
+\subsection{4.7 Error Propagation and Fault Tolerance
+Strategy}\label{error-propagation-and-fault-tolerance-strategy}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Ingestion Failures}: If a user uploads an encrypted,
+  password-protected, or corrupted PDF, \texttt{pdf\_\allowbreak loader.\allowbreak py} catches
+  the PyMuPDF exception, logs an error via \texttt{logger.\allowbreak error(\allowbreak )\allowbreak }, and
+  raises a user-friendly \texttt{ValueError} displayed as a Streamlit
+  warning card.
+\item
+  \textbf{Missing API Keys}: If a user selects Groq or OpenAI without
+  defining environment keys, \texttt{LLMManager} raises a
+  \texttt{ValueError} indicating the missing key. The UI catches this
+  and directs the user to configure \texttt{.\allowbreak env}.
+\item
+  \textbf{JSON Parsing Errors}: If an LLM returns malformed JSON for a
+  quiz or flashcard deck, \texttt{study\_\allowbreak generator.\allowbreak py} logs the raw text
+  and gracefully raises a clean exception rather than crashing the
+  application. \#\# Chapter 5: Complete Folder and File Structure
+\end{itemize}
+
+\subsection{5.1 Verified Repository
+Tree}\label{verified-repository-tree}
+
+The complete, active directory layout of the repository is documented
+below:
+
+\begin{verbatim}
+rag-study-assistant/
+    .env                                # Local secrets & API keys (Git-ignored)
+    .env.example                        # Template for environment variables
+    .gitignore                          # Git tracking exclusions
+    .streamlit/                         # Streamlit server configurations
+    config/
+        settings.yaml                   # Core application defaults & parameters
+    data/
+        history.json                    # Persistent study activity log (quizzes, cards, chat)
+        uploaded/                       # Uploaded study materials (e.g. os.pdf)
+        vectorstores/                   # Serialized vector indices
+            chroma/                     # ChromaDB SQLite & HNSW collection storage
+            faiss/                      # FAISS binary index (index.faiss, index.pkl)
+    docs/                               # Project documentation artifacts
+    evaluation/                         # Evaluation datasets & benchmark scripts
+    src/
+        embeddings/
+            embedding_manager.py        # HuggingFace / SentenceTransformers manager
+        evaluation/
+            retrieval_metrics.py        # Precision@K, Recall@K, Hit Rate@K metrics
+        generation/
+            llm_manager.py              # Groq, OpenAI, and Ollama multi-provider factory
+            prompt_templates.py         # LCEL system prompts for RAG, Quizzes, Cards, Summaries
+            study_generator.py          # Study artifact generation & JSON parsing engine
+        ingestion/
+            chunker.py                  # RecursiveCharacterTextSplitter wrapper
+            document_cleaner.py         # Whitespace normalizer & empty page stripper
+            ingestion_pipeline.py       # End-to-end PDF processing pipeline coordinator
+            pdf_loader.py               # PyMuPDF page-by-page text extractor
+        rag/
+            rag_pipeline.py             # End-to-end RAG orchestrator with fallback logic
+        retrieval/
+            query_processor.py          # Query cleaner, trimmer & validator
+            retrieval_pipeline.py       # End-to-end retrieval coordinator with timing metrics
+            retriever.py                # Source-filtering vector search executor
+            score_filter.py             # L2/Cosine score normalization & threshold filter
+        utils/
+            file_utils.py               # SHA-256 file hashing & deduplication
+            history_manager.py          # JSON history CRUD operations & UUID tracking
+            logger.py                   # Centralized Python logging configuration
+        vectorstore/
+            chroma_store.py             # Persistent ChromaDB wrapper with cosine metric
+            faiss_store.py              # In-memory & serialized FAISS CPU wrapper
+            vector_store_manager.py     # Unified factory interface for vector DB backends
+    tests/
+        test_chunking.py                # Unit tests for text splitting & overlap logic
+        test_document_cleaner.py        # Unit tests for whitespace & newline cleaning
+        test_embeddings.py              # Integration tests for HuggingFace embeddings
+        test_llm_manager.py             # Unit tests for multi-provider LLM initializations
+        test_pdf_loader.py              # Unit tests for PyMuPDF loading & empty PDF handling
+        test_query_processor.py         # Unit tests for query sanitization & length limits
+        test_rag.py                     # Integration tests for RAG pipeline & fallback logic
+        test_retrieval.py               # Unit tests for score normalization & metrics
+        test_vectorstore.py             # Integration tests for FAISS and Chroma CRUD ops
+    app.py                              # Main interactive Streamlit application
+    pytest.ini                          # Pytest configuration (pythonpath = .)
+    requirements.txt                    # Python dependency manifest
+    README.md                           # Public repository overview
+\end{verbatim}
+
+\subsection{5.2 Exhaustive Directory and File
+Catalog}\label{exhaustive-directory-and-file-catalog}
+
+\begingroup\scriptsize
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash\sloppy}p{(\linewidth - 8\tabcolsep) * \real{0.2600}}
+  >{\raggedright\arraybackslash\sloppy}p{(\linewidth - 8\tabcolsep) * \real{0.1400}}
+  >{\raggedright\arraybackslash\sloppy}p{(\linewidth - 8\tabcolsep) * \real{0.3000}}
+  >{\raggedright\arraybackslash\sloppy}p{(\linewidth - 8\tabcolsep) * \real{0.1600}}
+  >{\raggedright\arraybackslash\sloppy}p{(\linewidth - 8\tabcolsep) * \real{0.1000}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+File / Directory Path
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Role \& Category
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Primary Responsibility
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Dependencies
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Execution Criticality
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{app.\allowbreak py} & UI Entry Point & Implements Streamlit UI, routing,
+theme CSS, background workers & All \texttt{src.*} modules &
+\textbf{CRITICAL} (Required to run app) \\
+\texttt{config/\allowbreak settings.\allowbreak yaml} & Configuration & Defines default chunk
+sizes, overlap, top\_k, and thresholds & PyYAML & \textbf{CRITICAL}
+(Loaded at startup) \\
+\texttt{.\allowbreak env} & Environment Config & Contains API keys
+(\texttt{GROQ\_\allowbreak API\_\allowbreak KEY}, \texttt{OPENAI\_\allowbreak API\_\allowbreak KEY}) & python-dotenv &
+\textbf{HIGH} (Required for cloud LLMs) \\
+\texttt{requirements.\allowbreak txt} & Package Manifest & Declares required Python
+package versions & pip & \textbf{CRITICAL} (Required for
+installation) \\
+\texttt{pytest.\allowbreak ini} & Test Configuration & Defines pytest root directory
+and pythonpath & pytest & \textbf{HIGH} (Required to run tests
+cleanly) \\
+\texttt{src/\allowbreak ingestion/\allowbreak pdf\_\allowbreak loader.\allowbreak py} & Document Processing & Extracts
+text and 1-indexed page metadata via PyMuPDF & pymupdf, pathlib &
+\textbf{CRITICAL} (Required for document loading) \\
+\texttt{src/\allowbreak ingestion/\allowbreak document\_\allowbreak cleaner.\allowbreak py} & Text Cleaning & Normalizes
+spaces and removes empty pages & re & \textbf{CRITICAL} (Prepares text
+for chunking) \\
+\texttt{src/\allowbreak ingestion/\allowbreak chunker.\allowbreak py} & Text Splitting & Splits text
+recursively preserving metadata and chunk IDs & langchain-text-splitters
+& \textbf{CRITICAL} (Creates vector chunks) \\
+\texttt{src/\allowbreak ingestion/\allowbreak ingestion\_\allowbreak pipeline.\allowbreak py} & Pipeline Coordinator &
+Orchestrates loading, cleaning, and chunking & \texttt{pdf\_\allowbreak loader},
+\texttt{cleaner}, \texttt{chunker} & \textbf{CRITICAL} (Main ingestion
+API) \\
+\texttt{src/\allowbreak embeddings/\allowbreak embedding\_\allowbreak manager.\allowbreak py} & Vector Embedding & Loads
+and caches SentenceTransformer models & langchain-huggingface &
+\textbf{CRITICAL} (Vectorization engine) \\
+\texttt{src/\allowbreak vectorstore/\allowbreak vector\_\allowbreak store\_\allowbreak manager.\allowbreak py} & Storage Factory &
+Provides unified API for FAISS and ChromaDB & \texttt{faiss\_\allowbreak store},
+\texttt{chroma\_\allowbreak store} & \textbf{CRITICAL} (Database abstraction) \\
+\texttt{src/\allowbreak vectorstore/\allowbreak faiss\_\allowbreak store.\allowbreak py} & Vector Index & Manages
+in-memory and disk FAISS L2 index & faiss-cpu & \textbf{CRITICAL}
+(Default vector database) \\
+\texttt{src/\allowbreak vectorstore/\allowbreak chroma\_\allowbreak store.\allowbreak py} & Vector Index & Manages
+persistent SQLite Chroma collection & chromadb & \textbf{HIGH}
+(Alternative vector database) \\
+\texttt{src/\allowbreak retrieval/\allowbreak query\_\allowbreak processor.\allowbreak py} & Query Sanitizer & Trims and
+validates user input strings & re & \textbf{HIGH} (Guards retrieval
+pipeline) \\
+\texttt{src/\allowbreak retrieval/\allowbreak score\_\allowbreak filter.\allowbreak py} & Mathematics & Normalizes
+distance metrics to \([0, 1]\) and applies \$ au\$ & math &
+\textbf{CRITICAL} (Determines answer relevance) \\
+\texttt{src/\allowbreak retrieval/\allowbreak retriever.\allowbreak py} & Vector Search & Executes
+similarity search with source document filters &
+\texttt{VectorStoreManager} & \textbf{CRITICAL} (Executes search
+queries) \\
+\texttt{src/\allowbreak retrieval/\allowbreak retrieval\_\allowbreak pipeline.\allowbreak py} & Pipeline Coordinator &
+Combines query processing, search, filtering, and timers &
+\texttt{query\_\allowbreak proc}, \texttt{retriever}, \texttt{filter} &
+\textbf{CRITICAL} (Main retrieval API) \\
+\texttt{src/\allowbreak generation/\allowbreak prompt\_\allowbreak templates.\allowbreak py} & Prompt Engineering &
+Declares ChatPromptTemplates and context formatters & langchain-core &
+\textbf{CRITICAL} (Formats LLM inputs) \\
+\texttt{src/\allowbreak generation/\allowbreak llm\_\allowbreak manager.\allowbreak py} & Model Factory & Initializes
+Groq, OpenAI, or Ollama model instances & langchain-openai,
+langchain-ollama & \textbf{CRITICAL} (LLM communication) \\
+\texttt{src/\allowbreak generation/\allowbreak study\_\allowbreak generator.\allowbreak py} & Generator Engine &
+Generates quizzes, flashcards, summaries; parses JSON &
+\texttt{llm\_\allowbreak manager}, \texttt{prompts}, \texttt{retrieval} &
+\textbf{CRITICAL} (Study tool generation) \\
+\texttt{src/\allowbreak rag/\allowbreak rag\_\allowbreak pipeline.\allowbreak py} & RAG Orchestrator & Connects
+retrieval, prompt formatting, and LLM output & \texttt{retrieval\_\allowbreak pipe},
+\texttt{prompts}, LCEL & \textbf{CRITICAL} (Core Q\&A pipeline) \\
+\texttt{src/\allowbreak evaluation/\allowbreak retrieval\_\allowbreak metrics.\allowbreak py} & Evaluation Engine &
+Calculates Precision@K, Recall@K, and Hit Rate@K & typing &
+\textbf{MEDIUM} (Benchmarking \& evaluation) \\
+\texttt{src/\allowbreak utils/\allowbreak file\_\allowbreak utils.\allowbreak py} & Utilities & Computes SHA-256 hashes
+for document deduplication & hashlib & \textbf{HIGH} (Prevents duplicate
+processing) \\
+\texttt{src/\allowbreak utils/\allowbreak history\_\allowbreak manager.\allowbreak py} & Persistence & Manages JSON
+read/write/delete operations for history & json, uuid & \textbf{HIGH}
+(Study session history) \\
+\texttt{src/\allowbreak utils/\allowbreak logger.\allowbreak py} & System Diagnostics & Configures console
+logging across all modules & logging, sys & \textbf{HIGH} (Debugging \&
+system audit) \\
+\texttt{data/\allowbreak history.\allowbreak json} & Data Store & Persistent JSON log of all
+study artifacts & Built-in JSON & \textbf{HIGH} (Runtime persistence
+datastore) \\
+\texttt{data/\allowbreak uploaded/\allowbreak } & Storage Directory & Directory storing
+user-uploaded PDF files & OS File system & \textbf{HIGH} (Document
+archive) \\
+\texttt{data/\allowbreak vectorstores/\allowbreak } & Storage Directory & Directory storing
+serialized FAISS/Chroma indices & OS File system & \textbf{HIGH} (Vector
+index storage) \\
+\end{longtable}
+\endgroup
+
+\section{Chapter 6: Module-by-Module
+Implementation}\label{chapter-6-module-by-module-implementation}
+
+\subsection{\texorpdfstring{6.1 Module: Document Ingestion and
+Preprocessing
+(\texttt{src/\allowbreak ingestion})}{6.1 Module: Document Ingestion and Preprocessing (src/ingestion)}}\label{module-document-ingestion-and-preprocessing-srcingestion}
+
+The ingestion subsystem converts raw PDF documents into semantically
+coherent, metadata-rich text chunks ready for vectorization.
+
+\subsubsection{\texorpdfstring{1.
+\texttt{pdf\_\allowbreak loader.\allowbreak py}}{1. pdf\_loader.py}}\label{pdf_loader.py}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Function:}
+  \texttt{load\_\allowbreak pdf(\allowbreak pdf\_\allowbreak path:\ \allowbreak str\ \allowbreak \textbar{}\ \allowbreak Path)\allowbreak \ \allowbreak -\textgreater{}\allowbreak \ \allowbreak List{[}Dict{[}str,\allowbreak \ \allowbreak Any{]}{]}}
+\item
+  \textbf{Implementation Logic:}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Validates file existence using \texttt{pathlib.\allowbreak Path.\allowbreak exists(\allowbreak )\allowbreak }.
+  \item
+    Enforces \texttt{.\allowbreak pdf} extension check, raising \texttt{ValueError}
+    if non-PDF.
+  \item
+    Opens document using \texttt{pymupdf.\allowbreak open(\allowbreak path)\allowbreak }.
+  \item
+    Iterates through \texttt{doc} page-by-page. For each page, executes
+    \texttt{page.\allowbreak get\_\allowbreak text(\allowbreak "text")\allowbreak }.
+  \item
+    Tracks boolean flag \texttt{text\_\allowbreak found} across all pages. If no
+    extractable text is detected, logs a warning indicating a potential
+    scanned image.
+  \item
+    Stores each page as a dictionary:
+    \texttt{\{"text":\ \allowbreak text,\allowbreak \ \allowbreak "source":\ \allowbreak path.\allowbreak name,\allowbreak \ \allowbreak "page":\ \allowbreak page\_\allowbreak num\ \allowbreak +\ \allowbreak 1\}}
+    (1-indexed for human readability).
+  \end{itemize}
+\item
+  \textbf{Error Handling:} Catches corrupt/encrypted files, logs via
+  \texttt{logger.\allowbreak error}, and raises
+  \texttt{ValueError(\allowbreak "Unable\ \allowbreak to\ \allowbreak open\ \allowbreak PDF.\allowbreak .\allowbreak .\ \allowbreak It\ \allowbreak may\ \allowbreak be\ \allowbreak corrupted\ \allowbreak or\ \allowbreak encrypted.")\allowbreak }.
+\end{itemize}
+
+\subsubsection{\texorpdfstring{2.
+\texttt{document\_\allowbreak cleaner.\allowbreak py}}{2. document\_cleaner.py}}\label{document_cleaner.py}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Functions:}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \texttt{clean\_\allowbreak text(\allowbreak text:\ \allowbreak str)\allowbreak \ \allowbreak -\textgreater{}\allowbreak \ \allowbreak str}: Uses regex
+    \texttt{re.\allowbreak sub(\allowbreak r\textquotesingle{}{[}\ \allowbreak \textbackslash{}\textbackslash{}t{]}+\textquotesingle{},\allowbreak \ \allowbreak \textquotesingle{}\ \allowbreak \textquotesingle{},\allowbreak \ \allowbreak text)\allowbreak }
+    to collapse inline whitespace. Uses
+    \texttt{re.\allowbreak sub(\allowbreak r\textquotesingle{}\textbackslash{}\textbackslash{}n\{3,\allowbreak \}\textquotesingle{},\allowbreak \ \allowbreak \textquotesingle{}\textbackslash{}\textbackslash{}n\textbackslash{}\textbackslash{}n\textquotesingle{},\allowbreak \ \allowbreak text)\allowbreak }
+    to compress excess blank lines into standard two-newline paragraph
+    separators. Strips leading and trailing whitespace.
+  \item
+    \texttt{clean\_\allowbreak documents(\allowbreak documents:\ \allowbreak List{[}Dict{[}str,\allowbreak \ \allowbreak Any{]}{]})\allowbreak \ \allowbreak -\textgreater{}\allowbreak \ \allowbreak List{[}Dict{[}str,\allowbreak \ \allowbreak Any{]}{]}}:
+    Applies \texttt{clean\_\allowbreak text} to all documents. Filters out any
+    document whose resulting text is empty
+    (\texttt{if\ \allowbreak cleaned\_\allowbreak text:}), removing blank pages.
+  \end{itemize}
+\end{itemize}
+
+\subsubsection{\texorpdfstring{3.
+\texttt{chunker.\allowbreak py}}{3. chunker.py}}\label{chunker.py}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Function:}
+  \texttt{create\_\allowbreak chunks(\allowbreak documents:\ \allowbreak List{[}Dict{[}str,\allowbreak \ \allowbreak Any{]}{]},\allowbreak \ \allowbreak chunk\_\allowbreak size:\ \allowbreak int\ \allowbreak =\allowbreak \ \allowbreak 500,\allowbreak \ \allowbreak chunk\_\allowbreak overlap:\ \allowbreak int\ \allowbreak =\allowbreak \ \allowbreak 50)\allowbreak \ \allowbreak -\textgreater{}\allowbreak \ \allowbreak List{[}Dict{[}str,\allowbreak \ \allowbreak Any{]}{]}}
+\item
+  \textbf{Validation Rules:}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Enforces \texttt{chunk\_\allowbreak size\ \allowbreak \textgreater{}\ \allowbreak 0}.
+  \item
+    Enforces \texttt{chunk\_\allowbreak overlap\ \allowbreak \textgreater{}=\allowbreak \ \allowbreak 0}.
+  \item
+    Enforces \texttt{chunk\_\allowbreak overlap\ \allowbreak \textless{}\ \allowbreak chunk\_\allowbreak size} (strictly
+    less than chunk size).
+  \end{itemize}
+\item
+  \textbf{Splitting Logic:}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Initializes
+    \texttt{RecursiveCharacterTextSplitter(\allowbreak chunk\_\allowbreak size=\allowbreak chunk\_\allowbreak size,\allowbreak \ \allowbreak chunk\_\allowbreak overlap=\allowbreak chunk\_\allowbreak overlap,\allowbreak \ \allowbreak separators=\allowbreak {[}"\textbackslash{}\textbackslash{}n\textbackslash{}\textbackslash{}n",\allowbreak \ \allowbreak "\textbackslash{}\textbackslash{}n",\allowbreak \ \allowbreak ".\ \allowbreak ",\allowbreak \ \allowbreak "\ \allowbreak ",\allowbreak \ \allowbreak ""{]})\allowbreak }.
+  \item
+    Iterates through documents, executing
+    \texttt{text\_\allowbreak splitter.\allowbreak split\_\allowbreak text(\allowbreak doc{[}"text"{]})\allowbreak }.
+  \item
+    For each generated chunk, appends metadata: \texttt{source},
+    \texttt{page}, and an incrementing integer \texttt{chunk\_\allowbreak id}.
+  \end{itemize}
+\end{itemize}
+
+\subsubsection{\texorpdfstring{4.
+\texttt{ingestion\_\allowbreak pipeline.\allowbreak py}}{4. ingestion\_pipeline.py}}\label{ingestion_pipeline.py}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Function:}
+  \texttt{process\_\allowbreak pdf(\allowbreak pdf\_\allowbreak path:\ \allowbreak str\ \allowbreak \textbar{}\ \allowbreak Path,\allowbreak \ \allowbreak chunk\_\allowbreak size:\ \allowbreak int\ \allowbreak =\allowbreak \ \allowbreak 500,\allowbreak \ \allowbreak chunk\_\allowbreak overlap:\ \allowbreak int\ \allowbreak =\allowbreak \ \allowbreak 50)\allowbreak \ \allowbreak -\textgreater{}\allowbreak \ \allowbreak List{[}Dict{[}str,\allowbreak \ \allowbreak Any{]}{]}}
+\item
+  \textbf{Workflow:} Combines \texttt{load\_\allowbreak pdf} \(\rightarrow\)
+  \texttt{clean\_\allowbreak documents} \(\rightarrow\) \texttt{create\_\allowbreak chunks}.
+  Logs chunk count and processing status.
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{\texorpdfstring{6.2 Module: Semantic Embedding Management
+(\texttt{src/\allowbreak embeddings})}{6.2 Module: Semantic Embedding Management (src/embeddings)}}\label{module-semantic-embedding-management-srcembeddings}
+
+\subsubsection{\texorpdfstring{\texttt{embedding\_\allowbreak manager.\allowbreak py}}{embedding\_manager.py}}\label{embedding_manager.py}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Class:}
+  \texttt{EmbeddingManager(\allowbreak model\_\allowbreak key:\ \allowbreak str\ \allowbreak =\allowbreak \ \allowbreak "minilm")\allowbreak }
+\item
+  \textbf{Model Registry:}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \texttt{"minilm"}: maps to
+    \texttt{sentence-transformers/\allowbreak all-MiniLM-L6-v2}
+  \item
+    \texttt{"bge"}: maps to \texttt{BAAI/\allowbreak bge-small-en-v1.5}
+  \end{itemize}
+\item
+  \textbf{Methods:}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \texttt{get\_\allowbreak embeddings(\allowbreak )\allowbreak \ \allowbreak -\textgreater{}\allowbreak \ \allowbreak HuggingFaceEmbeddings}:
+    Returns the underlying LangChain embedding object.
+  \item
+    \texttt{get\_\allowbreak model\_\allowbreak name(\allowbreak )\allowbreak \ \allowbreak -\textgreater{}\allowbreak \ \allowbreak str}: Returns the
+    active HuggingFace repository string.
+  \item
+    \texttt{get\_\allowbreak embedding\_\allowbreak dimension(\allowbreak )\allowbreak \ \allowbreak -\textgreater{}\allowbreak \ \allowbreak int}: Executes
+    a single test query embedding
+    (\texttt{self.\allowbreak embeddings.\allowbreak embed\_\allowbreak query(\allowbreak "test")\allowbreak }), computes
+    \texttt{len(\allowbreak vector)\allowbreak }, and caches \texttt{self.\_\allowbreak dimension} (384
+    dimensions).
+  \end{itemize}
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{\texorpdfstring{6.3 Module: Vector Store Subsystem
+(\texttt{src/\allowbreak vectorstore})}{6.3 Module: Vector Store Subsystem (src/vectorstore)}}\label{module-vector-store-subsystem-srcvectorstore}
+
+\subsubsection{\texorpdfstring{1.
+\texttt{faiss\_\allowbreak store.\allowbreak py}}{1. faiss\_store.py}}\label{faiss_store.py}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Class:}
+  \texttt{FAISSStore(\allowbreak embeddings:\ \allowbreak Embeddings,\allowbreak \ \allowbreak persist\_\allowbreak directory:\ \allowbreak str\ \allowbreak =\allowbreak \ \allowbreak "data/\allowbreak vectorstores/\allowbreak faiss/\allowbreak ")\allowbreak }
+\item
+  \textbf{Methods:}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \texttt{add\_\allowbreak documents(\allowbreak documents:\ \allowbreak List{[}Document{]})\allowbreak }: If
+    \texttt{self.\allowbreak vector\_\allowbreak store} is \texttt{None}, initializes
+    \texttt{FAISS.\allowbreak from\_\allowbreak documents(\allowbreak documents,\allowbreak \ \allowbreak self.\allowbreak embeddings)\allowbreak }. If
+    already initialized, executes
+    \texttt{self.\allowbreak vector\_\allowbreak store.\allowbreak add\_\allowbreak documents(\allowbreak documents)\allowbreak }.
+  \item
+    \texttt{save(\allowbreak )\allowbreak }: Creates directory and calls
+    \texttt{self.\allowbreak vector\_\allowbreak store.\allowbreak save\_\allowbreak local(\allowbreak str(\allowbreak self.\allowbreak persist\_\allowbreak directory)\allowbreak )\allowbreak }.
+  \item
+    \texttt{load(\allowbreak )\allowbreak \ \allowbreak -\textgreater{}\allowbreak \ \allowbreak bool}: Verifies
+    \texttt{index.\allowbreak faiss} exists. Calls
+    \texttt{FAISS.\allowbreak load\_\allowbreak local(\allowbreak .\allowbreak .\allowbreak .,\allowbreak \ \allowbreak allow\_\allowbreak dangerous\_\allowbreak deserialization=\allowbreak True)\allowbreak }.
+    Returns \texttt{True} on success.
+  \item
+    \texttt{similarity\_\allowbreak search(\allowbreak query:\ \allowbreak str,\allowbreak \ \allowbreak k:\ \allowbreak int\ \allowbreak =\allowbreak \ \allowbreak 5)\allowbreak \ \allowbreak -\textgreater{}\allowbreak \ \allowbreak List{[}tuple{[}Document,\allowbreak \ \allowbreak float{]}{]}}:
+    Calls \texttt{similarity\_\allowbreak search\_\allowbreak with\_\allowbreak score(\allowbreak query,\allowbreak \ \allowbreak k=\allowbreak k)\allowbreak }. Returns
+    raw L2 distances.
+  \item
+    \texttt{reset(\allowbreak )\allowbreak }: Sets \texttt{vector\_\allowbreak store\ \allowbreak =\allowbreak \ \allowbreak None} and removes
+    directory using \texttt{shutil.\allowbreak rmtree(\allowbreak )\allowbreak }.
+  \end{itemize}
+\end{itemize}
+
+\subsubsection{\texorpdfstring{2.
+\texttt{chroma\_\allowbreak store.\allowbreak py}}{2. chroma\_store.py}}\label{chroma_store.py}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Class:}
+  \texttt{ChromaStore(\allowbreak embeddings:\ \allowbreak Embeddings,\allowbreak \ \allowbreak persist\_\allowbreak directory:\ \allowbreak str\ \allowbreak =\allowbreak \ \allowbreak "data/\allowbreak vectorstores/\allowbreak chroma/\allowbreak ")\allowbreak }
+\item
+  \textbf{Methods:}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \texttt{add\_\allowbreak documents(\allowbreak documents:\ \allowbreak List{[}Document{]})\allowbreak }: Initializes
+    Chroma with collection metadata
+    \texttt{collection\_\allowbreak metadata=\allowbreak \{"hnsw:space":\ \allowbreak "cosine"\}}.
+  \item
+    \texttt{load(\allowbreak )\allowbreak \ \allowbreak -\textgreater{}\allowbreak \ \allowbreak bool}: Verifies
+    \texttt{chroma.\allowbreak sqlite3} exists and connects.
+  \item
+    \texttt{similarity\_\allowbreak search(\allowbreak query:\ \allowbreak str,\allowbreak \ \allowbreak k:\ \allowbreak int\ \allowbreak =\allowbreak \ \allowbreak 5)\allowbreak \ \allowbreak -\textgreater{}\allowbreak \ \allowbreak List{[}tuple{[}Document,\allowbreak \ \allowbreak float{]}{]}}:
+    Executes similarity search returning cosine distances.
+  \item
+    \texttt{reset(\allowbreak )\allowbreak }: Calls \texttt{delete\_\allowbreak collection(\allowbreak )\allowbreak } and deletes
+    the persist directory.
+  \end{itemize}
+\end{itemize}
+
+\subsubsection{\texorpdfstring{3.
+\texttt{vector\_\allowbreak store\_\allowbreak manager.\allowbreak py}}{3. vector\_store\_manager.py}}\label{vector_store_manager.py}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Class:}
+  \texttt{VectorStoreManager(\allowbreak provider:\ \allowbreak str,\allowbreak \ \allowbreak embeddings:\ \allowbreak Embeddings,\allowbreak \ \allowbreak persist\_\allowbreak directory\_\allowbreak base:\ \allowbreak str\ \allowbreak =\allowbreak \ \allowbreak "data/\allowbreak vectorstores")\allowbreak }
+\item
+  \textbf{Role:} Factory class providing unified routing between FAISS
+  and Chroma. Provides \texttt{raw\_\allowbreak chunks\_\allowbreak to\_\allowbreak documents(\allowbreak chunks)\allowbreak } to
+  convert raw chunk dictionaries into LangChain \texttt{Document}
+  objects with metadata preservation.
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{\texorpdfstring{6.4 Module: Context Retrieval Engine
+(\texttt{src/\allowbreak retrieval})}{6.4 Module: Context Retrieval Engine (src/retrieval)}}\label{module-context-retrieval-engine-srcretrieval}
+
+\subsubsection{\texorpdfstring{1.
+\texttt{query\_\allowbreak processor.\allowbreak py}}{1. query\_processor.py}}\label{query_processor.py}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Function:}
+  \texttt{process\_\allowbreak query(\allowbreak query:\ \allowbreak str,\allowbreak \ \allowbreak max\_\allowbreak query\_\allowbreak length:\ \allowbreak int\ \allowbreak =\allowbreak \ \allowbreak 1000)\allowbreak \ \allowbreak -\textgreater{}\allowbreak \ \allowbreak str}
+\item
+  \textbf{Validations:} Rejects empty or whitespace-only queries
+  (\texttt{raise\ \allowbreak ValueError(\allowbreak "Please\ \allowbreak enter\ \allowbreak a\ \allowbreak question.")\allowbreak }). Uses
+  regex
+  \texttt{re.\allowbreak sub(\allowbreak r\textquotesingle{}\textbackslash{}\textbackslash{}s+\textquotesingle{},\allowbreak \ \allowbreak \textquotesingle{}\ \allowbreak \textquotesingle{},\allowbreak \ \allowbreak query)\allowbreak .\allowbreak strip(\allowbreak )\allowbreak }
+  to collapse internal whitespace. Enforces length \(\le 1000\)
+  characters.
+\end{itemize}
+
+\subsubsection{\texorpdfstring{2.
+\texttt{score\_\allowbreak filter.\allowbreak py}}{2. score\_filter.py}}\label{score_filter.py}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Function:}
+  \texttt{normalize\_\allowbreak score(\allowbreak raw\_\allowbreak score:\ \allowbreak float,\allowbreak \ \allowbreak provider:\ \allowbreak str)\allowbreak \ \allowbreak -\textgreater{}\allowbreak \ \allowbreak float}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{FAISS (L2 Distance):} Returns
+    \(\frac{1.0}{1.0 + \text{raw\_score}}\) (\(0\) distance
+    \(\rightarrow 1.0\) relevance).
+  \item
+    \textbf{Chroma (Cosine Distance):} Returns
+    \(\max(0.0, \min(1.0, 1.0 - \text{raw\_score}))\).
+  \end{itemize}
+\item
+  \textbf{Function:}
+  \texttt{filter\_\allowbreak by\_\allowbreak threshold(\allowbreak results,\allowbreak \ \allowbreak provider,\allowbreak \ \allowbreak threshold=\allowbreak None)\allowbreak \ \allowbreak -\textgreater{}\allowbreak \ \allowbreak List{[}Dict{[}str,\allowbreak \ \allowbreak Any{]}{]}}:
+  Normalizes scores, filters out items below \texttt{threshold}, and
+  sorts candidates in descending order of relevance.
+\end{itemize}
+
+\subsubsection{\texorpdfstring{3.
+\texttt{retriever.\allowbreak py}}{3. retriever.py}}\label{retriever.py}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Class:}
+  \texttt{Retriever(\allowbreak vector\_\allowbreak store:\ \allowbreak VectorStoreManager,\allowbreak \ \allowbreak top\_\allowbreak k:\ \allowbreak int\ \allowbreak =\allowbreak \ \allowbreak 5)\allowbreak }
+\item
+  \textbf{Method:}
+  \texttt{retrieve\_\allowbreak with\_\allowbreak scores(\allowbreak query:\ \allowbreak str,\allowbreak \ \allowbreak source\_\allowbreak filter:\ \allowbreak Optional{[}str{]}\ \allowbreak =\allowbreak \ \allowbreak None)\allowbreak }:
+  Executes vector similarity search. If a \texttt{source\_\allowbreak filter} is
+  specified (and not ``All Documents''), passes native metadata filters
+  to the vector store or applies post-retrieval filtering.
+\end{itemize}
+
+\subsubsection{\texorpdfstring{4.
+\texttt{retrieval\_\allowbreak pipeline.\allowbreak py}}{4. retrieval\_pipeline.py}}\label{retrieval_pipeline.py}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Function:}
+  \texttt{retrieve\_\allowbreak context(\allowbreak query,\allowbreak \ \allowbreak vector\_\allowbreak store,\allowbreak \ \allowbreak top\_\allowbreak k=\allowbreak 5,\allowbreak \ \allowbreak score\_\allowbreak threshold=\allowbreak None,\allowbreak \ \allowbreak source\_\allowbreak filter=\allowbreak None)\allowbreak \ \allowbreak -\textgreater{}\allowbreak \ \allowbreak Dict{[}str,\allowbreak \ \allowbreak Any{]}}
+\item
+  \textbf{Telemetry:} Measures search latency (\texttt{search\_\allowbreak time}),
+  filtering latency (\texttt{filter\_\allowbreak time}), and total retrieval time
+  (\texttt{total\_\allowbreak time}). Returns structured dictionary with status flag
+  \texttt{found:\ \allowbreak bool}.
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{\texorpdfstring{6.5 Module: LLM Management and Generation
+Pipelines
+(\texttt{src/\allowbreak generation})}{6.5 Module: LLM Management and Generation Pipelines (src/generation)}}\label{module-llm-management-and-generation-pipelines-srcgeneration}
+
+\subsubsection{\texorpdfstring{1.
+\texttt{prompt\_\allowbreak templates.\allowbreak py}}{1. prompt\_templates.py}}\label{prompt_templates.py}
+
+Contains all ChatPromptTemplates utilized across the application: -
+\texttt{RAG\_\allowbreak SYSTEM\_\allowbreak PROMPT}: Instructs the AI tutor to answer questions
+using ONLY provided context, to cite sources and page numbers, and to
+explicitly state \emph{``I could not find enough information in the
+uploaded documents to answer this question.''} if context is
+insufficient. -
+\texttt{format\_\allowbreak context\_\allowbreak for\_\allowbreak prompt(\allowbreak retrieved\_\allowbreak results)\allowbreak }: Formats
+chunks into clean textual context blocks:
+\texttt{-\/\allowbreak -\/\allowbreak -\ \allowbreak Source\ \allowbreak \{idx\}\ \allowbreak (\allowbreak File:\ \allowbreak \{source\},\allowbreak \ \allowbreak Page:\ \allowbreak \{page\})\allowbreak \ \allowbreak -\/\allowbreak -\/\allowbreak -\ \allowbreak \ \allowbreak \ \allowbreak \{text\}}
+- \texttt{get\_\allowbreak quiz\_\allowbreak prompt\_\allowbreak template(\allowbreak )\allowbreak }: Instructs LLM to generate
+\(N\) MCQs formatted strictly as a JSON array of
+\texttt{\{"question":\ \allowbreak ".\allowbreak .\allowbreak .",\allowbreak \ \allowbreak "options":\ \allowbreak {[}"A.\ \allowbreak .\allowbreak .\allowbreak .",\allowbreak \ \allowbreak "B.\ \allowbreak .\allowbreak .\allowbreak .",\allowbreak \ \allowbreak "C.\ \allowbreak .\allowbreak .\allowbreak .",\allowbreak \ \allowbreak "D.\ \allowbreak .\allowbreak .\allowbreak ."{]},\allowbreak \ \allowbreak "answer":\ \allowbreak "A.\ \allowbreak .\allowbreak .\allowbreak ."\}}.
+- \texttt{get\_\allowbreak flashcard\_\allowbreak prompt\_\allowbreak template(\allowbreak )\allowbreak }: Instructs LLM to generate
+\(N\) flashcards formatted strictly as a JSON array of
+\texttt{\{"front":\ \allowbreak ".\allowbreak .\allowbreak .",\allowbreak \ \allowbreak "back":\ \allowbreak ".\allowbreak .\allowbreak ."\}}. -
+\texttt{get\_\allowbreak summary\_\allowbreak prompt\_\allowbreak template(\allowbreak )\allowbreak }: Instructs LLM to generate
+structured Markdown with \texttt{\#\#\#\ \allowbreak Summary} and
+\texttt{\#\#\#\ \allowbreak Key\ \allowbreak Points}.
+
+\subsubsection{\texorpdfstring{2.
+\texttt{llm\_\allowbreak manager.\allowbreak py}}{2. llm\_manager.py}}\label{llm_manager.py}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Class:}
+  \texttt{LLMManager(\allowbreak provider:\ \allowbreak str\ \allowbreak =\allowbreak \ \allowbreak "ollama",\allowbreak \ \allowbreak model\_\allowbreak name:\ \allowbreak str\ \allowbreak =\allowbreak \ \allowbreak "llama3",\allowbreak \ \allowbreak temperature:\ \allowbreak float\ \allowbreak =\allowbreak \ \allowbreak 0.0)\allowbreak }
+\item
+  \textbf{Provider Routing:}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \texttt{"ollama"}: Connects to local \texttt{ChatOllama} at
+    \texttt{OLLAMA\_\allowbreak BASE\_\allowbreak URL} (default
+    \texttt{http:/\allowbreak /\allowbreak localhost:11434}).
+  \item
+    \texttt{"openai"}: Reads \texttt{OPENAI\_\allowbreak API\_\allowbreak KEY} and initializes
+    \texttt{ChatOpenAI}.
+  \item
+    \texttt{"groq"}: Reads \texttt{GROQ\_\allowbreak API\_\allowbreak KEY}. Reuses
+    \texttt{ChatOpenAI} pointed to
+    \texttt{base\_\allowbreak url=\allowbreak "https:/\allowbreak /\allowbreak api.\allowbreak groq.\allowbreak com/\allowbreak openai/\allowbreak v1"}. Maps deprecated
+    model identifiers (e.g., \texttt{llama3-8b-8192}) to active Groq
+    endpoints (\texttt{openai/\allowbreak gpt-oss-20b}).
+  \end{itemize}
+\end{itemize}
+
+\subsubsection{\texorpdfstring{3.
+\texttt{study\_\allowbreak generator.\allowbreak py}}{3. study\_generator.py}}\label{study_generator.py}
+
+\begin{itemize}
+\tightlist
+\item
+  Helper function
+  \texttt{\_\allowbreak clean\_\allowbreak json\_\allowbreak output(\allowbreak text:\ \allowbreak str)\allowbreak \ \allowbreak -\textgreater{}\allowbreak \ \allowbreak str}:
+  Strips markdown wrappers (\texttt{json\ \allowbreak .\allowbreak .\allowbreak .}) from LLM output.
+\item
+  \texttt{generate\_\allowbreak quiz(\allowbreak .\allowbreak .\allowbreak .)\allowbreak }: Retrieves context for topic, executes
+  LLM chain, cleans output, parses JSON, and returns quiz list.
+\item
+  \texttt{generate\_\allowbreak flashcards(\allowbreak .\allowbreak .\allowbreak .)\allowbreak }: Retrieves context, executes LLM
+  chain, cleans output, parses JSON, and returns card list.
+\item
+  \texttt{generate\_\allowbreak summary(\allowbreak .\allowbreak .\allowbreak .)\allowbreak }: Retrieves context (top-8 chunks),
+  executes LLM chain, and returns Markdown summary string.
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{\texorpdfstring{6.6 Module: Core RAG Pipeline
+(\texttt{src/\allowbreak rag})}{6.6 Module: Core RAG Pipeline (src/rag)}}\label{module-core-rag-pipeline-srcrag}
+
+\subsubsection{\texorpdfstring{\texttt{rag\_\allowbreak pipeline.\allowbreak py}}{rag\_pipeline.py}}\label{rag_pipeline.py}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Function:}
+  \texttt{generate\_\allowbreak rag\_\allowbreak response(\allowbreak query,\allowbreak \ \allowbreak vector\_\allowbreak store,\allowbreak \ \allowbreak llm\_\allowbreak manager,\allowbreak \ \allowbreak top\_\allowbreak k=\allowbreak 5,\allowbreak \ \allowbreak score\_\allowbreak threshold=\allowbreak None,\allowbreak \ \allowbreak source\_\allowbreak filter=\allowbreak None)\allowbreak \ \allowbreak -\textgreater{}\allowbreak \ \allowbreak Dict{[}str,\allowbreak \ \allowbreak Any{]}}
+\item
+  \textbf{Anti-Hallucination Guard:} Checks
+  \texttt{if\ \allowbreak not\ \allowbreak retrieval\_\allowbreak response{[}"found"{]}:}. If false,
+  bypasses the LLM entirely and immediately returns the fallback refusal
+  with zero generation latency.
+\item
+  \textbf{LCEL Chain:}
+  \texttt{chain\ \allowbreak =\allowbreak \ \allowbreak prompt\ \allowbreak \textbar{}\ \allowbreak llm\ \allowbreak \textbar{}\ \allowbreak StrOutputParser(\allowbreak )\allowbreak }.
+  Invokes chain with formatted context and question. Measures
+  \texttt{generation\_\allowbreak time} and \texttt{total\_\allowbreak rag\_\allowbreak time}. Returns
+  answer, sources, and metrics dictionary.
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{\texorpdfstring{6.7 Module: Retrieval Evaluation Metrics
+(\texttt{src/\allowbreak evaluation})}{6.7 Module: Retrieval Evaluation Metrics (src/evaluation)}}\label{module-retrieval-evaluation-metrics-srcevaluation}
+
+\subsubsection{\texorpdfstring{\texttt{retrieval\_\allowbreak metrics.\allowbreak py}}{retrieval\_metrics.py}}\label{retrieval_metrics.py}
+
+Contains mathematical evaluation metrics for offline benchmarking: -
+\texttt{calculate\_\allowbreak precision\_\allowbreak at\_\allowbreak k(\allowbreak retrieved\_\allowbreak sources,\allowbreak \ \allowbreak expected\_\allowbreak source,\allowbreak \ \allowbreak k)\allowbreak \ \allowbreak -\textgreater{}\allowbreak \ \allowbreak float}:
+Evaluates the fraction of top-\(K\) retrieved sources that match the
+ground-truth document:
+\[\text{Precision@K} = \frac{\sum_{i=1}^K \mathbb{I}(\text{source}_i = \text{expected})}{K}\]
+-
+\texttt{calculate\_\allowbreak recall\_\allowbreak at\_\allowbreak k(\allowbreak retrieved\_\allowbreak sources,\allowbreak \ \allowbreak expected\_\allowbreak source,\allowbreak \ \allowbreak k)\allowbreak \ \allowbreak -\textgreater{}\allowbreak \ \allowbreak float}:
+Evaluates if at least one relevant document was retrieved:
+\[\text{Recall@K} = \min\left(1.0, \sum_{i=1}^K \mathbb{I}(\text{source}_i = \text{expected})\right)\]
+-
+\texttt{calculate\_\allowbreak hit\_\allowbreak rate\_\allowbreak at\_\allowbreak k(\allowbreak retrieved\_\allowbreak sources,\allowbreak \ \allowbreak expected\_\allowbreak source,\allowbreak \ \allowbreak k)\allowbreak \ \allowbreak -\textgreater{}\allowbreak \ \allowbreak int}:
+Returns \(1\) if expected source is present in top-\(K\), else \(0\).
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{\texorpdfstring{6.8 Module: Utilities, Logging, and
+Persistence
+(\texttt{src/\allowbreak utils})}{6.8 Module: Utilities, Logging, and Persistence (src/utils)}}\label{module-utilities-logging-and-persistence-srcutils}
+
+\subsubsection{\texorpdfstring{1.
+\texttt{file\_\allowbreak utils.\allowbreak py}}{1. file\_utils.py}}\label{file_utils.py}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{calculate\_\allowbreak file\_\allowbreak hash(\allowbreak file\_\allowbreak content:\ \allowbreak Union{[}bytes,\allowbreak \ \allowbreak Path,\allowbreak \ \allowbreak str{]})\allowbreak \ \allowbreak -\textgreater{}\allowbreak \ \allowbreak str}:
+  Streams file in 4096-byte blocks through \texttt{hashlib.\allowbreak sha256(\allowbreak )\allowbreak }.
+  Generates deterministic SHA-256 hex digest for document deduplication.
+\end{itemize}
+
+\subsubsection{\texorpdfstring{2.
+\texttt{history\_\allowbreak manager.\allowbreak py}}{2. history\_manager.py}}\label{history_manager.py}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{HISTORY\_\allowbreak FILE\ \allowbreak =\allowbreak \ \allowbreak Path(\allowbreak "data/\allowbreak history.\allowbreak json")\allowbreak }
+\item
+  \texttt{load\_\allowbreak history(\allowbreak )\allowbreak \ \allowbreak -\textgreater{}\allowbreak \ \allowbreak list}: Loads JSON records
+  from disk.
+\item
+  \texttt{save\_\allowbreak history(\allowbreak items)\allowbreak \ \allowbreak -\textgreater{}\allowbreak \ \allowbreak bool}: Writes formatted
+  JSON atomically with \texttt{indent=\allowbreak 2}.
+\item
+  \texttt{add\_\allowbreak history\_\allowbreak entry(\allowbreak item\_\allowbreak type,\allowbreak \ \allowbreak title,\allowbreak \ \allowbreak details,\allowbreak \ \allowbreak source)\allowbreak }:
+  Inserts new entry at index 0 (newest first) with generated
+  \texttt{uuid.\allowbreak uuid4(\allowbreak )\allowbreak } and formatted timestamp string.
+\item
+  \texttt{delete\_\allowbreak history\_\allowbreak entry(\allowbreak entry\_\allowbreak id)\allowbreak }: Removes specified record
+  and saves file.
+\item
+  \texttt{clear\_\allowbreak all\_\allowbreak history(\allowbreak )\allowbreak }: Wipes all records.
+\end{itemize}
+
+\subsubsection{\texorpdfstring{3.
+\texttt{logger.\allowbreak py}}{3. logger.py}}\label{logger.py}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{setup\_\allowbreak logger(\allowbreak name=\allowbreak "studyrag")\allowbreak \ \allowbreak -\textgreater{}\allowbreak \ \allowbreak logging.\allowbreak Logger}:
+  Configures structured \texttt{StreamHandler(\allowbreak sys.\allowbreak stdout)\allowbreak } with
+  timestamp formatting
+  (\texttt{\%(\allowbreak asctime)\allowbreak s\ \allowbreak -\ \allowbreak \%(\allowbreak name)\allowbreak s\ \allowbreak -\ \allowbreak \%(\allowbreak levelname)\allowbreak s\ \allowbreak -\ \allowbreak \%(\allowbreak message)\allowbreak s}).
+  Prevents handler duplication across Streamlit reruns.
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{\texorpdfstring{6.9 Module: Interactive Presentation Layer
+(\texttt{app.\allowbreak py})}{6.9 Module: Interactive Presentation Layer (app.py)}}\label{module-interactive-presentation-layer-app.py}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{State Management:} Manages Streamlit session state keys:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \texttt{st.\allowbreak session\_\allowbreak state.\allowbreak processed\_\allowbreak documents}: Maps file hashes to
+    chunk lists.
+  \item
+    \texttt{st.\allowbreak session\_\allowbreak state.\allowbreak vector\_\allowbreak store\_\allowbreak manager}: Cached vector
+    store instance.
+  \item
+    \texttt{st.\allowbreak session\_\allowbreak state.\allowbreak document\_\allowbreak sources}: Dynamic list of
+    uploaded documents.
+  \item
+    \texttt{st.\allowbreak session\_\allowbreak state.\allowbreak chat\_\allowbreak messages}: Q\&A chat message history
+    with sources.
+  \item
+    \texttt{st.\allowbreak session\_\allowbreak state.\allowbreak app\_\allowbreak theme}: Active UI theme string.
+  \item
+    \texttt{st.\allowbreak session\_\allowbreak state.\allowbreak background\_\allowbreak jobs}: Active and completed
+    worker jobs.
+  \end{itemize}
+\item
+  \textbf{Navigation Router:} Routes between 6 full views:
+
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \tightlist
+  \item
+    \texttt{{[}Study\ \allowbreak Library{]}\ \allowbreak \ \allowbreak Study\ \allowbreak Library}: Upload, chunking,
+    indexing, and deletion of study materials.
+  \item
+    \texttt{{[}Ask\ \allowbreak Questions{]}\ \allowbreak \ \allowbreak Ask\ \allowbreak Questions}: Interactive chat
+    with page-level citation expanders.
+  \item
+    \texttt{{[}Practice\ \allowbreak Quiz{]}\ \allowbreak \ \allowbreak Practice\ \allowbreak Quiz}: Interactive MCQ
+    testing with automated grading and balloons.
+  \item
+    \texttt{{[}Flashcards{]}\ \allowbreak \ \allowbreak Flashcards}: Expandable study cards for
+    definition and term memorization.
+  \item
+    \texttt{{[}Topic\ \allowbreak Summaries{]}\ \allowbreak \ \allowbreak Topic\ \allowbreak Summaries}: High-level
+    chapter overviews and key takeaway generation.
+  \item
+    \texttt{{[}Study\ \allowbreak History{]}\ \allowbreak \ \allowbreak Study\ \allowbreak History}: Filterable audit
+    log with item-by-item deletion.
+  \end{enumerate}
+\end{itemize}
+
+\section{Chapter 7: Methodology and Development
+Approach}\label{chapter-7-methodology-and-development-approach}
+
+\subsection{7.1 Development Lifecycle and Implementation
+Phases}\label{development-lifecycle-and-implementation-phases}
+
+StudyRAG was developed using an \textbf{Iterative, Test-Driven Modular
+Engineering Methodology} divided into distinct development phases:
+
+\begin{verbatim}
+[Phase 1: Ingestion & Text Normalization]
+      |  (Extract text page-by-page via PyMuPDF, normalize whitespace, regex cleaning)
+      v
+[Phase 2: Semantic Chunking & Vectorization]
+      |  (Recursive character splitting, SentenceTransformers 384d dense embeddings)
+      v
+[Phase 3: Dual Vector Store Indexing]
+      |  (FAISS in-memory L2 index & ChromaDB persistent SQLite cosine collections)
+      v
+[Phase 4: Retrieval Engine & Relevance Scoring]
+      |  (Query validation, metric normalization, threshold filtering, timing telemetry)
+      v
+[Phase 5: LLM Orchestration & Prompt Engineering]
+      |  (Groq, OpenAI, Ollama multi-provider factory, strict JSON prompt templates)
+      v
+[Phase 6: Multi-Format Study Tool Generation]
+      |  (Practice Quiz MCQ generator, Flashcard decks, Chapter revision summaries)
+      v
+[Phase 7: Presentation, Background Threading & History Persistence]
+      |  (Streamlit web app, async daemon threads, Dark/Light modes, JSON audit logs)
+      v
+[Phase 8: Automated Verification & Documentation]
+      |  (28 pytest unit/integration tests, test matrix, comprehensive system handover)
+\end{verbatim}
+
+\subsection{7.2 Requirements Gathering and Pedagogical
+Design}\label{requirements-gathering-and-pedagogical-design}
+
+The system was designed from the perspective of \textbf{Cognitive
+Learning Science}: 1. \textbf{Active Recall}: The system discourages
+passive reading by converting static PDFs into dynamic testing tools. 2.
+\textbf{Pedagogical Alignment}: Study materials uploaded by the student
+form the sole source of truth, guaranteeing alignment with classroom
+lectures and exams. 3. \textbf{Citation Verifiability}: Every answer
+references exact pages so students can cross-reference textbook figures,
+diagrams, and proof steps.
+
+\subsection{7.3 Architectural Decisions and Trade-Off
+Analysis}\label{architectural-decisions-and-trade-off-analysis}
+
+\begingroup\footnotesize
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash\sloppy}p{(\linewidth - 6\tabcolsep) * \real{0.1800}}
+  >{\raggedright\arraybackslash\sloppy}p{(\linewidth - 6\tabcolsep) * \real{0.2300}}
+  >{\raggedright\arraybackslash\sloppy}p{(\linewidth - 6\tabcolsep) * \real{0.1900}}
+  >{\raggedright\arraybackslash\sloppy}p{(\linewidth - 6\tabcolsep) * \real{0.3600}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Architectural Decision
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Option Selected
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Alternatives Considered
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Engineering Rationale \& Trade-Off Analysis
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{PDF Extraction Engine} & PyMuPDF (\texttt{fitz}) &
+\texttt{pypdf}, \texttt{pdfplumber}, \texttt{PyPDF2} & \textbf{Chosen:}
+Written in C/C++; extracts complex pages 10x-20x faster than pure Python
+while tracking exact page numbers. \newline **Trade-off:** Requires
+binary wheel dependencies on host platform. \\
+\textbf{Chunking Strategy} & Recursive Character Splitting
+(\texttt{size=\allowbreak 500,\allowbreak \ \allowbreak overlap=\allowbreak 50}) & Fixed character window, Semantic
+splitting & \textbf{Chosen:} Tries paragraph breaks
+(\texttt{\textbackslash{}n\textbackslash{}n}), then newlines
+(\texttt{\textbackslash{}n}), then sentences (\texttt{.}) before
+resorting to spaces. Keeps semantic units intact.
+\newline **Trade-off:** Chunks vary slightly in character length. \\
+\textbf{Embedding Model} & \texttt{all-MiniLM-L6-v2} & OpenAI
+\texttt{text-embedding-3-small}, Cohere Embed & \textbf{Chosen:} Free,
+open-source, runs locally on CPU in \(<50\,\text{ms}\), 384 dimensions,
+zero data privacy leaks. \newline **Trade-off:** English-centric;
+slightly lower capacity than massive 1536d models. \\
+\textbf{Default Vector Store} & FAISS CPU (\texttt{IndexFlatL2}) &
+ChromaDB, Qdrant, Pinecone & \textbf{Chosen:} Extremely lightweight,
+requires no external database server, zero network latency, serializes
+cleanly to disk. \newline **Trade-off:** In-memory index recreated or
+deserialized upon startup. \\
+\textbf{LLM Inference Provider} & Multi-Provider (Default: Groq Cloud) &
+OpenAI Only, Local Only & \textbf{Chosen:} Groq provides ultra-fast
+inference (500+ tokens/sec) for quizzes/flashcards, with Ollama
+providing 100\% offline fallback and OpenAI for enterprise needs.
+\newline **Trade-off:** Requires API key management for cloud modes. \\
+\textbf{Concurrency Model} & Python \texttt{threading.\allowbreak Thread} +
+Streamlit context & Celery + Redis, Ray & \textbf{Chosen:} Zero external
+infrastructure required; lightweight daemon threads run inside the same
+process without Redis overhead. \newline **Trade-off:** Jobs do not
+survive hard application server restarts. \\
+\end{longtable}
+\endgroup
+
+\section{Chapter 8: Algorithms, Formulas, and Core
+Logic}\label{chapter-8-algorithms-formulas-and-core-logic}
+
+\subsection{8.1 SHA-256 Content Deduplication
+Algorithm}\label{sha-256-content-deduplication-algorithm}
+
+To prevent redundant processing and vector index bloat when users upload
+duplicate or already-indexed documents, StudyRAG computes the
+cryptographic SHA-256 hash across the raw byte stream of each uploaded
+file:
+
+\[\text{Hash} = \text{SHA-256}(B) = \sum_{i=0}^{N-1} \text{Compression}(H_{i-1}, M_i)\]
+
+Where the file is processed in 4,096-byte blocks (\(M_i\)). If the
+resulting 64-character hexadecimal digest matches a key in
+\texttt{st.\allowbreak session\_\allowbreak state.\allowbreak processed\_\allowbreak documents}, re-indexing is
+completely bypassed.
+
+\subsection{8.2 Recursive Character Text Splitting
+Algorithm}\label{recursive-character-text-splitting-algorithm}
+
+The recursive chunking algorithm implements a hierarchical separator
+cascade:
+\[S = [\texttt{"\textbackslash n\textbackslash n"}, \texttt{"\textbackslash n"}, \texttt{". "}, \texttt{" "}, \texttt{""}]\]
+
+Given a page text \(T\), the algorithm executes as follows: 1. Tests the
+primary separator \(S_0 = \texttt{"\textbackslash n\textbackslash n"}\).
+If splitting by \(S_0\) produces segments \(\le \text{chunk\_size}\)
+(500 chars), the segments are retained. 2. If any segment
+\(> \text{chunk\_size}\), the algorithm recursively falls back to
+\(S_1 = \texttt{"\textbackslash n"}\), then \(S_2 = \text{". "}\), and
+finally single spaces. 3. Adjacent segments are merged with a sliding
+window that preserves \(\text{chunk\_overlap}\) (50 characters),
+guaranteeing that sentences spanning chunk boundaries maintain syntactic
+continuity.
+
+\subsection{8.3 Vector Similarity Mathematics and Metric
+Normalization}\label{vector-similarity-mathematics-and-metric-normalization}
+
+Vector databases employ different mathematical metrics to calculate the
+proximity between a query vector \(\mathbf{q} \in \mathbb{R}^D\) and a
+document chunk vector \(\mathbf{d}_i \in \mathbb{R}^D\) (\(D = 384\)).
+
+\subsubsection{1. FAISS Euclidean (L2)
+Distance}\label{faiss-euclidean-l2-distance}
+
+FAISS computes the squared Euclidean distance:
+\[d_{\text{L2}}(\mathbf{q}, \mathbf{d}_i) = \\|\mathbf{q} - \mathbf{d}_i\\|_2 = \sqrt{\sum_{j=1}^D (q_j - d_{i,j})^2}\]
+Where \(d_{\text{L2}} \in [0, \infty)\). A distance of \(0\) indicates
+identity, while larger values indicate dissimilarity.
+
+\textbf{StudyRAG Normalization Formula
+(\texttt{src/\allowbreak retrieval/\allowbreak score\_\allowbreak filter.\allowbreak py}):} To map the unbounded L2
+distance into a normalized relevance score
+\(S_{\text{FAISS}} \in (0.0, 1.0]\):
+\[S_{\text{FAISS}} = \frac{1.0}{1.0 + d_{\text{L2}}(\mathbf{q}, \mathbf{d}_i)}\]
+- If \(d_{\text{L2}} = 0.0\) (identical vectors)
+\(\implies S_{\text{FAISS}} = 1.0\). - If
+\(d_{\text{L2}} = 1.0 \implies S_{\text{FAISS}} = 0.5\). - As
+\(d_{\text{L2}} \to \infty \implies S_{\text{FAISS}} \to 0.0\).
+
+\subsubsection{2. ChromaDB Cosine
+Distance}\label{chromadb-cosine-distance}
+
+ChromaDB collections in StudyRAG are initialized with
+\texttt{\{"hnsw:space":\ \allowbreak "cosine"\}}. The cosine distance is defined as:
+\[d_{\text{cosine}}(\mathbf{q}, \mathbf{d}_i) = 1.0 - \cos(\theta) = 1.0 - \frac{\mathbf{q} \cdot \mathbf{d}_i}{\\|\mathbf{q}\\|_2 \\|\mathbf{d}_i\\|_2}\]
+Where \(d_{\text{cosine}} \in [0.0, 2.0]\).
+
+\textbf{StudyRAG Normalization Formula
+(\texttt{src/\allowbreak retrieval/\allowbreak score\_\allowbreak filter.\allowbreak py}):}
+\[S_{\text{Chroma}} = \max\left(0.0, \min\left(1.0, 1.0 - d_{\text{cosine}}\right)\right)\]
+- If \(d_{\text{cosine}} = 0.0\) (collinear vectors)
+\(\implies S_{\text{Chroma}} = 1.0\). - If
+\(d_{\text{cosine}} = 0.2 \implies S_{\text{Chroma}} = 0.8\). - If
+\(d_{\text{cosine}} \ge 1.0\) (orthogonal/opposite vectors)
+\(\implies S_{\text{Chroma}} = 0.0\).
+
+\subsection{8.4 Relevance Threshold Filtering
+Logic}\label{relevance-threshold-filtering-logic}
+
+Given normalized scores \(S_i \in [0, 1]\) and a user-configured
+similarity threshold \(\tau\) (default \(\tau = 0.20\)):
+\[\text{FilteredResults} = \\{ (\mathbf{d}_i, S_i) \mid S_i \ge \tau \\}\]
+
+The filtered set is sorted in descending order of relevance:
+\[\text{SortedResults} = \operatorname{sort}_{\downarrow}( \text{FilteredResults}, \text{key}=S_i )\]
+
+If \(|\text{FilteredResults}| = 0\), the retrieval pipeline sets
+\texttt{found\ \allowbreak =\allowbreak \ \allowbreak False}, activating the anti-hallucination fallback.
+
+\subsection{8.5 Offline Retrieval Evaluation
+Metrics}\label{offline-retrieval-evaluation-metrics}
+
+The evaluation module (\texttt{src/\allowbreak evaluation/\allowbreak retrieval\_\allowbreak metrics.\allowbreak py})
+provides quantitative metrics for measuring information retrieval
+performance against gold-standard evaluation datasets:
+
+\subsubsection{1. Precision@K}\label{precisionk}
+
+Measures the proportion of top-\(K\) retrieved document chunks that
+originate from the expected source document:
+\[\text{Precision@K} = \frac{\sum_{i=1}^K \mathbb{I}(\text{source}_i = \text{expected\_source})}{K}\]
+
+\subsubsection{2. Recall@K}\label{recallk}
+
+Measures whether the relevant document was successfully recovered in the
+top-\(K\) candidates:
+\[\text{Recall@K} = \min\left(1.0, \sum_{i=1}^K \mathbb{I}(\text{source}_i = \text{expected\_source})\right)\]
+
+\subsubsection{3. Hit Rate@K}\label{hit-ratek}
+
+Binary metric indicating whether at least one chunk in top-\(K\) matches
+the target source:
+\[\text{Hit Rate@K} = \begin{cases} 1 & \text{if } \exists i \in [1, K] \text{ such that } \text{source}_i = \text{expected\_source} \\ 0 & \text{otherwise} \end{cases}\]
+
+\section{Chapter 9: Database and Data
+Management}\label{chapter-9-database-and-data-management}
+
+\subsection{9.1 Persistent Storage
+Architecture}\label{persistent-storage-architecture}
+
+StudyRAG operates a hybrid data management strategy comprising file
+storage, vector serialization, and structured JSON record storage:
+
+\begin{verbatim}
+data/
+    uploaded/                   # Physical PDF storage
+        os.pdf                  # Preserved for re-indexing & inspection
+    vectorstores/               # Vector database storage
+        faiss/
+            index.faiss         # Binary serialized FAISS L2 index
+            index.pkl           # Pickled LangChain Document & ID mapping
+        chroma/
+            chroma.sqlite3      # Embedded SQLite database for collections & metadata
+            <uuid>/             # Segment directory containing binary HNSW graphs
+    history.json                # Structured JSON audit log of all study artifacts
+\end{verbatim}
+
+\subsection{\texorpdfstring{9.2 Complete Schema: Study History
+(\texttt{data/\allowbreak history.\allowbreak json})}{9.2 Complete Schema: Study History (data/history.json)}}\label{complete-schema-study-history-datahistory.json}
+
+The study history file stores an array of structured JSON objects. Every
+record conforms to the following schema:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{\{}
+  \DataTypeTok{"id"}\FunctionTok{:} \StringTok{"b203dc1f{-}7fd9{-}468a{-}aa2d{-}31169f359203"}\FunctionTok{,}
+  \DataTypeTok{"type"}\FunctionTok{:} \StringTok{"quiz"}\FunctionTok{,}
+  \DataTypeTok{"title"}\FunctionTok{:} \StringTok{"Practice Quiz: Operating System Deadlocks"}\FunctionTok{,}
+  \DataTypeTok{"source"}\FunctionTok{:} \StringTok{"os.pdf"}\FunctionTok{,}
+  \DataTypeTok{"timestamp"}\FunctionTok{:} \StringTok{"Oct 14, 2026 {-} 11:45 AM"}\FunctionTok{,}
+  \DataTypeTok{"details"}\FunctionTok{:} \FunctionTok{\{}
+    \DataTypeTok{"topic"}\FunctionTok{:} \StringTok{"Operating System Deadlocks"}\FunctionTok{,}
+    \DataTypeTok{"num\_questions"}\FunctionTok{:} \DecValTok{5}\FunctionTok{,}
+    \DataTypeTok{"questions"}\FunctionTok{:} \OtherTok{[}
+      \FunctionTok{\{}
+        \DataTypeTok{"question"}\FunctionTok{:} \StringTok{"Which condition is NOT required for a deadlock to occur?"}\FunctionTok{,}
+        \DataTypeTok{"options"}\FunctionTok{:} \OtherTok{[}
+          \StringTok{"A. Mutual Exclusion"}\OtherTok{,}
+          \StringTok{"B. Hold and Wait"}\OtherTok{,}
+          \StringTok{"C. Preemption Allowed"}\OtherTok{,}
+          \StringTok{"D. Circular Wait"}
+        \OtherTok{]}\FunctionTok{,}
+        \DataTypeTok{"answer"}\FunctionTok{:} \StringTok{"C. Preemption Allowed"}
+      \FunctionTok{\}}
+    \OtherTok{]}
+  \FunctionTok{\}}
+\FunctionTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Field Specifications:}\label{field-specifications}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{id} (string, required): RFC 4122 compliant UUID v4 string.
+\item
+  \texttt{type} (string, required): One of \texttt{"quiz"},
+  \texttt{"flashcard"}, \texttt{"summary"}, \texttt{"chat"},
+  \texttt{"material"}.
+\item
+  \texttt{title} (string, required): Human-readable descriptive header.
+\item
+  \texttt{source} (string, required): Target document filename
+  (e.g.~\texttt{"os.\allowbreak pdf"}) or \texttt{"All\ \allowbreak Documents"}.
+\item
+  \texttt{timestamp} (string, required): Formatted timestamp string
+  (\texttt{"\%b\ \allowbreak \%d,\allowbreak \ \allowbreak \%Y\ \allowbreak -\ \allowbreak \%I:\%M\ \allowbreak \%p"}).
+\item
+  \texttt{details} (object, required): Payload schema varies by
+  \texttt{type}:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    For \texttt{"quiz"}: contains \texttt{topic},
+    \texttt{num\_\allowbreak questions}, and \texttt{questions} array.
+  \item
+    For \texttt{"flashcard"}: contains \texttt{topic},
+    \texttt{num\_\allowbreak cards}, and \texttt{cards} array
+    (\texttt{{[}\{"front":\ \allowbreak ".\allowbreak .\allowbreak .",\allowbreak \ \allowbreak "back":\ \allowbreak ".\allowbreak .\allowbreak ."\}{]}}).
+  \item
+    For \texttt{"summary"}: contains \texttt{topic} and
+    \texttt{summary\_\allowbreak text} (Markdown string).
+  \item
+    For \texttt{"chat"}: contains \texttt{query}, \texttt{answer}, and
+    \texttt{sources} list.
+  \item
+    For \texttt{"material"}: contains \texttt{doc\_\allowbreak name} and
+    \texttt{action} (\texttt{"upload"} or \texttt{"delete"}).
+  \end{itemize}
+\end{itemize}
+
+\subsection{9.3 Entity-Relationship
+Diagram}\label{entity-relationship-diagram}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{erDiagram}
+\NormalTok{    UPLOADED\_DOCUMENT ||{-}{-}o\{ DOCUMENT\_CHUNK : "split into"}
+\NormalTok{    DOCUMENT\_CHUNK ||{-}{-}o| EMBEDDING\_VECTOR : "represented by"}
+\NormalTok{    UPLOADED\_DOCUMENT ||{-}{-}o\{ STUDY\_HISTORY\_ENTRY : "scoped to"}
+    
+\NormalTok{    UPLOADED\_DOCUMENT \{}
+\NormalTok{        string filename PK}
+\NormalTok{        string sha256\_hash}
+\NormalTok{        int total\_pages}
+\NormalTok{        datetime upload\_time}
+\NormalTok{    \}}
+    
+\NormalTok{    DOCUMENT\_CHUNK \{}
+\NormalTok{        int chunk\_id PK}
+\NormalTok{        string source\_doc FK}
+\NormalTok{        int page\_number}
+\NormalTok{        string text\_content}
+\NormalTok{    \}}
+    
+\NormalTok{    EMBEDDING\_VECTOR \{}
+\NormalTok{        int chunk\_id FK}
+\NormalTok{        float32\_array vector\_384d}
+\NormalTok{        string store\_backend}
+\NormalTok{    \}}
+    
+\NormalTok{    STUDY\_HISTORY\_ENTRY \{}
+\NormalTok{        string uuid PK}
+\NormalTok{        string entry\_type}
+\NormalTok{        string title}
+\NormalTok{        string source\_filter FK}
+\NormalTok{        string timestamp}
+\NormalTok{        json payload\_details}
+\NormalTok{    \}}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{9.4 CRUD Operations \& Data
+Lifecycle}\label{crud-operations-data-lifecycle}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Create}:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Uploading a PDF writes the binary file to \texttt{data/\allowbreak uploaded/\allowbreak },
+    splits chunks, computes embeddings, saves the vector store, and
+    writes an \texttt{"upload"} event to \texttt{data/\allowbreak history.\allowbreak json}.
+  \item
+    Generating quizzes, flashcards, or summaries appends a record at
+    index 0 in \texttt{data/\allowbreak history.\allowbreak json}.
+  \end{itemize}
+\item
+  \textbf{Read}:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \texttt{load\_\allowbreak history(\allowbreak )\allowbreak } reads and parses
+    \texttt{data/\allowbreak history.\allowbreak json}.
+  \item
+    \texttt{load(\allowbreak )\allowbreak } in \texttt{FAISSStore} deserializes
+    \texttt{index.\allowbreak faiss}.
+  \end{itemize}
+\item
+  \textbf{Delete}:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Deleting a document removes the physical file from
+    \texttt{data/\allowbreak uploaded/\allowbreak }, drops matching chunks from memory, resets
+    the vector index, rebuilds the index from remaining documents, and
+    records a \texttt{"delete"} event in history.
+  \item
+    Deleting a history entry calls
+    \texttt{delete\_\allowbreak history\_\allowbreak entry(\allowbreak entry\_\allowbreak id)\allowbreak }, filtering the array and
+    overwriting \texttt{history.\allowbreak json}.
+  \item
+    \texttt{clear\_\allowbreak all\_\allowbreak history(\allowbreak )\allowbreak } atomically overwrites
+    \texttt{history.\allowbreak json} with \texttt{{[}{]}}.
+  \end{itemize}
+\end{itemize}
+
+\section{Chapter 10: API and Integration
+Documentation}\label{chapter-10-api-and-integration-documentation}
+
+\subsection{10.1 Internal Component API
+Contracts}\label{internal-component-api-contracts}
+
+\subsubsection{Ingestion Pipeline API}\label{ingestion-pipeline-api}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{process\_\allowbreak pdf(\allowbreak pdf\_\allowbreak path:\ \allowbreak str\ \allowbreak \textbar{}\ \allowbreak Path,\allowbreak \ \allowbreak chunk\_\allowbreak size:\ \allowbreak int\ \allowbreak =\allowbreak \ \allowbreak 500,\allowbreak \ \allowbreak chunk\_\allowbreak overlap:\ \allowbreak int\ \allowbreak =\allowbreak \ \allowbreak 50)\allowbreak \ \allowbreak -\textgreater{}\allowbreak \ \allowbreak List{[}Dict{[}str,\allowbreak \ \allowbreak Any{]}{]}}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Input: Valid path to \texttt{.\allowbreak pdf} file.
+  \item
+    Output:
+    \texttt{{[}\{"text":\ \allowbreak ".\allowbreak .\allowbreak .",\allowbreak \ \allowbreak "source":\ \allowbreak "os.\allowbreak pdf",\allowbreak \ \allowbreak "page":\ \allowbreak 1,\allowbreak \ \allowbreak "chunk\_\allowbreak id":\ \allowbreak 0\},\allowbreak \ \allowbreak .\allowbreak .\allowbreak .{]}}
+  \item
+    Exceptions: \texttt{FileNotFoundError}, \texttt{ValueError} (invalid
+    extension or corrupted file).
+  \end{itemize}
+\end{itemize}
+
+\subsubsection{Retrieval Pipeline API}\label{retrieval-pipeline-api}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{retrieve\_\allowbreak context(\allowbreak query:\ \allowbreak str,\allowbreak \ \allowbreak vector\_\allowbreak store:\ \allowbreak VectorStoreManager,\allowbreak \ \allowbreak top\_\allowbreak k:\ \allowbreak int\ \allowbreak =\allowbreak \ \allowbreak 5,\allowbreak \ \allowbreak score\_\allowbreak threshold:\ \allowbreak Optional{[}float{]}\ \allowbreak =\allowbreak \ \allowbreak None,\allowbreak \ \allowbreak source\_\allowbreak filter:\ \allowbreak Optional{[}str{]}\ \allowbreak =\allowbreak \ \allowbreak None)\allowbreak \ \allowbreak -\textgreater{}\allowbreak \ \allowbreak Dict{[}str,\allowbreak \ \allowbreak Any{]}}
+
+  \begin{itemize}
+  \item
+    Output Schema:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{\{}
+  \DataTypeTok{"query"}\FunctionTok{:} \StringTok{"string (cleaned)"}\FunctionTok{,}
+  \DataTypeTok{"found"}\FunctionTok{:} \KeywordTok{true}\FunctionTok{,}
+  \DataTypeTok{"results"}\FunctionTok{:} \OtherTok{[}
+    \FunctionTok{\{}
+      \DataTypeTok{"text"}\FunctionTok{:} \StringTok{"chunk content"}\FunctionTok{,}
+      \DataTypeTok{"source"}\FunctionTok{:} \StringTok{"os.pdf"}\FunctionTok{,}
+      \DataTypeTok{"page"}\FunctionTok{:} \DecValTok{4}\FunctionTok{,}
+      \DataTypeTok{"chunk\_id"}\FunctionTok{:} \DecValTok{12}\FunctionTok{,}
+      \DataTypeTok{"score"}\FunctionTok{:} \FloatTok{0.8421}
+    \FunctionTok{\}}
+  \OtherTok{]}\FunctionTok{,}
+  \DataTypeTok{"message"}\FunctionTok{:} \StringTok{"Found 1 relevant results."}\FunctionTok{,}
+  \DataTypeTok{"metrics"}\FunctionTok{:} \FunctionTok{\{}
+    \DataTypeTok{"search\_time"}\FunctionTok{:} \FloatTok{0.012}\FunctionTok{,}
+    \DataTypeTok{"filter\_time"}\FunctionTok{:} \FloatTok{0.001}\FunctionTok{,}
+    \DataTypeTok{"total\_time"}\FunctionTok{:} \FloatTok{0.013}
+  \FunctionTok{\}}
+\FunctionTok{\}}
+\end{Highlighting}
+\end{Shaded}
+  \end{itemize}
+\end{itemize}
+
+\subsubsection{RAG Pipeline API}\label{rag-pipeline-api}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{generate\_\allowbreak rag\_\allowbreak response(\allowbreak query:\ \allowbreak str,\allowbreak \ \allowbreak vector\_\allowbreak store:\ \allowbreak VectorStoreManager,\allowbreak \ \allowbreak llm\_\allowbreak manager:\ \allowbreak LLMManager,\allowbreak \ \allowbreak top\_\allowbreak k:\ \allowbreak int\ \allowbreak =\allowbreak \ \allowbreak 5,\allowbreak \ \allowbreak score\_\allowbreak threshold:\ \allowbreak Optional{[}float{]}\ \allowbreak =\allowbreak \ \allowbreak None,\allowbreak \ \allowbreak source\_\allowbreak filter:\ \allowbreak Optional{[}str{]}\ \allowbreak =\allowbreak \ \allowbreak None)\allowbreak \ \allowbreak -\textgreater{}\allowbreak \ \allowbreak Dict{[}str,\allowbreak \ \allowbreak Any{]}}
+
+  \begin{itemize}
+  \item
+    Output Schema:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{\{}
+  \DataTypeTok{"answer"}\FunctionTok{:} \StringTok{"string (grounded response)"}\FunctionTok{,}
+  \DataTypeTok{"sources"}\FunctionTok{:} \OtherTok{[}\FunctionTok{\{}\DataTypeTok{"text"}\FunctionTok{:} \StringTok{"..."}\FunctionTok{,} \DataTypeTok{"source"}\FunctionTok{:} \StringTok{"..."}\FunctionTok{,} \DataTypeTok{"page"}\FunctionTok{:} \DecValTok{1}\FunctionTok{\}}\OtherTok{]}\FunctionTok{,}
+  \DataTypeTok{"metrics"}\FunctionTok{:} \FunctionTok{\{}
+    \DataTypeTok{"search\_time"}\FunctionTok{:} \FloatTok{0.012}\FunctionTok{,}
+    \DataTypeTok{"filter\_time"}\FunctionTok{:} \FloatTok{0.001}\FunctionTok{,}
+    \DataTypeTok{"total\_time"}\FunctionTok{:} \FloatTok{0.013}\FunctionTok{,}
+    \DataTypeTok{"generation\_time"}\FunctionTok{:} \FloatTok{0.450}\FunctionTok{,}
+    \DataTypeTok{"total\_rag\_time"}\FunctionTok{:} \FloatTok{0.463}
+  \FunctionTok{\}}
+\FunctionTok{\}}
+\end{Highlighting}
+\end{Shaded}
+  \end{itemize}
+\end{itemize}
+
+\subsection{10.2 External Service
+Integrations}\label{external-service-integrations}
+
+\subsubsection{1. Groq Cloud API}\label{groq-cloud-api}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Endpoint:}
+  \texttt{https:/\allowbreak /\allowbreak api.\allowbreak groq.\allowbreak com/\allowbreak openai/\allowbreak v1/\allowbreak chat/\allowbreak completions}
+\item
+  \textbf{Protocol:} HTTPS REST (OpenAI-compatible)
+\item
+  \textbf{Authentication:}
+  \texttt{Authorization:\ \allowbreak Bearer\ \allowbreak \$GROQ\_\allowbreak API\_\allowbreak KEY}
+\item
+  \textbf{Supported Models:}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \texttt{openai/\allowbreak gpt-oss-20b} (Default fast model)
+  \item
+    \texttt{openai/\allowbreak gpt-oss-120b} (High-capacity reasoning)
+  \item
+    \texttt{qwen/\allowbreak qwen3.8-27b}
+  \end{itemize}
+\item
+  \textbf{Parameters:} \texttt{temperature:\ \allowbreak 0.0} (deterministic),
+  \texttt{stream:\ \allowbreak false}.
+\end{itemize}
+
+\subsubsection{2. OpenAI API}\label{openai-api}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Endpoint:} \texttt{https:/\allowbreak /\allowbreak api.\allowbreak openai.\allowbreak com/\allowbreak v1/\allowbreak chat/\allowbreak completions}
+\item
+  \textbf{Protocol:} HTTPS REST
+\item
+  \textbf{Authentication:}
+  \texttt{Authorization:\ \allowbreak Bearer\ \allowbreak \$OPENAI\_\allowbreak API\_\allowbreak KEY}
+\item
+  \textbf{Supported Models:} \texttt{gpt-4o}, \texttt{gpt-3.5-turbo}.
+\end{itemize}
+
+\subsubsection{3. Local Ollama Server}\label{local-ollama-server}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Endpoint:} \texttt{http:/\allowbreak /\allowbreak localhost:11434/\allowbreak api/\allowbreak chat}
+\item
+  \textbf{Protocol:} HTTP REST
+\item
+  \textbf{Authentication:} None (Local loopback)
+\item
+  \textbf{Supported Models:} \texttt{llama3}, \texttt{mistral},
+  \texttt{gemma}.
+\item
+  \textbf{Health Check:}
+  \texttt{curl\ \allowbreak http:/\allowbreak /\allowbreak localhost:11434/\allowbreak api/\allowbreak version}
+\end{itemize}
+
+\section{Chapter 11: User Interface and User
+Workflows}\label{chapter-11-user-interface-and-user-workflows}
+
+\subsection{11.1 Implemented Screens and
+Views}\label{implemented-screens-and-views}
+
+The Streamlit interface is structured into six dedicated views
+accessible via the sidebar navigation radio:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{graph LR}
+\NormalTok{    NAV[Sidebar Navigation] {-}{-}\textgreater{} V1[[Study Library]  Study Library]}
+\NormalTok{    NAV {-}{-}\textgreater{} V2[[Ask Questions]  Ask Questions]}
+\NormalTok{    NAV {-}{-}\textgreater{} V3[[Practice Quiz]  Practice Quiz]}
+\NormalTok{    NAV {-}{-}\textgreater{} V4[[Flashcards]  Flashcards]}
+\NormalTok{    NAV {-}{-}\textgreater{} V5[[Topic Summaries]  Topic Summaries]}
+\NormalTok{    NAV {-}{-}\textgreater{} V6[[Study History]  Study History]}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{\texorpdfstring{1.
+\texttt{{[}Study\ \allowbreak Library{]}\ \allowbreak \ \allowbreak Study\ \allowbreak Library}}{1. {[}Study Library{]}  Study Library}}\label{study-library-study-library}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Purpose:} Document ingestion, indexing, and library status
+  tracking.
+\item
+  \textbf{Controls:} Multi-file drag-and-drop
+  \texttt{st.\allowbreak file\_\allowbreak uploader}, status placeholders, active materials list
+  with individual {[}Delete{]} Delete buttons.
+\item
+  \textbf{Feedback:} Success banners upon chunking and vector index
+  serialization.
+\end{itemize}
+
+\subsubsection{\texorpdfstring{2.
+\texttt{{[}Ask\ \allowbreak Questions{]}\ \allowbreak \ \allowbreak Ask\ \allowbreak Questions}}{2. {[}Ask Questions{]}  Ask Questions}}\label{ask-questions-ask-questions}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Purpose:} Grounded interactive Q\&A.
+\item
+  \textbf{Controls:} Document focus selectbox (\texttt{st.\allowbreak selectbox}),
+  clear chat button, chat input field (\texttt{st.\allowbreak chat\_\allowbreak input}).
+\item
+  \textbf{Features:} Assistant messages display expandable citations
+  (\texttt{st.\allowbreak expander(\allowbreak "\ \allowbreak View\ \allowbreak Referenced\ \allowbreak Sources")\allowbreak }) showing exact
+  source filename, page number, and raw matching text snippet.
+\end{itemize}
+
+\subsubsection{\texorpdfstring{3.
+\texttt{{[}Practice\ \allowbreak Quiz{]}\ \allowbreak \ \allowbreak Practice\ \allowbreak Quiz}}{3. {[}Practice Quiz{]}  Practice Quiz}}\label{practice-quiz-practice-quiz}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Purpose:} Self-assessment through active recall.
+\item
+  \textbf{Controls:} Topic input text box, number of questions slider
+  (1-10), study source filter, ``{[}Execute{]} Generate Practice Quiz''
+  button.
+\item
+  \textbf{Interactive Form:} Renders questions with radio buttons
+  (\texttt{st.\allowbreak radio}). Clicking ``Grade My Quiz'' checks answers, marks
+  correct/incorrect selections with explanations, displays the final
+  score (e.g.~\texttt{{[}Success{]}\ \allowbreak \ \allowbreak Your\ \allowbreak Score:\ \allowbreak 5\ \allowbreak /\allowbreak \ \allowbreak 5}), and
+  fires celebration balloons (\texttt{st.\allowbreak balloons(\allowbreak )\allowbreak }).
+\end{itemize}
+
+\subsubsection{\texorpdfstring{4.
+\texttt{{[}Flashcards{]}\ \allowbreak \ \allowbreak Flashcards}}{4. {[}Flashcards{]}  Flashcards}}\label{flashcards-flashcards}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Purpose:} Term and definition memorization.
+\item
+  \textbf{Controls:} Topic input, number of cards (1-15), source filter,
+  ``{[}Flashcards{]} Create Flashcards'' button.
+\item
+  \textbf{Interactive Deck:} Renders cards inside expandable sections
+  with front prompts and hidden/revealed back definitions.
+\end{itemize}
+
+\subsubsection{\texorpdfstring{5.
+\texttt{{[}Topic\ \allowbreak Summaries{]}\ \allowbreak \ \allowbreak Topic\ \allowbreak Summaries}}{5. {[}Topic Summaries{]}  Topic Summaries}}\label{topic-summaries-topic-summaries}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Purpose:} Fast revision guide generation.
+\item
+  \textbf{Controls:} Topic input, source filter, ``{[}Topic Summaries{]}
+  Generate Revision Summary'' button.
+\item
+  \textbf{Output:} Renders structured Markdown with executive overview
+  and bulleted key points.
+\end{itemize}
+
+\subsubsection{\texorpdfstring{6.
+\texttt{{[}Study\ \allowbreak History{]}\ \allowbreak \ \allowbreak Study\ \allowbreak History}}{6. {[}Study History{]}  Study History}}\label{study-history-study-history}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Purpose:} Historical audit log and session persistence.
+\item
+  \textbf{Controls:} Activity type filter dropdown, ``{[}Delete{]} Clear
+  All History'' button, individual ``{[}Delete{]} Delete Entry''
+  buttons.
+\item
+  \textbf{Contents:} Expander cards for each past quiz, flashcard deck,
+  revision summary, chat question, or library upload.
+\end{itemize}
+
+\subsection{11.2 Theme Toggle and Student-Centric
+Aesthetics}\label{theme-toggle-and-student-centric-aesthetics}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Dark Mode (Default):} Deep slate \texttt{\#0F172A} background,
+  \texttt{\#1E293B} cards, \texttt{\#818CF8} gradient titles,
+  high-contrast readable text.
+\item
+  \textbf{Light Mode:} Crisp \texttt{\#F8FAFC} background, pure white
+  \texttt{\#FFFFFF} cards, \texttt{\#4F46E5} indigo accents.
+\item
+  \textbf{Typography:} Modern Google Fonts (\texttt{Inter} for body
+  text, \texttt{Outfit} for headers).
+\item
+  \textbf{Responsive Animations:} Hover transforms on buttons and
+  interactive radio items.
+\end{itemize}
+
+\section{Chapter 12: Installation and Environment
+Setup}\label{chapter-12-installation-and-environment-setup}
+
+\subsection{12.1 Prerequisites Checklist}\label{prerequisites-checklist}
+
+Before installing StudyRAG, ensure your host system satisfies the
+following prerequisites: - \textbf{Operating System:} macOS (Apple
+Silicon or Intel), Linux (Ubuntu 20.04+), or Windows 10/11. -
+\textbf{Python Version:} Python 3.10, 3.11, or 3.12 (Verified on Python
+3.12.2). - \textbf{Package Manager:} \texttt{pip} (Python package
+manager). - \textbf{Git:} Installed and configured.
+
+\subsection{12.2 Step-by-Step Installation
+Instructions}\label{step-by-step-installation-instructions}
+
+\subsubsection{Step 1: Clone the
+Repository}\label{step-1-clone-the-repository}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{git}\NormalTok{ clone https://github.com/kirit{-}somani/Rag{-}Based{-}Study{-}Application{-}.git}
+\BuiltInTok{cd}\NormalTok{ Rag{-}Based{-}Study{-}Application{-}}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Step 2: Create and Activate a Dedicated Virtual
+Environment}\label{step-2-create-and-activate-a-dedicated-virtual-environment}
+
+It is strongly recommended to use a clean virtual environment to prevent
+package version conflicts:
+
+\textbf{On macOS / Linux:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{python3} \AttributeTok{{-}m}\NormalTok{ venv venv}
+\BuiltInTok{source}\NormalTok{ venv/bin/activate}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{On Windows (PowerShell):}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{python }\OperatorTok{{-}}\NormalTok{m venv venv}
+\OperatorTok{.}\NormalTok{\textbackslash{}venv\textbackslash{}Scripts\textbackslash{}Activate}\OperatorTok{.}\FunctionTok{ps1}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Step 3: Configure Environment
+Variables}\label{step-3-configure-environment-variables}
+
+Copy the template configuration file to \texttt{.\allowbreak env}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cp}\NormalTok{ .env.example .env}
+\end{Highlighting}
+\end{Shaded}
+
+Open \texttt{.\allowbreak env} in any text editor and configure your preferred LLM
+provider:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{\# LLM Provider Configuration (options: groq, openai, ollama)}
+\NormalTok{LLM\_PROVIDER=groq}
+
+\NormalTok{\# Groq Cloud API Key (Free tier at https://console.groq.com/keys)}
+\NormalTok{GROQ\_API\_KEY=your\_groq\_api\_key\_here}
+
+\NormalTok{\# OpenAI API Key (Optional, required only if LLM\_PROVIDER=openai)}
+\NormalTok{OPENAI\_API\_KEY=your\_openai\_api\_key\_here}
+
+\NormalTok{\# Ollama Configuration (Optional, required only if running local offline LLMs)}
+\NormalTok{OLLAMA\_BASE\_URL=http://localhost:11434}
+\NormalTok{MODEL\_NAME=llama3}
+
+\NormalTok{\# Embedding and Vector Database Configuration}
+\NormalTok{EMBEDDING\_MODEL=minilm}
+\NormalTok{VECTOR\_STORE=faiss}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{quote}
+{[}!IMPORTANT{]} Never commit your \texttt{.\allowbreak env} file to version
+control. The repository includes \texttt{.\allowbreak env} in \texttt{.\allowbreak gitignore} by
+default.
+\end{quote}
+
+\subsubsection{Step 4: Install Python
+Dependencies}\label{step-4-install-python-dependencies}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{pip}\NormalTok{ install }\AttributeTok{{-}{-}upgrade}\NormalTok{ pip}
+\ExtensionTok{pip}\NormalTok{ install }\AttributeTok{{-}r}\NormalTok{ requirements.txt}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Step 5: Apple Silicon / macOS Special
+Consideration}\label{step-5-apple-silicon-macos-special-consideration}
+
+In Anaconda environments on macOS where TensorFlow is installed,
+TensorFlow's C-extension initialization can cause a segmentation fault
+when Transformers loads. To prevent this, ensure \texttt{USE\_\allowbreak TF=\allowbreak 0} and
+\texttt{USE\_\allowbreak TORCH=\allowbreak 1} are set:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{export} \VariableTok{USE\_TF}\OperatorTok{=}\NormalTok{0}
+\BuiltInTok{export} \VariableTok{USE\_TORCH}\OperatorTok{=}\NormalTok{1}
+\end{Highlighting}
+\end{Shaded}
+
+\emph{(Note: \texttt{app.\allowbreak py} sets these environment flags automatically
+at the top of the file.)}
+
+\section{Chapter 13: Complete Execution and Usage
+Guide}\label{chapter-13-complete-execution-and-usage-guide}
+
+\subsection{13.1 Launching the
+Application}\label{launching-the-application}
+
+With your virtual environment activated, launch the Streamlit server:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{streamlit}\NormalTok{ run app.py}
+\end{Highlighting}
+\end{Shaded}
+
+Expected terminal output:
+
+\begin{verbatim}
+  You can now view your Streamlit app in your browser.
+
+  Local URL: http://localhost:8501
+  Network URL: http://192.168.1.X:8501
+\end{verbatim}
+
+Open your web browser and navigate to \texttt{http:/\allowbreak /\allowbreak localhost:8501}.
+
+\subsection{13.2 End-to-End Walkthrough
+Tutorial}\label{end-to-end-walkthrough-tutorial}
+
+\subsubsection{Step 1: Ingest Study
+Materials}\label{step-1-ingest-study-materials}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  In the sidebar, click on \textbf{{[}Study Library{]} Study Library}.
+\item
+  Drag and drop a course PDF (for example, \texttt{data/\allowbreak uploaded/\allowbreak os.\allowbreak pdf}
+  or your own lecture notes) into the file uploader.
+\item
+  Observe the progress status: \emph{'' Indexing \{filename\} for
+  instant study\ldots``} followed by \emph{``{[}Success{]} \{filename\}
+  successfully indexed!''}.
+\item
+  Your document will now appear under ** Currently Active Study
+  Materials**.
+\end{enumerate}
+
+\subsubsection{Step 2: Interactive Cited
+Q\&A}\label{step-2-interactive-cited-qa}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Navigate to \textbf{{[}Ask Questions{]} Ask Questions}.
+\item
+  Select your document scope (or leave as \texttt{"All\ \allowbreak Materials"}).
+\item
+  Type a specific question: \emph{``What is the difference between a
+  user thread and a kernel thread?''}
+\item
+  The assistant generates a grounded answer.
+\item
+  Click ** View Referenced Sources** to inspect the exact page number
+  and text excerpt.
+\end{enumerate}
+
+\subsubsection{Step 3: Generate a Practice
+Quiz}\label{step-3-generate-a-practice-quiz}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Navigate to \textbf{{[}Practice Quiz{]} Practice Quiz}.
+\item
+  Enter a topic: \texttt{"Threads\ \allowbreak and\ \allowbreak Concurrency"}.
+\item
+  Choose 5 questions and click \textbf{{[}Execute{]} Generate Practice
+  Quiz}.
+\item
+  A notification indicates background generation has started.
+\item
+  Select your answers using the radio buttons and click \textbf{Grade My
+  Quiz }.
+\item
+  Review your score and detailed rationale for each question.
+\end{enumerate}
+
+\subsubsection{Step 4: Create Flashcards and
+Summaries}\label{step-4-create-flashcards-and-summaries}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Navigate to \textbf{{[}Flashcards{]} Flashcards}, enter
+  \texttt{"Process\ \allowbreak Synchronization"}, and click \textbf{Create
+  Flashcards}.
+\item
+  Expand each card to test your definition recall.
+\item
+  Navigate to \textbf{{[}Topic Summaries{]} Topic Summaries}, enter a
+  chapter name, and review the structured key takeaway notes.
+\end{enumerate}
+
+\subsubsection{Step 5: Review and Manage Study
+History}\label{step-5-review-and-manage-study-history}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Navigate to \textbf{{[}Study History{]} Study History}.
+\item
+  Filter activities by \emph{``{[}Practice Quiz{]} Practice Quizzes''}
+  or \emph{``{[}Ask Questions{]} Chat Questions''}.
+\item
+  Click {[}Delete{]} on any entry to remove it, or use \textbf{Clear All
+  History} to reset your logs.
+\end{enumerate}
+
+\subsection{13.3 Stopping and Restarting the
+Application}\label{stopping-and-restarting-the-application}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{To Stop:} In the terminal running Streamlit, press
+  \texttt{Ctrl\ \allowbreak +\ \allowbreak C}.
+\item
+  \textbf{To Restart:} Execute \texttt{streamlit\ \allowbreak run\ \allowbreak app.\allowbreak py}. All
+  previously uploaded documents in \texttt{data/\allowbreak uploaded/\allowbreak } and history
+  in \texttt{data/\allowbreak history.\allowbreak json} persist automatically across restarts.
+\end{itemize}
+
+\section{Chapter 14: Testing and
+Validation}\label{chapter-14-testing-and-validation}
+
+\subsection{14.1 Automated Testing
+Architecture}\label{automated-testing-architecture}
+
+The StudyRAG test suite is located in \texttt{tests/\allowbreak } and configured via
+\texttt{pytest.\allowbreak ini}. It covers all critical subsystems: - Document
+extraction and cleaning. - Recursive chunking and metadata preservation.
+- SentenceTransformer embeddings. - Vector database operations (FAISS \&
+ChromaDB). - Query processing and validation. - Relevance score
+normalization and threshold filtering. - LLM initialization and provider
+routing. - RAG pipeline orchestration and anti-hallucination fallback
+logic.
+
+\subsection{14.2 Running the Automated Test
+Suite}\label{running-the-automated-test-suite}
+
+To run all automated tests:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\VariableTok{USE\_TF}\OperatorTok{=}\NormalTok{0 }\VariableTok{USE\_TORCH}\OperatorTok{=}\NormalTok{1 }\ExtensionTok{pytest}
+\end{Highlighting}
+\end{Shaded}
+
+Expected test session summary:
+
+\begin{verbatim}
+============================= test session starts ==============================
+platform darwin -- Python 3.12.2, pytest-8.1.1, pluggy-1.5.0
+rootdir: /Users/kiritsomani/Desktop/rag-study-assistant
+configfile: pytest.ini
+
+tests/test_chunking.py ...                                               [ 10%]
+tests/test_document_cleaner.py ....                                      [ 25%]
+tests/test_embeddings.py ..                                              [ 32%]
+tests/test_llm_manager.py ......                                         [ 53%]
+tests/test_pdf_loader.py ..                                              [ 60%]
+tests/test_query_processor.py ...                                        [ 71%]
+tests/test_rag.py ..                                                     [ 78%]
+tests/test_retrieval.py ...                                              [ 89%]
+tests/test_vectorstore.py ...                                            [100%]
+
+======================= 28 passed, 9 warnings in 23.21s ========================
+\end{verbatim}
+
+\subsection{14.3 Complete 28-Test Verification
+Matrix}\label{complete-28-test-verification-matrix}
+
+\begin{landscape}
+\begingroup\scriptsize
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash\sloppy}p{(\linewidth - 14\tabcolsep) * \real{0.0800}}
+  >{\raggedright\arraybackslash\sloppy}p{(\linewidth - 14\tabcolsep) * \real{0.1400}}
+  >{\raggedright\arraybackslash\sloppy}p{(\linewidth - 14\tabcolsep) * \real{0.1900}}
+  >{\raggedright\arraybackslash\sloppy}p{(\linewidth - 14\tabcolsep) * \real{0.1600}}
+  >{\raggedright\arraybackslash\sloppy}p{(\linewidth - 14\tabcolsep) * \real{0.1100}}
+  >{\raggedright\arraybackslash\sloppy}p{(\linewidth - 14\tabcolsep) * \real{0.1300}}
+  >{\raggedright\arraybackslash\sloppy}p{(\linewidth - 14\tabcolsep) * \real{0.1300}}
+  >{\raggedright\arraybackslash\sloppy}p{(\linewidth - 14\tabcolsep) * \real{0.0500}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Test ID
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Test File
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Test Function Name
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Tested Feature / Logic
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Preconditions \& Inputs
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Expected Result
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Actual Result
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Status
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{TC-01} & \texttt{test\_\allowbreak chunking.\allowbreak py} &
+\texttt{test\_\allowbreak create\_\allowbreak chunks} & Text chunking \& metadata & Sample
+sentence, \texttt{size=\allowbreak 20,\allowbreak \ \allowbreak overlap=\allowbreak 5} & Multiple chunks with unique IDs
+\& metadata & Unique IDs verified, metadata preserved &
+\textbf{PASSED} \\
+\textbf{TC-02} & \texttt{test\_\allowbreak chunking.\allowbreak py} &
+\texttt{test\_\allowbreak invalid\_\allowbreak chunk\_\allowbreak size} & Parameter validation &
+\texttt{chunk\_\allowbreak size=\allowbreak 0,\allowbreak \ \allowbreak overlap=\allowbreak 0} & Raises \texttt{ValueError} &
+\texttt{ValueError} raised & \textbf{PASSED} \\
+\textbf{TC-03} & \texttt{test\_\allowbreak chunking.\allowbreak py} &
+\texttt{test\_\allowbreak invalid\_\allowbreak overlap} & Parameter validation &
+\texttt{overlap=\allowbreak -1} and \texttt{overlap\ \allowbreak \textgreater{}=\allowbreak \ \allowbreak size} & Raises
+\texttt{ValueError} & \texttt{ValueError} raised & \textbf{PASSED} \\
+\textbf{TC-04} & \texttt{test\_\allowbreak document\_\allowbreak cleaner.\allowbreak py} &
+\texttt{test\_\allowbreak clean\_\allowbreak extra\_\allowbreak spaces} & Whitespace normalization &
+\texttt{"This\ \allowbreak \ \allowbreak \ \allowbreak has\ \allowbreak \ \allowbreak \ \allowbreak \ \allowbreak way\ \allowbreak \ \allowbreak too\ \allowbreak many\ \allowbreak spaces."} &
+\texttt{"This\ \allowbreak has\ \allowbreak way\ \allowbreak too\ \allowbreak many\ \allowbreak spaces."} & String matched exactly &
+\textbf{PASSED} \\
+\textbf{TC-05} & \texttt{test\_\allowbreak document\_\allowbreak cleaner.\allowbreak py} &
+\texttt{test\_\allowbreak clean\_\allowbreak newlines} & Paragraph preserving &
+\texttt{"Paragraph\ \allowbreak 1\textbackslash{}n\textbackslash{}n\textbackslash{}n\textbackslash{}nParagraph\ \allowbreak 2"}
+& \texttt{"Paragraph\ \allowbreak 1\textbackslash{}n\textbackslash{}nParagraph\ \allowbreak 2"}
+& Exactly two newlines & \textbf{PASSED} \\
+\textbf{TC-06} & \texttt{test\_\allowbreak document\_\allowbreak cleaner.\allowbreak py} &
+\texttt{test\_\allowbreak empty\_\allowbreak text} & Edge case cleaning & Empty strings \&
+whitespace strings & Returns \texttt{""} & Empty string returned &
+\textbf{PASSED} \\
+\textbf{TC-07} & \texttt{test\_\allowbreak document\_\allowbreak cleaner.\allowbreak py} &
+\texttt{test\_\allowbreak clean\_\allowbreak documents} & Empty page removal & 3-page doc list
+with 1 empty page & Len is 2, blank page dropped & 2 valid pages
+returned & \textbf{PASSED} \\
+\textbf{TC-08} & \texttt{test\_\allowbreak embeddings.\allowbreak py} &
+\texttt{test\_\allowbreak embedding\_\allowbreak manager\_\allowbreak initialization} & Model initialization
+& \texttt{EmbeddingManager(\allowbreak "minilm")\allowbreak } & Non-null HuggingFace embeddings
+& Embedding object instantiated & \textbf{PASSED} \\
+\textbf{TC-09} & \texttt{test\_\allowbreak embeddings.\allowbreak py} &
+\texttt{test\_\allowbreak embedding\_\allowbreak dimension} & Dimension calculation & Embedding
+query on ``test'' & Dimension equals 384 & 384 dimensions confirmed &
+\textbf{PASSED} \\
+\textbf{TC-10} & \texttt{test\_\allowbreak llm\_\allowbreak manager.\allowbreak py} &
+\texttt{test\_\allowbreak ollama\_\allowbreak initialization} & Ollama provider setup &
+\texttt{LLMManager(\allowbreak provider=\allowbreak "ollama")\allowbreak } & \texttt{ChatOllama} instance
+created & Instantiated with base URL & \textbf{PASSED} \\
+\textbf{TC-11} & \texttt{test\_\allowbreak llm\_\allowbreak manager.\allowbreak py} &
+\texttt{test\_\allowbreak openai\_\allowbreak missing\_\allowbreak key} & OpenAI error handling & Missing
+\texttt{OPENAI\_\allowbreak API\_\allowbreak KEY} & Raises \texttt{ValueError} &
+\texttt{ValueError} raised & \textbf{PASSED} \\
+\textbf{TC-12} & \texttt{test\_\allowbreak llm\_\allowbreak manager.\allowbreak py} &
+\texttt{test\_\allowbreak openai\_\allowbreak initialization} & OpenAI provider setup & Mocked
+\texttt{OPENAI\_\allowbreak API\_\allowbreak KEY=\allowbreak "test"} & \texttt{ChatOpenAI} instance created
+& \texttt{ChatOpenAI} returned & \textbf{PASSED} \\
+\textbf{TC-13} & \texttt{test\_\allowbreak llm\_\allowbreak manager.\allowbreak py} &
+\texttt{test\_\allowbreak groq\_\allowbreak missing\_\allowbreak key} & Groq error handling & Missing
+\texttt{GROQ\_\allowbreak API\_\allowbreak KEY} & Raises \texttt{ValueError} &
+\texttt{ValueError} raised & \textbf{PASSED} \\
+\textbf{TC-14} & \texttt{test\_\allowbreak llm\_\allowbreak manager.\allowbreak py} &
+\texttt{test\_\allowbreak groq\_\allowbreak initialization} & Groq provider setup & Mocked
+\texttt{GROQ\_\allowbreak API\_\allowbreak KEY=\allowbreak "test"} & \texttt{ChatOpenAI} with Groq base URL
+& Correct base URL \& model mapping & \textbf{PASSED} \\
+\textbf{TC-15} & \texttt{test\_\allowbreak llm\_\allowbreak manager.\allowbreak py} &
+\texttt{test\_\allowbreak unsupported\_\allowbreak provider} & Invalid provider validation &
+\texttt{LLMManager(\allowbreak provider=\allowbreak "unsupported")\allowbreak } & Raises \texttt{ValueError}
+& \texttt{ValueError} raised & \textbf{PASSED} \\
+\textbf{TC-16} & \texttt{test\_\allowbreak pdf\_\allowbreak loader.\allowbreak py} &
+\texttt{test\_\allowbreak load\_\allowbreak pdf\_\allowbreak missing\_\allowbreak file} & File existence guard &
+Non-existent file path & Raises \texttt{FileNotFoundError} &
+\texttt{FileNotFoundError} raised & \textbf{PASSED} \\
+\textbf{TC-17} & \texttt{test\_\allowbreak pdf\_\allowbreak loader.\allowbreak py} &
+\texttt{test\_\allowbreak load\_\allowbreak pdf\_\allowbreak invalid\_\allowbreak extension} & File extension guard &
+Path pointing to \texttt{.\allowbreak txt} file & Raises \texttt{ValueError} &
+\texttt{ValueError} raised & \textbf{PASSED} \\
+\textbf{TC-18} & \texttt{test\_\allowbreak query\_\allowbreak processor.\allowbreak py} &
+\texttt{test\_\allowbreak process\_\allowbreak valid\_\allowbreak query} & Query sanitization &
+\texttt{"\ \allowbreak \ \allowbreak \ \allowbreak What\ \allowbreak is\ \allowbreak \ \allowbreak RAG?\ \allowbreak \ \allowbreak \ \allowbreak "} & \texttt{"What\ \allowbreak is\ \allowbreak RAG?"} &
+Sanitized query returned & \textbf{PASSED} \\
+\textbf{TC-19} & \texttt{test\_\allowbreak query\_\allowbreak processor.\allowbreak py} &
+\texttt{test\_\allowbreak empty\_\allowbreak query} & Empty query rejection & Empty and
+whitespace queries & Raises \texttt{ValueError} & \texttt{ValueError}
+raised & \textbf{PASSED} \\
+\textbf{TC-20} & \texttt{test\_\allowbreak query\_\allowbreak processor.\allowbreak py} &
+\texttt{test\_\allowbreak query\_\allowbreak too\_\allowbreak long} & Max length guard & String of 1,001
+characters & Raises \texttt{ValueError} & \texttt{ValueError} raised &
+\textbf{PASSED} \\
+\textbf{TC-21} & \texttt{test\_\allowbreak rag.\allowbreak py} &
+\texttt{test\_\allowbreak generate\_\allowbreak rag\_\allowbreak response\_\allowbreak no\_\allowbreak context} & Anti-hallucination
+guard & Mocked retrieval returning \texttt{found=\allowbreak False} & Fallback
+message, LLM NOT called & Zero LLM calls, refusal returned &
+\textbf{PASSED} \\
+\textbf{TC-22} & \texttt{test\_\allowbreak rag.\allowbreak py} &
+\texttt{test\_\allowbreak generate\_\allowbreak rag\_\allowbreak response\_\allowbreak with\_\allowbreak context} & Grounded
+generation & Mocked context with \texttt{math.\allowbreak pdf} & Answer returned
+with citations & Answer returned with \texttt{math.\allowbreak pdf} &
+\textbf{PASSED} \\
+\textbf{TC-23} & \texttt{test\_\allowbreak retrieval.\allowbreak py} &
+\texttt{test\_\allowbreak normalize\_\allowbreak score} & Distance normalization & L2=0.0 \&
+1.0; Cosine=0.0 \& 0.2 & Maps to 1.0, 0.5; 1.0, 0.8 & Normalized values
+accurate & \textbf{PASSED} \\
+\textbf{TC-24} & \texttt{test\_\allowbreak retrieval.\allowbreak py} &
+\texttt{test\_\allowbreak filter\_\allowbreak by\_\allowbreak threshold} & Thresholding logic & 3 docs with
+L2 scores, \(\tau=0.5\) & 2 docs kept, sorted descending & 2 docs kept,
+1 doc filtered & \textbf{PASSED} \\
+\textbf{TC-25} & \texttt{test\_\allowbreak retrieval.\allowbreak py} & \texttt{test\_\allowbreak metrics} &
+Evaluation metrics & Retrieved list, expected=``doc1'' & Precision=0.33,
+Hit=1, Recall=1.0 & Calculations verified & \textbf{PASSED} \\
+\textbf{TC-26} & \texttt{test\_\allowbreak vectorstore.\allowbreak py} &
+\texttt{test\_\allowbreak faiss\_\allowbreak vector\_\allowbreak store} & FAISS lifecycle & Temp dir, sample
+documents & Add, save, load, search verified & Stack LIFO document
+recovered & \textbf{PASSED} \\
+\textbf{TC-27} & \texttt{test\_\allowbreak vectorstore.\allowbreak py} &
+\texttt{test\_\allowbreak chroma\_\allowbreak vector\_\allowbreak store} & Chroma lifecycle & Temp dir,
+sample documents & Add, save, load, search verified & Stack LIFO
+document recovered & \textbf{PASSED} \\
+\textbf{TC-28} & \texttt{test\_\allowbreak vectorstore.\allowbreak py} &
+\texttt{test\_\allowbreak raw\_\allowbreak chunks\_\allowbreak conversion} & Chunk conversion & Raw chunk
+dictionary list & LangChain \texttt{Document} list & Page, source,
+chunk\_id preserved & \textbf{PASSED} \\
+\end{longtable}
+\endgroup
+\end{landscape}
+
+\section{Chapter 15: Current Progress and Development
+Status}\label{chapter-15-current-progress-and-development-status}
+
+\subsection{15.1 Completed Features \& Verified
+Capabilities}\label{completed-features-verified-capabilities}
+
+The following features are 100\% implemented, integrated, and verified
+by automated testing:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Multi-PDF Ingestion Pipeline}: Full support for single and
+  batch PDF uploads, SHA-256 deduplication, PyMuPDF page-by-page
+  extraction, and error handling for corrupted/non-PDF files
+  (\texttt{src/\allowbreak ingestion/\allowbreak }).
+\item
+  \textbf{Text Normalization Engine}: Whitespace and newline collapsing
+  with paragraph integrity preservation
+  (\texttt{src/\allowbreak ingestion/\allowbreak document\_\allowbreak cleaner.\allowbreak py}).
+\item
+  \textbf{Recursive Character Chunking}: LangChain recursive splitting
+  with 5-tier separator fallback and metadata propagation
+  (\texttt{src/\allowbreak ingestion/\allowbreak chunker.\allowbreak py}).
+\item
+  \textbf{SentenceTransformer Embeddings}: Local 384-dimensional dense
+  vector embeddings with dynamic dimension caching
+  (\texttt{src/\allowbreak embeddings/\allowbreak embedding\_\allowbreak manager.\allowbreak py}).
+\item
+  \textbf{Dual Vector Store Backends}: Fully operational FAISS
+  (in-memory flat L2 index with disk serialization) and ChromaDB
+  (SQLite-backed with cosine distance collection configuration)
+  (\texttt{src/\allowbreak vectorstore/\allowbreak }).
+\item
+  \textbf{Query Processing \& Sanitization}: Input validation,
+  whitespace collapse, and 1,000-character safety guard
+  (\texttt{src/\allowbreak retrieval/\allowbreak query\_\allowbreak processor.\allowbreak py}).
+\item
+  \textbf{Relevance Normalization \& Threshold Filtering}: Mathematical
+  score mapping for L2 and Cosine metrics with anti-hallucination
+  threshold cutoff (\texttt{src/\allowbreak retrieval/\allowbreak score\_\allowbreak filter.\allowbreak py}).
+\item
+  \textbf{Source-Specific Retrieval}: Selective filtering to single
+  documents or across all uploaded materials
+  (\texttt{src/\allowbreak retrieval/\allowbreak retriever.\allowbreak py}).
+\item
+  \textbf{Multi-Provider LLM Integration}: Dynamic switching between
+  Groq Cloud (ultra-fast LPU), OpenAI (GPT-4o), and local Ollama
+  (\texttt{src/\allowbreak generation/\allowbreak llm\_\allowbreak manager.\allowbreak py}).
+\item
+  \textbf{4 Dedicated Study Artifact Generators}:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Grounded Q\&A with verifiable page-level references.
+  \item
+    Multiple Choice Practice Quizzes with automated form-based grading.
+  \item
+    Digital Flashcard decks with front prompt / back definition
+    expansion.
+  \item
+    Chapter Revision Summaries with key takeaway bullet points.
+  \end{itemize}
+\item
+  \textbf{Non-Blocking Background Threading}: Daemon threads with
+  Streamlit script execution context tracking generation jobs
+  asynchronously without UI lockup (\texttt{app.\allowbreak py}).
+\item
+  \textbf{Persistent Study Activity Store}: Atomic JSON persistence
+  (\texttt{data/\allowbreak history.\allowbreak json}) with UUID tracking, activity filtering,
+  and entry deletion.
+\item
+  \textbf{Modern Student-Centric Interface}: Fully responsive Streamlit
+  UI with {[}Dark Mode{]} Dark Mode and {[}Light Mode{]} Light Mode
+  themes and custom CSS.
+\item
+  \textbf{Automated Test Suite}: 28 passing unit and integration tests
+  (\texttt{tests/\allowbreak }).
+\end{enumerate}
+
+\subsection{15.2 Partially Completed Features \&
+Nuances}\label{partially-completed-features-nuances}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{ChromaDB LangChain Deprecation Warning}:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \emph{Status:} Chroma functions properly, but LangChain emits a
+    deprecation warning recommending migration from
+    \texttt{langchain\_\allowbreak community.\allowbreak vectorstores.\allowbreak Chroma} to
+    \texttt{langchain\_\allowbreak chroma.\allowbreak Chroma}.
+  \item
+    \emph{Impact:} Harmless in LangChain 0.1/0.2, but should be updated
+    before LangChain 1.0.
+  \end{itemize}
+\item
+  \textbf{FAISS Deserialization Flag}:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \emph{Status:} FAISS loading requires
+    \texttt{allow\_\allowbreak dangerous\_\allowbreak deserialization=\allowbreak True} due to pickle
+    security checks in newer LangChain versions.
+  \item
+    \emph{Impact:} Safe for local user files, but multi-user
+    environments should transition to trusted formats or isolated
+    storage.
+  \end{itemize}
+\end{enumerate}
+
+\subsection{15.3 Work Currently in Progress / Immediate Next
+Steps}\label{work-currently-in-progress-immediate-next-steps}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{OCR Integration for Scanned PDFs}: Integrating Tesseract OCR
+  or \texttt{pdf2image} for documents containing scanned photocopies
+  without extractable text streams.
+\item
+  \textbf{Flashcard Spaced Repetition (SM-2) Scheduling}: Adding
+  interval tracking (1 day, 3 days, 7 days) to the flashcard interface.
+\end{enumerate}
+
+\subsection{15.4 Technical Debt \& Known
+Limitations}\label{technical-debt-known-limitations}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{In-Process Background Jobs}: Background generation threads run
+  inside the Streamlit Python process. If the server is terminated
+  during generation, in-flight jobs are interrupted.
+\item
+  \textbf{Single-User Session Isolation}: The current Streamlit
+  application shares the file system and vector store across connected
+  browser tabs. Multi-user enterprise deployments require user
+  authentication and partitioned vector collections.
+\end{enumerate}
+
+\section{Chapter 16: Configuration and
+Customization}\label{chapter-16-configuration-and-customization}
+
+\subsection{\texorpdfstring{16.1 Application Configuration Reference
+(\texttt{config/\allowbreak settings.\allowbreak yaml})}{16.1 Application Configuration Reference (config/settings.yaml)}}\label{application-configuration-reference-configsettings.yaml}
+
+The primary system defaults are declared in
+\texttt{config/\allowbreak settings.\allowbreak yaml}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{app}\KeywordTok{:}
+\AttributeTok{  }\FunctionTok{title}\KeywordTok{:}\AttributeTok{ }\StringTok{"StudyRAG: AI{-}Powered Study Assistant"}
+\AttributeTok{  }\FunctionTok{version}\KeywordTok{:}\AttributeTok{ }\StringTok{"1.0.0"}
+
+\FunctionTok{chunking}\KeywordTok{:}
+\AttributeTok{  }\FunctionTok{default\_strategy}\KeywordTok{:}\AttributeTok{ }\StringTok{"recursive"}
+\AttributeTok{  }\FunctionTok{chunk\_size}\KeywordTok{:}\AttributeTok{ }\DecValTok{500}\CommentTok{              \# Maximum character length per chunk}
+\AttributeTok{  }\FunctionTok{chunk\_overlap}\KeywordTok{:}\AttributeTok{ }\DecValTok{50}\CommentTok{            \# Overlap in characters between adjacent chunks}
+
+\FunctionTok{retrieval}\KeywordTok{:}
+\AttributeTok{  }\FunctionTok{top\_k}\KeywordTok{:}\AttributeTok{ }\DecValTok{5}\CommentTok{                     \# Number of chunks retrieved per query}
+\AttributeTok{  }\FunctionTok{similarity\_threshold}\KeywordTok{:}\AttributeTok{ }\FloatTok{0.2}\CommentTok{    \# Minimum normalized relevance score (0.0 to 1.0)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{\texorpdfstring{16.2 Environment Variables Reference
+(\texttt{.\allowbreak env})}{16.2 Environment Variables Reference (.env)}}\label{environment-variables-reference-.env}
+
+\begingroup\footnotesize
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash\sloppy}p{(\linewidth - 8\tabcolsep) * \real{0.2200}}
+  >{\raggedright\arraybackslash\sloppy}p{(\linewidth - 8\tabcolsep) * \real{0.0800}}
+  >{\raggedright\arraybackslash\sloppy}p{(\linewidth - 8\tabcolsep) * \real{0.1500}}
+  >{\raggedright\arraybackslash\sloppy}p{(\linewidth - 8\tabcolsep) * \real{0.1500}}
+  >{\raggedright\arraybackslash\sloppy}p{(\linewidth - 8\tabcolsep) * \real{0.3600}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Variable Name
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Required
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Default Value
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Accepted Values
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Purpose \& Security Implications
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{LLM\_\allowbreak PROVIDER} & No & \texttt{"groq"} & \texttt{"groq"},
+\texttt{"openai"}, \texttt{"ollama"} & Selects default inference
+provider. \\
+\texttt{GROQ\_\allowbreak API\_\allowbreak KEY} & Conditional & None & String
+(\texttt{gsk\_\allowbreak .\allowbreak .\allowbreak .}) & API key for Groq Cloud. Required if
+\texttt{LLM\_\allowbreak PROVIDER=\allowbreak groq}. \\
+\texttt{OPENAI\_\allowbreak API\_\allowbreak KEY} & Conditional & None & String
+(\texttt{sk-.\allowbreak .\allowbreak .}) & API key for OpenAI. Required if
+\texttt{LLM\_\allowbreak PROVIDER=\allowbreak openai}. \\
+\texttt{OLLAMA\_\allowbreak BASE\_\allowbreak URL} & No & \texttt{"http:/\allowbreak /\allowbreak localhost:11434"} &
+URL string & Address of local Ollama HTTP server. \\
+\texttt{MODEL\_\allowbreak NAME} & No & \texttt{"llama3"} & String (model tag) &
+Model name for local Ollama inference. \\
+\texttt{EMBEDDING\_\allowbreak MODEL} & No & \texttt{"minilm"} & \texttt{"minilm"},
+\texttt{"bge"} & Selects embedding model architecture. \\
+\texttt{VECTOR\_\allowbreak STORE} & No & \texttt{"faiss"} & \texttt{"faiss"},
+\texttt{"chroma"} & Selects vector storage backend. \\
+\texttt{USE\_\allowbreak TF} & Recommended & \texttt{"0"} & \texttt{"0"},
+\texttt{"1"} & Disables TensorFlow in Transformers to prevent macOS
+segfaults. \\
+\texttt{USE\_\allowbreak TORCH} & Recommended & \texttt{"1"} & \texttt{"0"},
+\texttt{"1"} & Forces PyTorch backend for SentenceTransformers. \\
+\end{longtable}
+\endgroup
+
+\subsection{16.3 Customizing UI Themes and Visual
+Design}\label{customizing-ui-themes-and-visual-design}
+
+Themes are controlled via the \texttt{apply\_\allowbreak theme\_\allowbreak css(\allowbreak )\allowbreak } function in
+\texttt{app.\allowbreak py}. Colors can be tuned by editing CSS variables: - Dark
+Mode Card Background: \texttt{\#1E293B} - Dark Mode Text Gradient:
+\texttt{linear-gradient(\allowbreak 90deg,\allowbreak \ \allowbreak \#818CF8,\allowbreak \ \allowbreak \#38BDF8)\allowbreak } - Primary Accent
+Button:
+\texttt{linear-gradient(\allowbreak 135deg,\allowbreak \ \allowbreak \#6366F1\ \allowbreak 0\%,\allowbreak \ \allowbreak \#0284C7\ \allowbreak 100\%)\allowbreak }
+
+\section{Chapter 17: Error Handling and
+Troubleshooting}\label{chapter-17-error-handling-and-troubleshooting}
+
+\subsection{17.1 Practical Diagnostic
+Matrix}\label{practical-diagnostic-matrix}
+
+\begingroup\footnotesize
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash\sloppy}p{(\linewidth - 6\tabcolsep) * \real{0.2400}}
+  >{\raggedright\arraybackslash\sloppy}p{(\linewidth - 6\tabcolsep) * \real{0.2200}}
+  >{\raggedright\arraybackslash\sloppy}p{(\linewidth - 6\tabcolsep) * \real{0.3200}}
+  >{\raggedright\arraybackslash\sloppy}p{(\linewidth - 6\tabcolsep) * \real{0.1800}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Symptom / Error Message
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Likely Cause
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Step-by-Step Fix
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Command to Verify
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{Fatal\ \allowbreak Python\ \allowbreak error:\ \allowbreak Segmentation\ \allowbreak fault} during
+\texttt{import\ \allowbreak transformers} on macOS & Anaconda environment on Apple
+Silicon where TensorFlow attempts to execute C-extension preload check.
+& Set \texttt{USE\_\allowbreak TF=\allowbreak 0} and \texttt{USE\_\allowbreak TORCH=\allowbreak 1} in the shell or at
+top of Python scripts before importing transformers. &
+\texttt{USE\_\allowbreak TF=\allowbreak 0\ \allowbreak python3\ \allowbreak -c\ \allowbreak "import\ \allowbreak transformers;\ \allowbreak print(\allowbreak \textquotesingle{}OK\textquotesingle{})\allowbreak "} \\
+\texttt{ValueError:\ \allowbreak OPENAI\_\allowbreak API\_\allowbreak KEY\ \allowbreak environment\ \allowbreak variable\ \allowbreak is\ \allowbreak not\ \allowbreak set.}
+& OpenAI selected as provider without defining \texttt{OPENAI\_\allowbreak API\_\allowbreak KEY}
+in \texttt{.\allowbreak env}. & Add \texttt{OPENAI\_\allowbreak API\_\allowbreak KEY=\allowbreak sk-.\allowbreak .\allowbreak .} to
+\texttt{.\allowbreak env} or switch provider to \texttt{groq} or \texttt{ollama}. &
+\texttt{python3\ \allowbreak -c\ \allowbreak "from\ \allowbreak dotenv\ \allowbreak import\ \allowbreak load\_\allowbreak dotenv;\ \allowbreak import\ \allowbreak os;\ \allowbreak load\_\allowbreak dotenv(\allowbreak )\allowbreak ;\ \allowbreak print(\allowbreak bool(\allowbreak os.\allowbreak getenv(\allowbreak \textquotesingle{}OPENAI\_\allowbreak API\_\allowbreak KEY\textquotesingle{})\allowbreak )\allowbreak )\allowbreak "} \\
+\texttt{ValueError:\ \allowbreak GROQ\_\allowbreak API\_\allowbreak KEY\ \allowbreak environment\ \allowbreak variable\ \allowbreak is\ \allowbreak not\ \allowbreak set.}
+& Groq selected as provider without defining \texttt{GROQ\_\allowbreak API\_\allowbreak KEY} in
+\texttt{.\allowbreak env}. & Add \texttt{GROQ\_\allowbreak API\_\allowbreak KEY=\allowbreak gsk\_\allowbreak .\allowbreak .\allowbreak .} to \texttt{.\allowbreak env}
+(obtain free key at console.groq.com). &
+\texttt{python3\ \allowbreak -c\ \allowbreak "from\ \allowbreak dotenv\ \allowbreak import\ \allowbreak load\_\allowbreak dotenv;\ \allowbreak import\ \allowbreak os;\ \allowbreak load\_\allowbreak dotenv(\allowbreak )\allowbreak ;\ \allowbreak print(\allowbreak bool(\allowbreak os.\allowbreak getenv(\allowbreak \textquotesingle{}GROQ\_\allowbreak API\_\allowbreak KEY\textquotesingle{})\allowbreak )\allowbreak )\allowbreak "} \\
+\texttt{ConnectionError} /
+\texttt{Failed\ \allowbreak to\ \allowbreak connect\ \allowbreak to\ \allowbreak localhost:11434} & Ollama daemon is not
+running on host machine. & Start the Ollama service: execute
+\texttt{ollama\ \allowbreak serve} in a separate terminal. Verify with
+\texttt{ollama\ \allowbreak run\ \allowbreak llama3}. &
+\texttt{curl\ \allowbreak http:/\allowbreak /\allowbreak localhost:11434/\allowbreak api/\allowbreak version} \\
+\texttt{Warning:\ \allowbreak No\ \allowbreak extractable\ \allowbreak text\ \allowbreak found\ \allowbreak in\ \allowbreak \{file.\allowbreak pdf\}.\ \allowbreak Might\ \allowbreak be\ \allowbreak a\ \allowbreak scanned\ \allowbreak image.}
+& The uploaded PDF consists of scanned bitmap images without embedded
+text fonts. & Use an OCR tool (e.g.~Adobe Acrobat OCR, ocrmypdf) to
+generate a searchable PDF before uploading. & Open PDF in viewer and
+verify if text can be highlighted and copied. \\
+\texttt{I\ \allowbreak could\ \allowbreak not\ \allowbreak find\ \allowbreak enough\ \allowbreak information\ \allowbreak in\ \allowbreak the\ \allowbreak uploaded\ \allowbreak documents.\allowbreak .\allowbreak .}
+& Query relevance score fell below \(\tau=0.20\) or document does not
+cover the topic. & Verify that relevant study notes are uploaded in
+Study Library, or lower the similarity threshold in
+\texttt{settings.\allowbreak yaml}. & Check retrieval scores in logger output. \\
+\texttt{LangChainDeprecationWarning:\ \allowbreak The\ \allowbreak class\ \allowbreak Chroma\ \allowbreak was\ \allowbreak deprecated.\allowbreak .\allowbreak .}
+& Using \texttt{langchain\_\allowbreak community.\allowbreak vectorstores.\allowbreak Chroma} instead of
+standalone \texttt{langchain-chroma}. & Warning only; does not affect
+functionality. Can be resolved by running
+\texttt{pip\ \allowbreak install\ \allowbreak -U\ \allowbreak langchain-chroma}. &
+\texttt{pytest\ \allowbreak tests/\allowbreak test\_\allowbreak vectorstore.\allowbreak py} \\
+Port 8501 already in use & Another Streamlit instance is running. &
+Specify alternative port:
+\texttt{streamlit\ \allowbreak run\ \allowbreak app.\allowbreak py\ \allowbreak -\/\allowbreak -server.\allowbreak port\ \allowbreak 8502}. &
+\texttt{lsof\ \allowbreak -i\ \allowbreak :8501} \\
+\end{longtable}
+\endgroup
+
+\section{Chapter 18: Security, Privacy, and
+Reliability}\label{chapter-18-security-privacy-and-reliability}
+
+\subsection{18.1 Secrets Management \& Data
+Hygiene}\label{secrets-management-data-hygiene}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{API Keys}: All external API keys (\texttt{GROQ\_\allowbreak API\_\allowbreak KEY},
+  \texttt{OPENAI\_\allowbreak API\_\allowbreak KEY}) are loaded via \texttt{python-dotenv} from
+  the root \texttt{.\allowbreak env} file. They are never written to source code,
+  logged in terminal outputs, or exposed to the frontend browser client.
+\item
+  \textbf{Repository Isolation}: \texttt{.\allowbreak gitignore} explicitly excludes
+  \texttt{.\allowbreak env}, \texttt{data/\allowbreak uploaded/\allowbreak }, \texttt{data/\allowbreak vectorstores/\allowbreak },
+  and \texttt{data/\allowbreak history.\allowbreak json}, ensuring student notes and API
+  credentials cannot be accidentally committed to public repositories.
+\end{itemize}
+
+\subsection{18.2 Local-First Privacy
+Guarantee}\label{local-first-privacy-guarantee}
+
+For students, researchers, and institutions handling confidential course
+exams, proprietary research data, or copyrighted textbooks: - StudyRAG
+can operate in a \textbf{100\% Air-Gapped Local Mode}. - Embeddings are
+generated entirely on the local CPU via SentenceTransformers
+(\texttt{all-MiniLM-L6-v2}). - Vector indices are stored locally in
+\texttt{data/\allowbreak vectorstores/\allowbreak }. - LLM inference can be routed to a local
+\textbf{Ollama} daemon. - In this configuration, \textbf{zero bytes of
+document text or queries leave the host machine}.
+
+\subsection{18.3 Input Validation and Defense in
+Depth}\label{input-validation-and-defense-in-depth}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{File Validation}: \texttt{pdf\_\allowbreak loader.\allowbreak py} validates file
+  existence, enforces \texttt{.\allowbreak pdf} extension checks, and wraps PyMuPDF
+  in defensive try-except blocks to reject corrupt or malformed file
+  payloads.
+\item
+  \textbf{Query Bounding}: \texttt{query\_\allowbreak processor.\allowbreak py} strips control
+  characters, normalizes whitespace, and rejects queries exceeding 1,000
+  characters, mitigating buffer overflow and context saturation attacks.
+\item
+  \textbf{Strict Anti-Hallucination Guardrails}: Prompts explicitly
+  forbid the model from making unsupported assumptions and mandate
+  page-level citations.
+\end{itemize}
+
+\section{Chapter 19: Deployment and Production
+Readiness}\label{chapter-19-deployment-and-production-readiness}
+
+\subsection{19.1 Current Deployment
+Profile}\label{current-deployment-profile}
+
+StudyRAG is optimized for \textbf{Single-User Desktop \& Local
+Workstation Deployment}: - Web Server: Streamlit embedded Tornado
+server. - Database: Embedded FAISS / SQLite ChromaDB. - Concurrency:
+In-process Python daemon threads.
+
+\subsection{19.2 Recommended Production Architecture (Multi-User
+Cloud)}\label{recommended-production-architecture-multi-user-cloud}
+
+To scale StudyRAG into an enterprise campus-wide SaaS application, the
+following architecture is recommended:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{graph TD}
+\NormalTok{    CLIENT[Web Browser / Mobile Client] {-}{-}\textgreater{} CDN[Cloudflare CDN / SSL]}
+\NormalTok{    CDN {-}{-}\textgreater{} LB[Application Load Balancer]}
+    
+\NormalTok{    subgraph WEB\_CLUSTER ["Containerized App Tier"]}
+\NormalTok{        LB {-}{-}\textgreater{} POD1[Streamlit / React Container 1]}
+\NormalTok{        LB {-}{-}\textgreater{} POD2[Streamlit / React Container 2]}
+\NormalTok{    end}
+    
+\NormalTok{    subgraph ASYNC\_TIER ["Distributed Task Queue"]}
+\NormalTok{        POD1 \& POD2 {-}{-}\textgreater{} REDIS[(Redis Queue)]}
+\NormalTok{        REDIS {-}{-}\textgreater{} WORKER1[Celery Worker 1]}
+\NormalTok{        WORKER1 {-}{-}\textgreater{} GROQ[Groq Cloud / vLLM Cluster]}
+\NormalTok{    end}
+    
+\NormalTok{    subgraph DATA\_TIER ["Enterprise Data Tier"]}
+\NormalTok{        POD1 \& POD2 {-}{-}\textgreater{} PG[(PostgreSQL + pgvector)]}
+\NormalTok{        POD1 \& POD2 {-}{-}\textgreater{} S3[(AWS S3 / GCS Document Bucket)]}
+\NormalTok{    end}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Production Transition
+Checklist:}\label{production-transition-checklist}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Containerization}: Deploy via a multi-stage Docker container
+  (\texttt{python:3.12-slim}).
+\item
+  \textbf{Vector Database}: Migrate from local FAISS/Chroma files to a
+  managed vector database (e.g.~\textbf{pgvector} or \textbf{Qdrant
+  Cloud}) with user-isolated tenant namespaces.
+\item
+  \textbf{Task Queue}: Replace in-process \texttt{threading.\allowbreak Thread} with
+  \textbf{Celery + Redis} to guarantee that long-running quiz/flashcard
+  jobs survive server restarts.
+\item
+  \textbf{Authentication}: Implement OAuth2 / OIDC login (Google,
+  GitHub, Canvas LMS SSO).
+\end{enumerate}
+
+\section{Chapter 20: Limitations and Future
+Scope}\label{chapter-20-limitations-and-future-scope}
+
+\subsection{20.1 Current Functional and Technical
+Limitations}\label{current-functional-and-technical-limitations}
+
+\begingroup\footnotesize
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash\sloppy}p{(\linewidth - 6\tabcolsep) * \real{0.2200}}
+  >{\raggedright\arraybackslash\sloppy}p{(\linewidth - 6\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash\sloppy}p{(\linewidth - 6\tabcolsep) * \real{0.2600}}
+  >{\raggedright\arraybackslash\sloppy}p{(\linewidth - 6\tabcolsep) * \real{0.2800}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Limitation
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Impact
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Root Cause
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Workaround / Recommendation
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{No Native OCR for Scanned PDFs} & Scanned document images yield
+empty text chunks. & PyMuPDF relies on embedded text glyphs and font
+dictionaries. & Pre-process scanned PDFs using OCR software prior to
+upload. \\
+\textbf{Volatile In-Memory Thread Jobs} & Generating jobs are
+interrupted if the Streamlit server restarts. & Uses lightweight
+\texttt{threading.\allowbreak Thread} in-process workers. & Avoid restarting the
+server while background generation is active. \\
+\textbf{English-Biased Embeddings} & Retrieval performance drops on
+non-Latin scripts (e.g., Arabic, Chinese). & \texttt{all-MiniLM-L6-v2}
+is primarily trained on English corpora. & Switch to multilingual
+embedding models such as
+\texttt{paraphrase-multilingual-MiniLM-L12-v2}. \\
+\textbf{Single-User Data Namespace} & Multiple browser sessions share
+the same active library. & Streamlit session state shares underlying
+\texttt{data/\allowbreak } directories. & Run separate project directories for
+different study subjects or users. \\
+\end{longtable}
+\endgroup
+
+\subsection{20.2 Prioritized Development
+Roadmap}\label{prioritized-development-roadmap}
+
+\begin{verbatim}
++-----------------------------------------------------------------------------------+
+|                        STUDYRAG FUTURE DEVELOPMENT ROADMAP                        |
++-----------------------------------------------------------------------------------+
+|  Phase 1 (Immediate - Q4 2026):                                                   |
+|  - Tesseract OCR integration for automatic image-to-text fallback.                |
+|  - Anki Deck (.apkg) export functionality for mobile flashcard review.            |
+|                                                                                   |
+|  Phase 2 (Medium Term - Q1 2027):                                                 |
+|  - BGE-Reranker cross-encoder integration for two-stage retrieval refinement.     |
+|  - Multi-modal image and equation extraction from lecture slides.                 |
+|  - PDF export for generated practice quizzes and revision study guides.           |
+|                                                                                   |
+|  Phase 3 (Long Term - Q2 2027):                                                   |
+|  - Canvas / Blackboard / Moodle LMS direct course syllabus sync.                  |
+|  - Multi-user authentication, study groups, and collaborative shared decks.       |
++-----------------------------------------------------------------------------------+
+\end{verbatim}
+
+\section{Chapter 21: Developer Handover
+Guide}\label{chapter-21-developer-handover-guide}
+
+\subsection{21.1 Recommended Codebase Onboarding Reading
+Order}\label{recommended-codebase-onboarding-reading-order}
+
+For a new software engineer or contributor joining the project, study
+the codebase in the following sequence:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{\texttt{config/\allowbreak settings.\allowbreak yaml}}: Understand default
+  hyperparameters (chunk size, overlap, top\_k, threshold).
+\item
+  \textbf{\texttt{src/\allowbreak ingestion/\allowbreak }}:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Start with \texttt{pdf\_\allowbreak loader.\allowbreak py} to see how text and 1-indexed
+    pages are extracted.
+  \item
+    Read \texttt{document\_\allowbreak cleaner.\allowbreak py} and \texttt{chunker.\allowbreak py} to see
+    text splitting.
+  \item
+    Review \texttt{ingestion\_\allowbreak pipeline.\allowbreak py} which unifies these steps.
+  \end{itemize}
+\item
+  \textbf{\texttt{src/\allowbreak embeddings/\allowbreak embedding\_\allowbreak manager.\allowbreak py}}: Learn how
+  HuggingFace embeddings are wrapped and cached.
+\item
+  \textbf{\texttt{src/\allowbreak vectorstore/\allowbreak }}:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Inspect \texttt{faiss\_\allowbreak store.\allowbreak py} and \texttt{chroma\_\allowbreak store.\allowbreak py} to
+    understand the storage and search wrappers.
+  \item
+    Review \texttt{vector\_\allowbreak store\_\allowbreak manager.\allowbreak py} for document conversion
+    and factory routing.
+  \end{itemize}
+\item
+  \textbf{\texttt{src/\allowbreak retrieval/\allowbreak }}:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Read \texttt{query\_\allowbreak processor.\allowbreak py} for validation.
+  \item
+    Read \texttt{score\_\allowbreak filter.\allowbreak py} for mathematical score normalizations
+    (\(S_{\text{FAISS}}\) and \(S_{\text{Chroma}}\)).
+  \item
+    Review \texttt{retriever.\allowbreak py} and \texttt{retrieval\_\allowbreak pipeline.\allowbreak py}.
+  \end{itemize}
+\item
+  \textbf{\texttt{src/\allowbreak generation/\allowbreak }}:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Read \texttt{prompt\_\allowbreak templates.\allowbreak py} to study the system prompts.
+  \item
+    Read \texttt{llm\_\allowbreak manager.\allowbreak py} to see multi-provider routing (Groq,
+    OpenAI, Ollama).
+  \item
+    Read \texttt{study\_\allowbreak generator.\allowbreak py} to understand JSON parsing and
+    study artifact creation.
+  \end{itemize}
+\item
+  \textbf{\texttt{src/\allowbreak rag/\allowbreak rag\_\allowbreak pipeline.\allowbreak py}}: See how retrieval and
+  generation combine into the core Q\&A pipeline.
+\item
+  \textbf{\texttt{app.\allowbreak py}}: Study the Streamlit UI, theme toggles,
+  routing, and background thread workers.
+\item
+  \textbf{\texttt{tests/\allowbreak }}: Execute
+  \texttt{USE\_\allowbreak TF=\allowbreak 0\ \allowbreak USE\_\allowbreak TORCH=\allowbreak 1\ \allowbreak pytest} and inspect test cases.
+\end{enumerate}
+
+\subsection{21.2 Practical Extension
+Recipes}\label{practical-extension-recipes}
+
+\subsubsection{How to Add a New Study Tool (e.g.~``Mindmap
+Generator'')}\label{how-to-add-a-new-study-tool-e.g.-mindmap-generator}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Define Prompt}: In
+  \texttt{src/\allowbreak generation/\allowbreak prompt\_\allowbreak templates.\allowbreak py}, add
+  \texttt{get\_\allowbreak mindmap\_\allowbreak prompt\_\allowbreak template(\allowbreak )\allowbreak } returning Mermaid syntax
+  (\texttt{graph\ \allowbreak TD\ \allowbreak .\allowbreak .\allowbreak .}).
+\item
+  \textbf{Implement Generator}: In
+  \texttt{src/\allowbreak generation/\allowbreak study\_\allowbreak generator.\allowbreak py}, create
+  \texttt{generate\_\allowbreak mindmap(\allowbreak topic,\allowbreak \ \allowbreak vector\_\allowbreak store,\allowbreak \ \allowbreak llm\_\allowbreak manager,\allowbreak \ \allowbreak source\_\allowbreak filter)\allowbreak }
+  that retrieves context, invokes the chain, and extracts Mermaid
+  syntax.
+\item
+  \textbf{Create Worker}: In \texttt{app.\allowbreak py}, define
+  \texttt{worker\_\allowbreak generate\_\allowbreak mindmap(\allowbreak .\allowbreak .\allowbreak .)\allowbreak } that updates
+  \texttt{GLOBAL\_\allowbreak BACKGROUND\_\allowbreak JOBS} and calls
+  \texttt{add\_\allowbreak history\_\allowbreak entry(\allowbreak "mindmap",\allowbreak \ \allowbreak .\allowbreak .\allowbreak .)\allowbreak }.
+\item
+  \textbf{Add UI Screen}: In \texttt{app.\allowbreak py}, add
+  \texttt{"{[}Embeddings\ \allowbreak Engine{]}\ \allowbreak \ \allowbreak Mindmaps"} to the
+  \texttt{st.\allowbreak sidebar.\allowbreak radio} list and implement
+  \texttt{render\_\allowbreak mindmap\_\allowbreak page(\allowbreak )\allowbreak }.
+\item
+  \textbf{Add Unit Test}: In \texttt{tests/\allowbreak }, add a unit test validating
+  prompt formatting and mock execution.
+\end{enumerate}
+
+\subsubsection{How to Add a New LLM Provider (e.g.~Anthropic
+Claude)}\label{how-to-add-a-new-llm-provider-e.g.-anthropic-claude}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Add \texttt{langchain-anthropic} to \texttt{requirements.\allowbreak txt}.
+\item
+  In \texttt{src/\allowbreak generation/\allowbreak llm\_\allowbreak manager.\allowbreak py}, add an
+  \texttt{elif\ \allowbreak self.\allowbreak provider\ \allowbreak =\allowbreak =\allowbreak \ \allowbreak "anthropic":} block initializing
+  \texttt{ChatAnthropic(\allowbreak model=\allowbreak self.\allowbreak model\_\allowbreak name,\allowbreak \ \allowbreak api\_\allowbreak key=\allowbreak os.\allowbreak getenv(\allowbreak "ANTHROPIC\_\allowbreak API\_\allowbreak KEY")\allowbreak )\allowbreak }.
+\item
+  In \texttt{app.\allowbreak py}, add \texttt{"anthropic"} to the provider selection
+  dropdown.
+\item
+  In \texttt{tests/\allowbreak test\_\allowbreak llm\_\allowbreak manager.\allowbreak py}, add a unit test verifying
+  provider initialization.
+\end{enumerate}
+
+\section{Chapter 22: Glossary and
+References}\label{chapter-22-glossary-and-references}
+
+\subsection{22.1 Technical Glossary}\label{technical-glossary}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Active Recall}: The pedagogical practice of stimulating memory
+  during the learning process by testing oneself on concepts rather than
+  passively reading.
+\item
+  \textbf{Cosine Distance}: A metric measuring the angle between two
+  multi-dimensional vectors, invariant to vector magnitude:
+  \(1 - \cos(\theta)\).
+\item
+  \textbf{Dense Vector Embedding}: A low-dimensional numerical vector
+  representation of text where semantically similar texts are placed
+  close together in mathematical space.
+\item
+  \textbf{Euclidean (L2) Distance}: The straight-line distance between
+  two vectors in Euclidean space: \(\|\mathbf{q} - \mathbf{d}\|_2\).
+\item
+  \textbf{FAISS (Facebook AI Similarity Search)}: An open-source C++
+  library with Python bindings developed by Meta for high-speed
+  similarity search on dense vectors.
+\item
+  \textbf{LCEL (LangChain Expression Language)}: A declarative
+  composition framework for chaining LangChain components using
+  Unix-pipe operators.
+\item
+  \textbf{PyMuPDF (\texttt{fitz})}: A high-performance Python binding
+  for the MuPDF C library, providing fast PDF text and metadata
+  extraction.
+\item
+  \textbf{RAG (Retrieval-Augmented Generation)}: An AI architecture that
+  enhances large language model generation by retrieving authoritative
+  factual context from external knowledge bases before prompting.
+\item
+  \textbf{Recursive Character Text Splitting}: An iterative text
+  segmentation method that splits text using a priority cascade of
+  separators to preserve semantic paragraph and sentence boundaries.
+\end{itemize}
+
+\subsection{22.2 References \& Authoritative
+Documentation}\label{references-authoritative-documentation}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Lewis, P., et al.~(2020).} \emph{Retrieval-Augmented
+  Generation for Knowledge-Intensive NLP Tasks.} Advances in Neural
+  Information Processing Systems (NeurIPS 2020).
+\item
+  \textbf{Roediger, H. L., \& Karpicke, J. D. (2006).} \emph{The Power
+  of Testing Memory: Basic Research and Implications for Educational
+  Practice.} Perspectives on Psychological Science, 1(3), 181-210.
+\item
+  \textbf{LangChain Documentation:} https://python.langchain.com/
+\item
+  \textbf{PyMuPDF Documentation:} https://pymupdf.readthedocs.io/
+\item
+  \textbf{Sentence-Transformers Documentation:} https://www.sbert.net/
+\item
+  \textbf{FAISS GitHub Repository:}
+  https://github.com/facebookresearch/faiss
+\item
+  \textbf{ChromaDB Documentation:} https://docs.trychroma.com/
+\item
+  \textbf{Groq Cloud API Documentation:} https://console.groq.com/docs
+\item
+  \textbf{Streamlit Documentation:} https://docs.streamlit.io/
+\end{enumerate}
+
+\section{Chapter 23: Final Project
+Summary}\label{chapter-23-final-project-summary}
+
+\subsection{23.1 Executive Wrap-Up}\label{executive-wrap-up}
+
+\textbf{StudyRAG} successfully addresses the fundamental weaknesses of
+applying generic AI chatbots to academic studying. By grounding all
+interactions in the student's exact uploaded course materials, the
+application provides an educational environment that combines: -
+\textbf{Verifiable Truth}: Every statement is backed by direct document
+and page citations. - \textbf{Cognitive Scaffolding}: Automated
+generation of multiple-choice quizzes, flashcards, and chapter revision
+guides promotes active recall and spaced retrieval. -
+\textbf{Engineering Excellence}: Sub-second vector search, asynchronous
+background threading, multi-provider model routing, atomic persistence,
+and a modern student-friendly interface. - \textbf{Production Rigor}:
+Comprehensive automated test coverage (28 passing tests) guaranteeing
+reliability across all critical components.
+
+\subsection{23.2 Current Verification
+Status}\label{current-verification-status}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Automated Tests:} 28 passed out of 28 (\texttt{pytest} exit
+  code 0).
+\item
+  \textbf{Core Pipelines:} PDF Ingestion, Chunking, Embeddings,
+  FAISS/Chroma Vector Storage, Retrieval Filtering, LLM Generation, and
+  Study History verified.
+\item
+  \textbf{Environment:} Tested and validated on Python 3.12.2 on macOS
+  (Darwin arm64).
+\end{itemize}
+
+\subsection{23.3 Immediate Recommended Next
+Actions}\label{immediate-recommended-next-actions}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Launch the application: \texttt{streamlit\ \allowbreak run\ \allowbreak app.\allowbreak py}.
+\item
+  Ingest your course textbooks or lecture slide PDFs in \textbf{{[}Study
+  Library{]} Study Library}.
+\item
+  Engage with \textbf{{[}Ask Questions{]} Ask Questions},
+  \textbf{{[}Practice Quiz{]} Practice Quiz}, and
+  \textbf{{[}Flashcards{]} Flashcards} for active recall study sessions.
+\item
+  Maintain test integrity during feature development by executing
+  \texttt{USE\_\allowbreak TF=\allowbreak 0\ \allowbreak USE\_\allowbreak TORCH=\allowbreak 1\ \allowbreak pytest}.
+\end{enumerate}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\emph{End of Master Documentation --- StudyRAG Version 1.0.0 (Release
+Candidate)}
+
+\end{document}

@@ -1,0 +1,20 @@
+.error-state-card {
+    background: rgba(239, 68, 68, 0.08);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+    color: #fca5a5;
+    margin-bottom: 1rem;
+}
+
+.error-state-title {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: #f87171;
+    margin-bottom: 4px;
+}
+
+.error-state-desc {
+    font-size: 0.82rem;
+    color: #fca5a5;
+}

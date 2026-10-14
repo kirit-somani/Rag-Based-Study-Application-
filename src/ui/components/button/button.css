@@ -1,0 +1,37 @@
+.stButton > button,
+button[kind="secondary"],
+button[kind="primary"] {
+    background: var(--btn-bg) !important;
+    color: var(--btn-color) !important;
+    font-weight: 700 !important;
+    font-size: 0.92rem !important;
+    border: 1px solid var(--btn-border) !important;
+    border-radius: 10px !important;
+    padding: 0.65rem 1.4rem !important;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    box-shadow: var(--btn-shadow) !important;
+    cursor: pointer !important;
+}
+
+.stButton > button *,
+button[kind="secondary"] *,
+button[kind="primary"] * {
+    color: var(--btn-color) !important;
+    -webkit-text-fill-color: var(--btn-color) !important;
+    font-weight: 700 !important;
+}
+
+.stButton > button:hover,
+button[kind="secondary"]:hover,
+button[kind="primary"]:hover {
+    background: var(--btn-hover-bg) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 24px rgba(124, 58, 237, 0.45) !important;
+    filter: brightness(1.08) !important;
+}
+
+.stButton > button:active,
+button[kind="secondary"]:active,
+button[kind="primary"]:active {
+    transform: translateY(0) !important;
+}

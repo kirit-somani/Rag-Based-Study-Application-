@@ -28,19 +28,17 @@ def sample_documents():
 
 def test_faiss_vector_store(embeddings, sample_documents):
     with tempfile.TemporaryDirectory() as tmpdir:
-        # 1. Create and Add
+
         vsm = VectorStoreManager("faiss", embeddings, persist_directory_base=tmpdir)
         vsm.add_documents(sample_documents)
         vsm.save()
-        
-        # 2. Similarity Search
+
         results = vsm.similarity_search("What data structure follows LIFO?", k=1)
         assert len(results) == 1
         doc, score = results[0]
         assert "stack" in doc.page_content.lower()
         assert doc.metadata["source"] == "DSA.pdf"
-        
-        # 3. Load
+
         vsm2 = VectorStoreManager("faiss", embeddings, persist_directory_base=tmpdir)
         assert vsm2.load() is True
         results2 = vsm2.similarity_search("FIFO", k=1)
@@ -48,19 +46,17 @@ def test_faiss_vector_store(embeddings, sample_documents):
 
 def test_chroma_vector_store(embeddings, sample_documents):
     with tempfile.TemporaryDirectory() as tmpdir:
-        # 1. Create and Add
+
         vsm = VectorStoreManager("chroma", embeddings, persist_directory_base=tmpdir)
         vsm.add_documents(sample_documents)
-        # Chroma auto-persists usually, but we still call save
+
         vsm.save()
-        
-        # 2. Similarity Search
+
         results = vsm.similarity_search("What data structure follows LIFO?", k=1)
         assert len(results) == 1
         doc, score = results[0]
         assert "stack" in doc.page_content.lower()
-        
-        # 3. Load
+
         vsm2 = VectorStoreManager("chroma", embeddings, persist_directory_base=tmpdir)
         assert vsm2.load() is True
         results2 = vsm2.similarity_search("FIFO", k=1)

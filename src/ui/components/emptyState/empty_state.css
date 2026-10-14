@@ -1,0 +1,21 @@
+.empty-state-box {
+    text-align: center;
+    padding: 2.5rem 1.5rem;
+}
+
+.empty-state-icon {
+    font-size: 3rem;
+    margin-bottom: 0.75rem;
+}
+
+.empty-state-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-high);
+}
+
+.empty-state-subtitle {
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    margin-top: 4px;
+}

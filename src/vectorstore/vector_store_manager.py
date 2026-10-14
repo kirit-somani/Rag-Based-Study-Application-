@@ -9,11 +9,11 @@ class VectorStoreManager:
     """
     Factory-like manager to handle multiple vector store providers (FAISS, Chroma).
     """
-    
+
     def __init__(self, provider: str, embeddings: Embeddings, persist_directory_base: str = "data/vectorstores"):
         self.provider = provider.lower()
         self.embeddings = embeddings
-        
+
         if self.provider == "faiss":
             path = f"{persist_directory_base}/faiss/"
             self.store = FAISSStore(embeddings, persist_directory=path)
@@ -27,7 +27,7 @@ class VectorStoreManager:
         """Converts raw dictionary chunks from Phase 2 into LangChain Documents."""
         documents = []
         for chunk in chunks:
-            # Preserve source, page, chunk_id
+
             metadata = {
                 "source": chunk.get("source", "unknown"),
                 "page": chunk.get("page", 0),

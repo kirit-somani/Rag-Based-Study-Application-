@@ -1,0 +1,90 @@
+.system-pill {
+    background: var(--bg-card);
+    border: 1px solid var(--border-glass);
+    border-radius: 10px;
+    padding: 10px 12px;
+    margin-top: 10px;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: var(--card-shadow);
+}
+
+.system-pill-active {
+    border-color: var(--accent-primary);
+    background: rgba(124, 58, 237, 0.1);
+}
+
+.system-pill-text-highlight {
+    font-weight: 700;
+    color: var(--accent-primary) !important;
+}
+
+.system-pill-text-normal {
+    font-weight: 600;
+    color: var(--text-high) !important;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 6px;
+}
+
+.dot-green {
+    background-color: #10b981;
+    box-shadow: 0 0 8px #10b981;
+}
+
+.dot-purple {
+    background-color: #8b5cf6;
+    box-shadow: 0 0 8px #8b5cf6;
+}
+
+.prompts-container {
+    margin: 1rem 0 1.5rem 0;
+}
+
+.prompts-title {
+    font-size: 0.8rem;
+    color: var(--text-dim) !important;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.prompt-chip {
+    display: inline-block;
+    background: var(--bg-card);
+    border: 1px solid var(--border-glass);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.82rem;
+    color: var(--text-med) !important;
+    margin: 0 6px 8px 0;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: var(--card-shadow);
+}
+
+.prompt-chip:hover {
+    border-color: var(--accent-primary);
+    color: var(--accent-primary) !important;
+    background: rgba(124, 58, 237, 0.08);
+}
+
+.quiz-badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--accent-primary) !important;
+    background: rgba(124, 58, 237, 0.1);
+    border: 1px solid var(--border-accent);
+    padding: 3px 8px;
+    border-radius: 6px;
+    margin-bottom: 8px;
+}

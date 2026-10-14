@@ -43,7 +43,7 @@ def add_history_entry(item_type: str, title: str, details: dict, source: str = "
         "timestamp": now_str,
         "details": details
     }
-    history.insert(0, entry)  # Newest first
+    history.insert(0, entry)
     save_history(history)
     return entry
 

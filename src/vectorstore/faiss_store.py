@@ -9,7 +9,7 @@ from src.utils.logger import logger
 
 class FAISSStore:
     """FAISS-based persistent vector store wrapper."""
-    
+
     def __init__(self, embeddings: Embeddings, persist_directory: str = "data/vectorstores/faiss/"):
         self.embeddings = embeddings
         self.persist_directory = Path(persist_directory)
@@ -22,12 +22,12 @@ class FAISSStore:
         """Adds documents to the FAISS index."""
         if not documents:
             return
-            
+
         if self.vector_store is None:
             self.vector_store = FAISS.from_documents(documents, self.embeddings)
         else:
             self.vector_store.add_documents(documents)
-            
+
         logger.info(f"Added {len(documents)} documents to FAISS.")
 
     def save(self) -> None:
@@ -45,9 +45,9 @@ class FAISSStore:
         if not index_file.exists():
             logger.warning("FAISS index not found on disk.")
             return False
-            
+
         try:
-            # allow_dangerous_deserialization is needed in newer versions of LangChain community
+
             self.vector_store = FAISS.load_local(str(self.persist_directory), self.embeddings, allow_dangerous_deserialization=True)
             logger.info("Loaded FAISS index successfully.")
             return True
@@ -63,8 +63,7 @@ class FAISSStore:
         """
         if self.vector_store is None:
             return []
-        
-        # return docs and scores
+
         results = self.vector_store.similarity_search_with_score(query, k=k)
         return results
 
