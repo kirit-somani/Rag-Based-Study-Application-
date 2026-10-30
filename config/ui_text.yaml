@@ -1,9 +1,9 @@
 app:
-  page_title: "LuminaRAG • AI Study Workspace"
+  page_title: "StudyRAG — Smart AI Study Partner"
   page_icon: "⚡"
-  brand_name: "LuminaRAG"
-  brand_subtitle: "Adaptive Study Intelligence"
-  version_tag: "LuminaRAG v2.4 • Powered by Groq & LangChain"
+  brand_name: "StudyRAG"
+  brand_subtitle: "RAG-Powered AI Study Assistant"
+  version_tag: "StudyRAG v1.0.0 • Powered by LangChain & Vector Search"
 
 theme:
   toggle_label: "Dark Mode"
@@ -11,10 +11,10 @@ theme:
   light: "Light"
 
 welcome:
-  hero_badge: "⚡ Next-Gen AI Study Companion"
-  hero_title: "Accelerate Your Learning with LuminaRAG"
+  hero_badge: "⚡ Intelligent RAG Study Partner"
+  hero_title: "Accelerate Your Learning with StudyRAG"
   hero_subtitle: "Transform textbooks, lecture slides, and notes into an interactive personal tutor. Ask factual questions, auto-generate quizzes, memorise with flashcards, and condense revision sheets."
-  get_started_btn: "🚀 Get Started — Upload Notes"
+  get_started_btn: "Get Started — Upload Notes"
   quick_chat_btn: "💬 Jump into Chat"
   stats_badge_1: "Zero Hallucinations • Exact Citations"
   stats_badge_2: "Powered by Groq High-Speed LLMs"

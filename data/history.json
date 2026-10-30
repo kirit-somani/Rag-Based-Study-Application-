@@ -1,5 +1,223 @@
 [
   {
+    "id": "0810aa27-0cea-4c25-9619-a97db41db1cf",
+    "type": "flashcard",
+    "title": "Flashcard Deck: ER diagrams",
+    "source": "All Documents",
+    "timestamp": "Oct 28, 2026 - 04:18 PM",
+    "details": {
+      "topic": "ER diagrams",
+      "cards": [
+        {
+          "front": "What is an ER diagram?",
+          "back": "An ER diagram, or Entity Relationship diagram, is a conceptual model that gives the graphical representation of the logical structure of the database."
+        },
+        {
+          "front": "What are the three main components of an ER diagram?",
+          "back": "Entity Sets, Attributes, and Relationship Set."
+        },
+        {
+          "front": "What does an ER diagram show?",
+          "back": "It shows all the constraints and relationships that exist among the different components of the database."
+        },
+        {
+          "front": "What type of model is an ER diagram?",
+          "back": "It is a conceptual model used to represent the logical structure of a database."
+        },
+        {
+          "front": "Why is an ER diagram useful in database design?",
+          "back": "It provides a graphical representation of the logical structure, helping designers understand and define entities, attributes, and relationships before implementation."
+        }
+      ],
+      "num_cards": 5
+    }
+  },
+  {
+    "id": "0216ab0d-bffb-44c2-ada2-f8c51ea25996",
+    "type": "quiz",
+    "title": "Practice Quiz: ER diagrams ",
+    "source": "dbms.pdf",
+    "timestamp": "Oct 28, 2026 - 04:18 PM",
+    "details": {
+      "topic": "ER diagrams ",
+      "questions": [
+        {
+          "question": "What are the three main components of an ER diagram?",
+          "options": [
+            "A. Entity Sets, Attributes, Relationship Set",
+            "B. Tables, Columns, Keys",
+            "C. Entities, Relationships, Constraints",
+            "D. None of the above"
+          ],
+          "answer": "A. Entity Sets, Attributes, Relationship Set"
+        },
+        {
+          "question": "Which type of relationship set involves only one entity set?",
+          "options": [
+            "A. Unary Relationship Set",
+            "B. Binary Relationship Set",
+            "C. Ternary Relationship Set",
+            "D. N-ary Relationship Set"
+          ],
+          "answer": "A. Unary Relationship Set"
+        },
+        {
+          "question": "In an ER diagram, what does the relationship set represent?",
+          "options": [
+            "A. Constraints and relationships that exist among the different components",
+            "B. Data types of attributes",
+            "C. Physical storage layout",
+            "D. Query execution plan"
+          ],
+          "answer": "A. Constraints and relationships that exist among the different components"
+        },
+        {
+          "question": "Which of the following is NOT a component of an ER diagram?",
+          "options": [
+            "A. Entity Sets",
+            "B. Attributes",
+            "C. Relationship Set",
+            "D. Relational Algebra"
+          ],
+          "answer": "D. Relational Algebra"
+        },
+        {
+          "question": "The ER diagram provides a graphical representation of what?",
+          "options": [
+            "A. The logical structure of the database",
+            "B. The physical storage layout",
+            "C. The query execution plan",
+            "D. None of the above"
+          ],
+          "answer": "A. The logical structure of the database"
+        }
+      ],
+      "num_questions": 5
+    }
+  },
+  {
+    "id": "54bca1a3-8f7a-4bed-a5e4-55bea85e5edd",
+    "type": "chat",
+    "title": "Chat Question: tell me about ER diagrams. ...",
+    "source": "dbms.pdf",
+    "timestamp": "Oct 28, 2026 - 04:18 PM",
+    "details": {
+      "query": "tell me about ER diagrams. ",
+      "answer": "**ER Diagrams (Entity‑Relationship Diagrams)**  \n\n- An ER diagram is a *conceptual model* that gives a graphical representation of the logical structure of a database.  \n- It shows all the *constraints* and *relationships* that exist among the different components of the database.  \n- An ER diagram is mainly composed of three components:  \n  1. **Entity Sets** – the objects or things in the domain.  \n  2. **Attributes** – the properties or characteristics of those entities.  \n  3. **Relationship Sets** – the associations among the entities.  \n\n(See Source 1, Page 1)\n\n**Additional details**\n\n- A **weak entity set** is an entity set that does not have a sufficient set of attributes to uniquely identify its instances; it has no primary key.  \n- A weak entity set contains a *partial key* called a **discriminator**, which can identify a group of entities within that set. The discriminator is represented by an underlined dashed line.  \n- A **relationship** is defined as an association among several entities.  \n\n(See Source 4, Page 2)",
+      "sources": [
+        {
+          "text": "4. Integrity problems\n5. Atomicity of updates\n6. Concurrent access by multiple users\n7. Security problems\nER diagram:\n●ER diagram or Entity Relationship diagram is a conceptual model that gives the\ngraphical representation of the logical structure of the database.\n●It shows all the constraints and relationships that exist among the different components.\n●An ER diagram is mainly composed of following three components- Entity Sets,\nAttributes and Relationship Set.",
+          "source": "dbms.pdf",
+          "page": 1,
+          "chunk_id": 2,
+          "score": 0.5604
+        },
+        {
+          "text": "enters into a terminated state where its life cycle finally comes to an end.\nACID Properties:\nTo ensure the consistency of the database, certain properties are followed by all the\ntransactions occurring in the system. These properties are called as ACID Properties of a\ntransaction.\n●Atomicity –\no This property ensures that either the transaction occurs completely or it does not\noccur at all.\no In other words, it ensures that no transaction occurs partially.\n●Consistency –",
+          "source": "dbms.pdf",
+          "page": 8,
+          "chunk_id": 29,
+          "score": 0.4031
+        },
+        {
+          "text": "after the other.\n●Durability –\no This property ensures that all the changes made by a transaction after its\nsuccessful execution are written successfully to the disk.\no It also ensures that these changes exist permanently and are never lost even if\nthere occurs a failure of any kind.\nSchedules:",
+          "source": "dbms.pdf",
+          "page": 8,
+          "chunk_id": 31,
+          "score": 0.4031
+        },
+        {
+          "text": "●Weak Entity Set:\no A weak entity set is an entity set that does not contain sufficient attributes to\nuniquely identify its entities.\no In other words, a primary key does not exist for a weak entity set.\no However, it contains a partial key called a discriminator.\no Discriminator can identify a group of entities from the entity set.\no Discriminator is represented by underlining with a dashed line.\nRelationship:\nA relationship is defined as an association among several entities.",
+          "source": "dbms.pdf",
+          "page": 2,
+          "chunk_id": 5,
+          "score": 0.3899
+        },
+        {
+          "text": "database.\n●COMMIT - commits a Transaction\n●ROLLBACK - rollback a transaction in case of any error occurs\n●SAVEPOINT - to roll back the transaction making points within groups\nSQL:\nSQL is a standard language for storing, manipulating and retrieving data in databases.\nSELECT:\nThe SELECT statement is used to select data from a database.\nSyntax -\n●SELECT column1, column2, ...\nFROM table_name;\n●Here, column1, column2, ... are the field names of the table you want to select data",
+          "source": "dbms.pdf",
+          "page": 14,
+          "chunk_id": 53,
+          "score": 0.3877
+        }
+      ]
+    }
+  },
+  {
+    "id": "52716589-12ed-4546-9d3a-893892c9cf6d",
+    "type": "material",
+    "title": "Uploaded Study Material: dbms.pdf",
+    "source": "All Documents",
+    "timestamp": "Oct 28, 2026 - 04:17 PM",
+    "details": {
+      "doc_name": "dbms.pdf",
+      "action": "upload"
+    }
+  },
+  {
+    "id": "a67ca009-909f-4b75-9689-5fdc9be8f8f1",
+    "type": "quiz",
+    "title": "Practice Quiz: database",
+    "source": "All Documents",
+    "timestamp": "Oct 21, 2026 - 02:38 PM",
+    "details": {
+      "topic": "database",
+      "questions": [
+        {
+          "question": "Which storage technique mentioned in the context can be used to improve database performance by storing data redundantly across multiple disks?",
+          "options": [
+            "A. RAID",
+            "B. Demand paging",
+            "C. Virtual memory",
+            "D. Overlays"
+          ],
+          "answer": "A. RAID"
+        },
+        {
+          "question": "Which memory management technique allows a database engine to execute queries using more memory than is physically available?",
+          "options": [
+            "A. Virtual memory",
+            "B. Demand paging",
+            "C. Overlays",
+            "D. RAID"
+          ],
+          "answer": "A. Virtual memory"
+        },
+        {
+          "question": "Which algorithm described in the context is used to avoid deadlock in database transaction management?",
+          "options": [
+            "A. Banker's algorithm",
+            "B. RAID",
+            "C. Demand paging",
+            "D. Virtual memory"
+          ],
+          "answer": "A. Banker's algorithm"
+        },
+        {
+          "question": "Which technique ensures that only the necessary data is loaded into memory, which can be applied to database query execution?",
+          "options": [
+            "A. Overlays",
+            "B. RAID",
+            "C. Virtual memory",
+            "D. Banker's algorithm"
+          ],
+          "answer": "A. Overlays"
+        },
+        {
+          "question": "In database systems, the logical address space refers to the addresses generated by the CPU for data pages. Which of the following best describes this concept?",
+          "options": [
+            "A. Logical address space",
+            "B. Physical address space",
+            "C. Both logical and physical address space",
+            "D. Neither logical nor physical address space"
+          ],
+          "answer": "A. Logical address space"
+        }
+      ],
+      "num_questions": 5
+    }
+  },
+  {
     "id": "090272eb-7b6b-4aa9-b01d-e7d4a38e0550",
     "type": "quiz",
     "title": "Practice Quiz: process",
