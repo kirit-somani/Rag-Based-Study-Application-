@@ -529,12 +529,6 @@ def render_chat_page(llm_provider, llm_model, llm_temperature, embedding_model, 
             st.session_state.chat_messages = []
             st.rerun()
 
-    if not st.session_state.chat_messages:
-        render_prompt_chips(
-            title=get_ui_text("chat", "suggested_prompts_title"),
-            prompts=get_ui_text("chat", "prompts")
-        )
-
     for message in st.session_state.chat_messages:
         with st.chat_message(message["role"]):
             st.markdown(message["content"])

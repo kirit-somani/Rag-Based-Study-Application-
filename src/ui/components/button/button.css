@@ -6,9 +6,10 @@ button[kind="primary"] {
     font-weight: 700 !important;
     font-size: 0.92rem !important;
     border: 1px solid var(--btn-border) !important;
-    border-radius: 10px !important;
-    padding: 0.65rem 1.4rem !important;
-    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    border-top: 1.5px solid rgba(255, 255, 255, 0.4) !important;
+    border-radius: 12px !important;
+    padding: 0.7rem 1.5rem !important;
+    transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1) !important;
     box-shadow: var(--btn-shadow) !important;
     cursor: pointer !important;
 }
@@ -25,13 +26,14 @@ button[kind="primary"] * {
 button[kind="secondary"]:hover,
 button[kind="primary"]:hover {
     background: var(--btn-hover-bg) !important;
-    transform: translateY(-2px) !important;
-    box-shadow: 0 8px 24px rgba(124, 58, 237, 0.45) !important;
+    transform: translateY(-3px) !important;
+    box-shadow: 0 8px 26px rgba(124, 58, 237, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.5) !important;
     filter: brightness(1.08) !important;
 }
 
 .stButton > button:active,
 button[kind="secondary"]:active,
 button[kind="primary"]:active {
-    transform: translateY(0) !important;
+    transform: translateY(1px) !important;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.3) !important;
 }

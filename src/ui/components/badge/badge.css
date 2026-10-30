@@ -1,19 +1,28 @@
 .system-pill {
     background: var(--bg-card);
     border: 1px solid var(--border-glass);
-    border-radius: 10px;
-    padding: 10px 12px;
+    border-top: 1.5px solid var(--specular-edge);
+    border-radius: 12px;
+    padding: 11px 14px;
     margin-top: 10px;
     font-size: 0.8rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    box-shadow: var(--card-shadow);
+    box-shadow: var(--card-3d-shadow);
+    backdrop-filter: blur(14px);
+    transition: all 0.2s ease;
+}
+
+.system-pill:hover {
+    border-color: var(--border-accent);
+    transform: translateY(-2px);
+    box-shadow: var(--card-3d-hover-shadow);
 }
 
 .system-pill-active {
     border-color: var(--accent-primary);
-    background: rgba(124, 58, 237, 0.1);
+    background: rgba(124, 58, 237, 0.12);
 }
 
 .system-pill-text-highlight {
@@ -36,55 +45,51 @@
 
 .dot-green {
     background-color: #10b981;
-    box-shadow: 0 0 8px #10b981;
+    box-shadow: 0 0 10px #10b981;
 }
 
 .dot-purple {
     background-color: #8b5cf6;
-    box-shadow: 0 0 8px #8b5cf6;
+    box-shadow: 0 0 10px #8b5cf6;
 }
 
 .prompts-container {
-    margin: 1rem 0 1.5rem 0;
+    margin: 1.25rem 0 1.75rem 0;
 }
 
 .prompts-title {
-    font-size: 0.8rem;
-    color: var(--text-dim) !important;
-    margin-bottom: 0.5rem;
+    font-size: 0.85rem;
     font-weight: 700;
+    color: var(--text-dim);
     text-transform: uppercase;
     letter-spacing: 0.05em;
+    margin-bottom: 0.75rem;
+}
+
+.prompt-chips-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
 .prompt-chip {
-    display: inline-block;
     background: var(--bg-card);
     border: 1px solid var(--border-glass);
-    padding: 6px 14px;
+    border-top: 1.5px solid var(--specular-edge);
     border-radius: 20px;
-    font-size: 0.82rem;
+    padding: 8px 16px;
+    font-size: 0.85rem;
     color: var(--text-med) !important;
-    margin: 0 6px 8px 0;
     cursor: pointer;
-    transition: all 0.2s ease;
-    box-shadow: var(--card-shadow);
+    transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: var(--card-3d-shadow);
+    backdrop-filter: blur(12px);
 }
 
 .prompt-chip:hover {
-    border-color: var(--accent-primary);
-    color: var(--accent-primary) !important;
-    background: rgba(124, 58, 237, 0.08);
-}
-
-.quiz-badge {
-    display: inline-block;
-    font-size: 0.75rem;
-    font-weight: 700;
-    color: var(--accent-primary) !important;
-    background: rgba(124, 58, 237, 0.1);
-    border: 1px solid var(--border-accent);
-    padding: 3px 8px;
-    border-radius: 6px;
-    margin-bottom: 8px;
+    border-color: var(--border-accent);
+    color: var(--text-high) !important;
+    background: var(--hover-bg);
+    transform: translateY(-3px);
+    box-shadow: var(--card-3d-hover-shadow);
 }

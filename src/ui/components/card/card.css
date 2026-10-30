@@ -1,154 +1,219 @@
 .glass-card {
     background: var(--bg-card);
     border: 1px solid var(--border-glass);
-    border-radius: 14px;
-    padding: 1.25rem 1.5rem;
-    backdrop-filter: blur(16px);
-    transition: all 0.25s ease;
-    margin-bottom: 1rem;
-    box-shadow: var(--card-shadow);
+    border-top: 1.5px solid var(--specular-edge);
+    border-radius: 16px;
+    padding: 1.35rem 1.6rem;
+    backdrop-filter: blur(18px);
+    transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+    margin-bottom: 1.15rem;
+    box-shadow: var(--card-3d-shadow);
 }
 
 .glass-card:hover {
     border-color: var(--border-accent);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    border-top-color: var(--accent-primary);
+    box-shadow: var(--card-3d-hover-shadow);
+    transform: translateY(-4px);
 }
 
 .doc-item-card {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 1.25rem;
+    padding: 1.1rem 1.35rem;
+    border-radius: 14px;
+    transition: all 0.25s ease;
+}
+
+.doc-item-card:hover {
+    background: var(--hover-bg);
 }
 
 .doc-item-left {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 14px;
 }
 
 .doc-item-icon {
-    font-size: 24px;
+    font-size: 26px;
+    filter: drop-shadow(0 4px 8px var(--glow-purple));
 }
 
 .doc-item-title {
     font-weight: 700;
     color: var(--text-high);
-    font-size: 0.95rem;
+    font-size: 0.98rem;
 }
 
 .doc-item-desc {
-    font-size: 0.75rem;
+    font-size: 0.78rem;
     color: var(--text-dim);
+    margin-top: 2px;
 }
 
 .citation-card {
-    margin-bottom: 0.75rem;
-    padding: 0.65rem 0.85rem;
+    margin-bottom: 0.85rem;
+    padding: 0.75rem 1rem;
     background: var(--bg-card);
-    border-left: 3px solid var(--accent-primary);
-    border-radius: 4px;
     border: 1px solid var(--border-glass);
-    border-left-width: 3px;
+    border-left: 3.5px solid var(--accent-primary);
+    border-top: 1px solid var(--specular-edge);
+    border-radius: 8px;
+    box-shadow: var(--card-3d-shadow);
+    transition: all 0.2s ease;
+}
+
+.citation-card:hover {
+    border-color: var(--border-accent);
+    border-left-color: var(--accent-secondary);
+    box-shadow: var(--card-3d-hover-shadow);
+    transform: translateX(3px);
 }
 
 .citation-meta {
-    font-size: 0.82rem;
+    font-size: 0.84rem;
     font-weight: 700;
     color: var(--accent-primary);
 }
 
 .citation-quote {
-    font-size: 0.85rem;
+    font-size: 0.86rem;
     color: var(--text-med);
-    margin-top: 4px;
+    margin-top: 5px;
     font-style: italic;
+    line-height: 1.5;
 }
 
 .flashcard-box {
     background: var(--bg-card);
     border: 1px solid var(--border-accent);
-    border-radius: 16px;
-    padding: 2.2rem 2rem;
+    border-top: 2px solid var(--specular-edge);
+    border-radius: 20px;
+    padding: 2.5rem 2.2rem;
     text-align: center;
-    box-shadow: var(--card-shadow), var(--glow-purple);
-    margin: 1.5rem 0;
-    min-height: 220px;
+    box-shadow: var(--flashcard-3d-shadow);
+    margin: 1.75rem 0;
+    min-height: 240px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     position: relative;
-    backdrop-filter: blur(14px);
+    backdrop-filter: blur(18px);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.flashcard-box:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4), 0 24px 48px rgba(0, 0, 0, 0.7), 0 0 45px var(--glow-purple), inset 0 2px 0 var(--specular-edge);
 }
 
 .flashcard-tag {
     position: absolute;
-    top: 14px;
-    left: 18px;
+    top: 16px;
+    left: 20px;
     font-size: 0.75rem;
     font-weight: 700;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.06em;
     color: var(--accent-primary);
     text-transform: uppercase;
+    background: rgba(139, 92, 246, 0.12);
+    padding: 4px 10px;
+    border-radius: 12px;
+    border: 1px solid rgba(139, 92, 246, 0.25);
 }
 
 .flashcard-prompt {
-    font-size: 1.35rem;
-    font-weight: 700;
+    font-size: 1.4rem;
+    font-weight: 800;
     color: var(--text-high);
-    line-height: 1.4;
+    line-height: 1.45;
     max-width: 85%;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 .flashcard-answer {
-    font-size: 1.05rem;
+    font-size: 1.08rem;
     font-weight: 600;
     color: var(--accent-primary);
-    line-height: 1.5;
-    margin-top: 1.25rem;
+    line-height: 1.55;
+    margin-top: 1.5rem;
     border-top: 1px dashed var(--border-glass);
-    padding-top: 1.25rem;
+    padding-top: 1.35rem;
     width: 90%;
 }
 
 .quiz-card {
     background: var(--bg-card);
     border: 1px solid var(--border-glass);
-    border-radius: 14px;
-    padding: 1.5rem;
-    margin-bottom: 1.25rem;
-    box-shadow: var(--card-shadow);
+    border-top: 1.5px solid var(--specular-edge);
+    border-radius: 16px;
+    padding: 1.6rem;
+    margin-bottom: 1.35rem;
+    box-shadow: var(--card-3d-shadow);
+    backdrop-filter: blur(16px);
+    transition: all 0.25s ease;
 }
 
-.quiz-question-title {
+.quiz-card:hover {
+    border-color: var(--border-accent);
+    box-shadow: var(--card-3d-hover-shadow);
+    transform: translateY(-3px);
+}
+
+.quiz-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.quiz-card-title {
     font-size: 1.05rem;
     font-weight: 700;
     color: var(--text-high);
-    margin-bottom: 0.75rem;
+}
+
+.quiz-badge {
+    padding: 5px 12px;
+    background: var(--accent-gradient);
+    border-radius: 14px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #ffffff !important;
+    box-shadow: 0 2px 10px rgba(139, 92, 246, 0.3);
 }
 
 .score-card-box {
     text-align: center;
-    padding: 1.75rem;
+    padding: 2rem;
+    border-top: 2px solid var(--specular-edge);
+    border-radius: 18px;
+    box-shadow: var(--card-3d-shadow);
 }
 
 .score-card-number {
-    font-size: 2.2rem;
+    font-size: 2.5rem;
     font-weight: 800;
     background: var(--accent-gradient);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 4px 14px var(--glow-purple));
 }
 
 .score-card-label {
     font-size: 0.85rem;
     color: var(--text-dim);
     text-transform: uppercase;
-    font-weight: 600;
-    margin-top: 4px;
+    font-weight: 700;
+    margin-top: 6px;
+    letter-spacing: 0.05em;
 }
 
 .summary-content-card {
-    padding: 1.75rem;
+    padding: 1.85rem;
+    border-top: 1.5px solid var(--specular-edge);
+    box-shadow: var(--card-3d-shadow);
 }
